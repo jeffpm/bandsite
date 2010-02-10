@@ -7,6 +7,8 @@ include "dbconnect.php";
 <title>Account Creation</title>
 </head>
 <body>
+<a href="logout.php">Logout</a>
+
 <?php
 //Collect the variables from the form
 $username = $_POST["username"];
