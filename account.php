@@ -4,6 +4,7 @@
 </head>
 <body>
 <?php
+include "dbconnect.php";
 //Collect the variables from the form
 $username = $_POST["username"];
 $firstname = $_POST["firstname"];
