@@ -16,3 +16,14 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+CREATE TABLE IF NOT EXISTS `venues` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `address` varchar(30) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `zip` INT NOT NULL,
+  `description` BLOB NOT NULL,
+  `username` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
