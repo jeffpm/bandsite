@@ -60,7 +60,6 @@ else {
 	}
 	else{
 	echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"$firstname\" /><br />";
-	penis
          }
 
 		//display error message for last name field
