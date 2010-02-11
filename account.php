@@ -9,7 +9,6 @@ include "dbconnect.php";
 <body>
 <?php
 //Collect the variables from the form
-$username = $_POST["username"];
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];
 $password = $_POST["password"];
@@ -61,7 +60,8 @@ else {
 	}
 	else{
 	echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"$firstname\" /><br />";
-	}
+	penis
+         }
 
 		//display error message for last name field
 	echo "<label for=\"lastname\">Last name:</label>";
