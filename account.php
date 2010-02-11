@@ -5,8 +5,16 @@ include "dbconnect.php";
 <html>
 <head>
 <title>Account Creation</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
+<div id="wrap">
+    <?php include("header.html"); ?>
+	<div id="main">	
+	
+	
+	
+
 <?php
 //Collect the variables from the form
 $firstname = $_POST["firstname"];
@@ -92,5 +100,9 @@ else
 	}
 }
 ?>
+	</div>
+	
+	<div id="footer"><p>Footer here</p></div>
+</div>
 </body>
 </html>

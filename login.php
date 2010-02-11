@@ -7,12 +7,13 @@ if (!isset($_POST['submit'])) {
 <HTML>
  <HEAD>
   <TITLE>Log In </TITLE>
-  <META NAME="Generator" CONTENT="EditPlus">
-  <META NAME="Author" CONTENT="">
-  <META NAME="Keywords" CONTENT="">
-  <META NAME="Description" CONTENT="">
+	<link rel="stylesheet" type="text/css" href="style.css" />
  </HEAD>
  
+ <body>
+ <div id="wrap">
+    <?php include("header.html"); ?>
+	<div id="main">	
 <form method="post" action="<?php echo $PHP_SELF;?>">
 <!--<form method="post" action="login.php">-->
 <label for="username">Enter Username:</label>
@@ -21,6 +22,11 @@ if (!isset($_POST['submit'])) {
 <input type="password" id="password" name="password" /><br />
 <input type="submit" value="submit" name="submit">
 </form>
+</body>
+</div>	
+	<div id="footer"><p>Footer here</p></div>
+</div>
+</html>
 <?php
 }
 else
@@ -40,11 +46,12 @@ if ($num<1){
 <HTML>
  <HEAD>
   <TITLE>Log In </TITLE>
-  <META NAME="Generator" CONTENT="EditPlus">
-  <META NAME="Author" CONTENT="">
-  <META NAME="Keywords" CONTENT="">
-  <META NAME="Description" CONTENT="">
+  <link rel="stylesheet" type="text/css" href="style.css" />
  </HEAD>
+ <body>
+ <div id="wrap">
+    <?php include("header.html"); ?>
+	<div id="main">	
 <form method="post" action="<?php echo $PHP_SELF;?>">
 <!--<form method="post" action="login.php">-->
 Your username/password combination was incorrect. Please try again.
@@ -55,6 +62,11 @@ Your username/password combination was incorrect. Please try again.
 <input type="password" id="password" name="password" /><br />
 <input type="submit" value="submit" name="submit">
 </form>
+</body>
+</div>	
+	<div id="footer"><p>Footer here</p></div>
+</div>
+</html>
 <?php
 }
 	else {
