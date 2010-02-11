@@ -1,7 +1,7 @@
 <html>
 <body> 
 <?php
-	/*include "db_connect.php";*/
+	include "dbconnect.php";
 	$name = $_POST['name'];
 	$address = $_POST['address'];
 	$city = $_POST['city'];
@@ -9,7 +9,7 @@
 	$zip = $_POST['zip'];
 	$description = $_POST['description'];
 	$valid_responses = true;
-	echo " (test code) PASSED VARS: $name $address $city $state $zip $description";
+	/*echo " (test code) PASSED VARS: $name $address $city $state $zip $description";*/
 	if(is_null($name) or $name == ""){
 		$valid_responses = false;
 		$name = "Invalid Entry";
@@ -31,7 +31,7 @@
 		$zip = "Invalid Entry";
 	}
 	if($valid_responses == false){
-		echo "<br>Invalid Submission<br>";
+		/*echo "<br>Invalid Submission<br>";*/
 		echo "<form method=\"post\" action=\"createVenue.php\"><label for=\"name\">Venue Name:</label>
 		<input type=\"text\" id=\"name\" name=\"name\" value=\"$name\" /> <br /><label for=\"address\">Address:</label>
 		<input type=\"text\" id=\"address\" name=\"address\" value=\"$address\" /> <br /><label for=\"city\">City:</label>
@@ -42,9 +42,10 @@
     	<textarea id=\"description\" name=\"description\" rows=\"8\" cols=\"54\" >$description</textarea><br />
 		<input type=\"submit\" value=\"Add Venue\" name=\"submit\" /></form>";
 	}else{
-		/*$query = "INSERT INTO venues (name, address, city, state, zip, description) VALUES ('$name', '$address', '$city', '$state', '$zip', '$description')";
+		$query = "INSERT INTO venues (name, address, city, state, zip, description, username) VALUES ('$name', '$address', '$city', '$state', '$zip', '$description', '$username')";
 		$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");*/
+   			or die("Error Querying Database");
+			echo "Thank you for submitting your venue location!";
 	}
 ?>
 </body>
