@@ -12,12 +12,17 @@
 <body>
 <div id="wrap">
     <?php include("header.html"); ?>
-	<div id="main">	
+		
 	
 	
 	
+	
+
+        <?php include("sidebar.php"); ?>	
+	<div>
+	Featured Band	
 	</div>
-	
+
 	<div id="footer"><p>Footer here</p></div>
 </div>
 </body>
