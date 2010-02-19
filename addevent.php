@@ -28,7 +28,7 @@ include "dbconnect.php";
 		//I imagine an "add event" button will reside on either a band or a venue page, 
 		//only visible if the account that created the page is logged in.
 		//
-		//The referring page must send these variables, that is, if both Venue's and Band's can add events
+		//The referring page must send these variables (frompage, fromid), that is, if both Venue's and Band's can add events
 		//
 		//(The code when $frompage = venue (because I don't yet know the band table specifics) worked when I used dummy values)
 		//
@@ -38,6 +38,8 @@ include "dbconnect.php";
 		
 	$frompage = $_POST['frompage'];
 	$fromid = $_POST['fromid'];
+
+
 	$id = $_POST['id'];
 	$date = $_POST['date'];
 	$description = $_POST['description'];
