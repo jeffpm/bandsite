@@ -27,3 +27,11 @@ CREATE TABLE IF NOT EXISTS `venues` (
   `username` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `venueid` INT NOT NULL,
+  `bandid` INT NOT NULL,
+  `description` BLOB NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
