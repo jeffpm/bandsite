@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The Ultimate Band Surf</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<script type="text/javascript" src="calendarDateInput.js" />
+
+<body>
+<div id="wrap">
+
+    <?php include("header.html"); ?>
+	<div id="main">
+	
+<?php
+	include "dbconnect.php";
+$search = $_POST['city'];
+$query ="SELECT * FROM venues WHERE (city) = '$search'";
+$result=mysqli_query($db, $query)
+or die("Error Querying Database");
+
+echo "<table id=\"hor-minimalist-b\">\n<tr><th>First Name</th><th>Last Name</th><th>City</th><th>State</th><th>Date</th><th>Days</th><th>How Many</th><tr>\n\n";
+
+while ($row = mysqli_fetch_array($result)) {
+
+$name=$row['name'];
+$address=$row['address'];
+$city=$row['city'];
+$state=$row['state'];
+$zip = $_POST['zip'];
+$description = $_POST['description'];
+
+echo "<tr><td>$name</td><td>$address</td><td>$city</td><td>$state</td><td>$zip</td><td>$description</td></tr>\n";
+
+
+}
+echo "</table>\n";
+
+?>	
+</body>
+</html>
