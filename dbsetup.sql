@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('test', 'password', 'Jeff', 'McElhannon', 'jeffpm@gmail.com');
+
 CREATE TABLE IF NOT EXISTS `venues` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -27,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `venues` (
   `username` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+INSERT into venues (name, address, city, state, zip, description, username) VALUES ('UMW', '1301 College Ave', 'Fredericksburg', 'Virginia', 22401, 'Test', 'Test');
 CREATE TABLE IF NOT EXISTS `events` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
