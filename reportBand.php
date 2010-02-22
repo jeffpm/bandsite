@@ -68,7 +68,7 @@
 	
 	</div>
 	
-	<div id="footer"><p>...</p></div>
+	<?php include("footer.html"); ?>
 </div>
 </body>
 </html>
