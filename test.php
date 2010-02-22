@@ -1,6 +1,6 @@
 <?php
 session_start();
 if(!session_is_registered(myusername)){
-header("location:account.php");
+header("location:index.php");
 }
 ?>
