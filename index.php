@@ -11,15 +11,8 @@
 <body>
 <div id="wrap">
     <?php include("header.html"); ?>
-		<div id="toolbar">
-			<table border="0" width="100%">
-				<td width="33%"><a href="login.php">Login</a></td>
-				<td width="33%"><a href="">Create Band</a></td>
-				<td width="33%"><a href="addvenue.php">Create Venue</a></td>
-			</table>
-		</div>
 
-        <?php include("sidebar.php"); ?>	
+    <?php include("sidebar.php"); ?>	
 	<div>
 	Featured Band	
 	</div>

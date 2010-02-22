@@ -10,7 +10,7 @@
 <p><b>Search for a Venue</b></p>
 <form method = "post" action= "searchVenue.php">
 <input type = "text" id="searchV" name = "searchV" />
-<input type = "submit" value= "go" name="submit" />
+<input type = "submit" value= "go" name="submit"/>
 </form>
 
 
