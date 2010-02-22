@@ -7,7 +7,7 @@ include "dbconnect.php";
 <title>Add an Event</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<script type="text/javascript" src="calendarDateInput.js"></script>
+
 <body>
 <div id="wrap">
     <?php include("header.html"); ?>

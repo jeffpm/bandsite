@@ -7,7 +7,6 @@
   <title>The Ultimate Band Surf</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<script type="text/javascript" src="calendarDateInput.js" />
 
 <body>
 <div id="wrap">
