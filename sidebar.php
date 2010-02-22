@@ -2,7 +2,7 @@
 
 <p><b>Search for a Band</b></p>
 <form method = "post" action= "searchBand.php">
-<input type = "text" id="searchbox" name = "searchbox" />
+<input type = "text" id="searchB" name = "searchB" />
 <input type = "submit" value= "go" name="submit" />
 
 </form>
