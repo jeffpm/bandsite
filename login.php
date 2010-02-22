@@ -71,7 +71,7 @@ Your username/password combination was incorrect. Please try again.
 }
 	else {
 		session_register("myusername");
-		header("location:account.php");
+		header("location:index.php");
 		}
 }
 	?>
