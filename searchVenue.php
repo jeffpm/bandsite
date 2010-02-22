@@ -16,12 +16,12 @@
 	
 <?php
 	include "dbconnect.php";
-$search = $_POST['city'];
-$query ="SELECT * FROM venues WHERE (city) = '$search'";
+$search = $_POST['searchV'];
+$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) = '$search'  or (address) = '$search'";
 $result=mysqli_query($db, $query)
 or die("Error Querying Database");
 
-echo "<table id=\"hor-minimalist-b\">\n<tr><th>First Name</th><th>Last Name</th><th>City</th><th>State</th><th>Date</th><th>Days</th><th>How Many</th><tr>\n\n";
+echo "<table id=\"hor-minimalist-b\">\n<tr><th>Name</th><th>Address</th><th>City</th><th>State</th><th>Zip</th><th>Description</th><tr>\n\n";
 
 while ($row = mysqli_fetch_array($result)) {
 
@@ -29,8 +29,8 @@ $name=$row['name'];
 $address=$row['address'];
 $city=$row['city'];
 $state=$row['state'];
-$zip = $_POST['zip'];
-$description = $_POST['description'];
+$zip = $row['zip'];
+$description = $row['description'];
 
 echo "<tr><td>$name</td><td>$address</td><td>$city</td><td>$state</td><td>$zip</td><td>$description</td></tr>\n";
 
