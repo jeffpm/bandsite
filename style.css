@@ -46,6 +46,15 @@ form label {
 		background: 	#cc9;
 	}
 	
+	#toolbar{
+	
+		width: 780px;
+		margin-top: 40px;
+		margin-right: auto;
+		margin-left: auto;
+		background: 	#8b4513;
+	}
+	
 	#main{
 		float: left;
 		width: 490px;
@@ -59,7 +68,7 @@ form label {
 	#sidebar{
 		float: left;
 		width: 250px;
-		background: #000000;
+		background: #191970;
 		text-align: left;
 		padding-left: 10px
 		margin-right: 20px;
