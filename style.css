@@ -61,7 +61,7 @@ form label {
 		
 		text-align: left;
 		padding-left: 10px;
-		background-color: #dceef6;
+		background-color: #000000;
 		
 		}
 		
@@ -134,7 +134,7 @@ form label {
 	
 	label
 	{
-		color: #039;
+		color: #ffffff;
 		background-color: transparent;
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 		font-size: 0.8em;

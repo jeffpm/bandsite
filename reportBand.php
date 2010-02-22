@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Bands.com: Adding Band</title>
+  <title>Adding Band</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -56,7 +56,7 @@
   
 	echo "<div id=\"main\">";
 	echo "<h3>Success!</h3>";
-	echo "<p>Your band, <b>$bandname</b>, has been created successfully!</p>";
+	echo "Your band, <b>$bandname</b>, has been created successfully!<br />";
 	echo "<p><a href=\"index.php\">Return to Main Page</a></p>";
 	echo "</div>";
 	

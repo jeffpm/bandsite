@@ -40,3 +40,11 @@ CREATE TABLE IF NOT EXISTS `events` (
   `description` BLOB NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `bands` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `bandname` varchar(50) NOT NULL,
+  `members` varchar(150) NOT NULL,
+  `description` BLOB NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
