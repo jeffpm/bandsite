@@ -44,6 +44,9 @@
 		$zipstatus = "*Invalid Entry";
 		$zip="";
 	}
+	if(empty($description)){
+		valid_responses= false;
+	}
 	if($valid_responses == false){
 		/*echo "<br>Invalid Submission<br>";*/
 		echo "<form method=\"post\" action=\"reportvenue.php\"><label for=\"name\">Venue Name:</label>

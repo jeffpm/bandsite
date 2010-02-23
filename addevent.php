@@ -128,27 +128,26 @@ else {
 else
 	{
 	if($frompage == "band"){
-			$bandid=$fromid;
-			$venueid=$id;
+			$bandid="$fromid";
+			$venueid="$id";
 			$var="bandname";
 		}else if($frompage == "venue"){
-			$bandid=$id;
-			$venueid=$frompage;
+			$bandid="$id";
+			$venueid="$frompage";
 			$var="name";
 		}
 		$query = "INSERT INTO events (date, venueid, bandid, description) VALUES ('$date', '$venueid', '$bandid', '$description')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-		$frompage.='s';
-		$query = "SELECT $var from $frompage";
+		$query = "SELECT $var from ".$frompage."s where id='$fromid'";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 		$row = mysqli_fetch_array($result);
-		if($var == "bandname")
+		if($var == "bandname"){
 			$name = $row['bandname'];
-		else
+		}else if($var == "venue"){
 			$name = $row['name'];
-		echo "An event has been added on $date for $name";
+		}echo "An event has been added on $date for $name";
 		mysqli_close($db);
 	}
 }
