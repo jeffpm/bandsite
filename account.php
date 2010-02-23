@@ -17,6 +17,7 @@ include "dbconnect.php";
 
 <?php
 //Collect the variables from the form
+$username=$_POST["username"];
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];
 $password = $_POST["password"];
