@@ -69,7 +69,7 @@ Your username/password combination was incorrect. Please try again.
 </form>
 </body>
 </div>	
-	<div id="footer"><p>Footer here</p></div>
+	<?php include("footer.html"); ?>
 </div>
 </html>
 <?php
