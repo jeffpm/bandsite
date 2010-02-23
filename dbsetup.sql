@@ -48,3 +48,12 @@ CREATE TABLE IF NOT EXISTS `bands` (
   `description` BLOB NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `albums` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `album_name` varchar(20),
+  `album_year` smallint(4),
+  `album_band` smallint(6),
+  `album_genre` varchar(50),
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
