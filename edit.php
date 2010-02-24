@@ -199,29 +199,13 @@ else {
 else
 	{
 	if($frompage == "band"){
-			$bandid=$fromid;
-			$venueid=$id;
-			$var="bandname";
+			$query="UPDATE bands SET bandname='$bandname', members='$members', description='$description' WHERE id='$fromid'";
 		}else if($frompage == "venue"){
-			$bandid=$id;
-			$venueid=$frompage;
-			$var="name";
+			$query="UPDATE venues SET name='$name', picture='$picture', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE id='$fromid'";
 		}
-		$query = "INSERT INTO events (date, venueid, bandid, description) VALUES ('$date', '$venueid', '$bandid', '$description')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-		$frompage.='s';
-		$query = "SELECT $var from $frompage";
-		$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
-		$row = mysqli_fetch_array($result);
-		if($var == "bandname")
-			$name = $row['bandname'];
-		else
-			$name = $row['name'];
-			
-			
-		echo "Updated profile!";
+		echo "Updated profile! now redirecting... (add that code here)";
 		mysqli_close($db);
 	}
 }

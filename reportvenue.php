@@ -59,7 +59,7 @@
     	<textarea id=\"description\" name=\"description\" rows=\"8\" cols=\"54\" >$description</textarea><br />
 		<input type=\"submit\" value=\"Add Venue\" name=\"submit\" /></form>";
 	}else{
-		$query = "INSERT INTO venues (name, address, city, state, zip, description, username) VALUES ('$name', '$address', '$city', '$state', '$zip', '$description', '$username')";
+		$query = "INSERT INTO venues (name, address, city, state, zip, description, userid) VALUES ('$name', '$address', '$city', '$state', '$zip', '$description', '$userid')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 			echo "Thank you for submitting your venue location!";
