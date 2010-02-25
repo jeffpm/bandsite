@@ -17,7 +17,7 @@ include "dbconnect.php";
 
     <?php include("sidebar.php"); ?>	
 	<div>
-	Featured Band	
+	<b>Featured Band</b>	
 	</div>
 	<?php
 	$query = "select * from bands ORDER BY RAND() LIMIT 1";
@@ -32,9 +32,29 @@ include "dbconnect.php";
 	echo "Band: <a href=\"band.php?id=$id\">$bandname</a> <br>";
 	echo "Members: $members <br>";
 	echo "Description: $description <br>";
-
 	?>
+	<div>
+	<b>Featured Venue</b>
+	</div>
+	<?php
+
+	$query = "select * from venues ORDER BY RAND() LIMIT 1";
+	$result = mysqli_query($db, $query)
+	  or die("Error querying Database");
 	
+	$row = mysqli_fetch_array($result);
+	$id = $row['id'];
+	$name = $row['name'];
+	$address = $row['address'];
+	$city = $row['city'];
+	$state = $row['state'];
+	$zip = $row['zip'];
+	$description = $row['description'];
+	echo "Venue: <a href=\"venue.php?id=$id\">$name</a> <br>";
+	echo "Address: $address, $city, $state, $zip <br>";
+	echo "Description: $description";
+	?>
+	</p>
 	<?php include("footer.html"); ?>
 </div>
 </body>
