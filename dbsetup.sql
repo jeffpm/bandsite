@@ -1,3 +1,4 @@
+DROP DATABASE band;
 CREATE DATABASE IF NOT EXISTS band;
 GRANT ALL PRIVILEGES ON band.* to 'banduser'@'localhost' identified by 'band';
 --
@@ -32,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `venues` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT into venues (name, address, city, state, zip, description, username) VALUES ('UMW', '1301 College Ave', 'Fredericksburg', 'Virginia', 22401, 'Test', 'Test');
+INSERT into venues (name, address, city, state, zip, description, userid) VALUES ('UMW', '1301 College Ave', 'Fredericksburg', 'Virginia', 22401, 'Test', 1);
 CREATE TABLE IF NOT EXISTS `events` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
