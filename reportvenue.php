@@ -45,7 +45,7 @@
 		$zip="";
 	}
 	if(empty($description)){
-		valid_responses= false;
+		$valid_responses= false;
 	}
 	if($valid_responses == false){
 		/*echo "<br>Invalid Submission<br>";*/
