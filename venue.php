@@ -34,6 +34,9 @@ $query = "select * from venues where id='$id'";
     <?php include("sidebar.php"); ?>	
 	<div>
 	<?php
+	echo "<p><a href=\"addevent.php?page=venue&id=$id\">Add Event</a>";
+    echo " - <a href=\"edit.php?page=venue&id=$id\">Edit</a>";
+    echo " </p>";
 	echo "Venue: $name<br>";
 	echo "Address: $address, $city, $state, $zip <br>";
 	echo "Description: $description";

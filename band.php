@@ -31,6 +31,9 @@ $query = "select * from bands where id='$id'";
     <?php include("sidebar.php"); ?>	
 	<div>
 	<?php
+	echo "<p><a href=\"addevent.php?page=band&id=$id\">Add Event</a>";
+    echo " - <a href=\"edit.php?page=band&id=$id\">Edit</a>";
+    echo " </p>";
 	echo "Band: $bandname <br>";
 	echo "Members: $members <br>";
 	echo "Description: $description <br>";

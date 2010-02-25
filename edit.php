@@ -190,7 +190,7 @@ else {
 	 	mysqli_close($db);
 	 } 
 	 ?>
-     <input type="submit" value="Add Event" name="submit" />
+     <input type="submit" value="Edit Information" name="submit" />
     </form>
 <?php
 	//if everything was filled in correctly, add the entry to the database
