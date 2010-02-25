@@ -17,7 +17,7 @@
 <?php
 	include "dbconnect.php";
 $search = $_POST['searchV'];
-$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) = '$search'  or (address) = '$search'";
+$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) like '%$search%'  or (address) like '%$search%' ORDER BY name";
 $result=mysqli_query($db, $query)
 or die("Error Querying Database");
 
