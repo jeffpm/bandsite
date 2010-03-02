@@ -1,101 +1,82 @@
-form label {
-  display: inline-block;
-  width: 225px;
-  font-weight: bold;
-}
+	form label {
+		display: inline-block;
+		width: 225px;
+		font-weight: bold;
+	}
 
-	
 	body
 	{
 		padding: 0;
 		margin: 0;
-		background-color: #800000;
+		background: #800000;
 		color: #000;
+		
+	}
+	
+	#wrap{
+		width: 1100px;
+		margin: 0 auto;
+		background: #000000;
+	}
+	
+	#header{
+		margin-top: 10px;
+		padding: 5px;
+		background: #cc9;
+		background-image: url('border5.gif');
+		background-repeat: no-repeat;
+		background-position: top center;
 		text-align: center;
 	}
 	
-	div.contentBox
-	{
-	    	margin-top: 50px;
-		margin-bottom: 50px;
-		margin-right:auto;
-		margin-left:auto;
-		padding: 15px;
-		width: 300px;
-		height: 200px;
-		border: 1px solid gray;
-		color: #000;
-		text-align: left;
-		float: left;
-	}
-	
-	div.wrapper
-	{
-		width: 600px;
-	
-	
-	}
-	
-	
-	#wrap{
-	
-		width: 780px;
-		margin-top: 40px;
-		margin-right: auto;
-		margin-left: auto;
-		background: 	#cc9;
+	#header2{
+		background: #000000;
+		text-align: center;
 	}
 	
 	#toolbar{
-	
-		width: 780px;
-		margin-top: 40px;
+		width: 1100px;
+		margin-top: 10px;
 		margin-right: auto;
 		margin-left: auto;
-		background: 	#8b4513;
+		background: #8b4513;
+		text-align: center;
+	}
+	
+	#features{
+		float: left;
+		padding: 10px;
+		background: #000000;
+		margin-bottom: 20px;
+	}
+	
+	#sidebar{
+		float: right;
+		width: 230px;
+		margin-right: 20px;
+		background: #000000;
+		text-align: left;
+		padding: 10px;
 	}
 	
 	#main{
 		float: left;
 		width: 490px;
-		
 		text-align: left;
 		padding-left: 10px;
 		background-color: #000000;
-		color: #ffffff;
+		color: #ffffff;	
+	}
 		
-		}
-		
-	#sidebar{
-		float: left;
-		width: 250px;
-		background: #000000;
-		text-align: left;
-		padding-left: 10px
-		margin-right: 20px;
-		
-		}
-		
-     #footer{
+    #footer{
      	clear: both;
      	background: #8b4513;
-     
-     }
-	
-	
-	div.right_box{
-		margin-top: 50px;
-		margin-bottom: 50px;
-
-    	float: right;
-    	padding: 10px;
-    	width: 290px;
-    	border: 1px solid gray;
+		width: 1100px;
+		margin-bottom: 10px;
+		text-align: center;
     }
 	
-	
-	#contents	
-	{
+	#contents{
 		margin-top: 50px;
 		margin-bottom: 50px;
 		margin-right:auto;
@@ -112,8 +93,7 @@ form label {
 		background-color: #7FFF00;
 	}
 	
-		#contents2	
-	{
+	#contents2{
 		margin-top: 50px;
 		margin-bottom: 50px;
 		margin-right:auto;
@@ -124,17 +104,36 @@ form label {
 		color: #dceef6;
 		text-align: left;
 	}
-	h1	
-	{
-		color: #000000;
-		background-color: transparent;
-		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-		font-size: 20px;
+	
+	a:link{
+		color: #ffffff;
+		text-decoration: underline;
 	}
 	
+	a:visited{
+		color: #ffffff;
+		text-decoration: underline;
+	}
 	
-	label
-	{
+	a:hover{
+		color: #ffffff;
+		text-decoration: underline;
+	}
+	
+	h1{
+		color: #7fff00;
+		background-color: transparent;
+		font-family: "Gill Sans Ultra Bold", "Lucida Grande", Sans-Serif;
+		font-size: 30px;
+	}
+
+	tableHeader{
+		color: #800000;
+		background-color: transparent;
+		font-family: "Gill Sans Ultra Bold", "Lucinda Grande", Sans-Serif;
+	}
+	
+	label{
 		color: #ffffff;
 		background-color: transparent;
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -142,8 +141,7 @@ form label {
 	}
 	
 	
-	p	
-	{
+	p{
 		color: #ffffff;
 		background-color: transparent;
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -151,8 +149,7 @@ form label {
 	}
 
 
-	p.side	
-	{
+	p.side{
 		color: #039;
 		background-color: transparent;
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -161,24 +158,21 @@ form label {
 
 
 	
-	input
-	{
+	input{
 		color: #000000;
 		background-color: #CCCC99;
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 		font-size: 0.8em;
 	}
 
-    #plain
-	{
+    #plain{
 		color: #039;
 		background-color: transparent;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 0.8em;
 	}
 
-	 #plain2
-	{
+	#plain2{
 		color: #039;
 		background-color: transparent;
 		font-family: Arial, Helvetica, sans-serif;
