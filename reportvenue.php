@@ -12,6 +12,12 @@
 <?php
 	include "dbconnect.php";
 	$name = $_POST['name'];
+	/*
+	$picture = $_FILES['picture']['name'];
+	$target ="images/$picture";
+	move_uploaded_file($_FILES['picture']['tmp_name'], $target);
+	*/
+	$picture = "tempVenue.jpg";
 	$address = $_POST['address'];
 	$city = $_POST['city'];
 	$state = $_POST['state'];
@@ -50,7 +56,8 @@
 	if($valid_responses == false){
 		/*echo "<br>Invalid Submission<br>";*/
 		echo "<form method=\"post\" action=\"reportvenue.php\"><label for=\"name\">Venue Name:</label>
-		<input type=\"text\" id=\"name\" name=\"name\" value=\"$name\" /> $namestatus<br /><label for=\"address\">Address:</label>
+		<input type=\"text\" id=\"name\" name=\"name\" value=\"$name\" /> $namestatus<br />
+		<label for=\"address\">Address:</label>
 		<input type=\"text\" id=\"address\" name=\"address\" value=\"$address\" /> $addressstatus<br /><label for=\"city\">City:</label>
 		<input type=\"text\" id=\"city\" name=\"city\" value=\"$city\" /> $citystatus<br /><label for=\"state\">State:</label>
 		<input type=\"text\" id=\"state\" name=\"state\" value=\"$state\" /> $statestatus<br />
@@ -59,7 +66,7 @@
     	<textarea id=\"description\" name=\"description\" rows=\"8\" cols=\"54\" >$description</textarea><br />
 		<input type=\"submit\" value=\"Add Venue\" name=\"submit\" /></form>";
 	}else{
-		$query = "INSERT INTO venues (name, address, city, state, zip, description, userid) VALUES ('$name', '$address', '$city', '$state', '$zip', '$description', '$userid')";
+		$query = "INSERT INTO venues (name, picture, address, city, state, zip, description, userid) VALUES ('$name', '$picture', '$address', '$city', '$state', '$zip', '$description', '$userid')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 			echo "Thank you for submitting your venue location!";

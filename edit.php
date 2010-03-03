@@ -45,7 +45,7 @@ include "dbconnect.php";
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {
 ?>
-	<form method="post" action="<?php echo $PHP_SELF;?>">
+	<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
 				<?php
 		$frompage = $_GET['page'];
 		$fromid = $_GET['id'];
@@ -60,13 +60,14 @@ if (!isset($_POST['submit'])) {
 			$bandname = $row['bandname'];
 			$members = $row['members'];
 			$description = $row['description']; ?>
+            
 			<label for="bandname">Band name:</label>
 			<input type="text" id="bandname" name="bandname" value="<?php echo "$bandname"; ?>" /><br />
 			
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><br />
  
-			Short description of your band:
+			<label for"description">Short description of your band:</label><br />
 				<textarea id="other" name="description" rows="5" cols="50" ><?php echo "$description"; ?></textarea><br />
 			<?php
   
@@ -79,17 +80,38 @@ if (!isset($_POST['submit'])) {
 			$state = $row['state'];
 			$zip = $row['zip'];
   			$description = $row['description']; ?>
-			<label for="name">Venue Name:</label>
-			<input type="text" id="name" name="name" value="<?php echo "$name"; ?>" /> <br />
-			<label for="address">Address:</label>
-			<input type="text" id="address" name="address" value="<?php echo "$address"; ?>" /> <br />
-			<label for="city">City:</label>
-			<input type="text" id="city" name="city" value="<?php echo "$city"; ?>" /> <br />
-			<label for="state">State:</label>
-			<input type="text" id="state" name="state" value="<?php echo "$state"; ?>" /> <br />
-			<label for="zip">Zip Code:</label>
-			<input type="text" id="zip" name="zip" value="<?php echo "$zip"; ?>" /> <br />
-			Short description of your venue:<br>
+            <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
+            <table width="100%" border="0" cellspacing="10" cellpadding="3">
+  <tr>
+    <td width="20%"><label for="name">Venue Name:</label></td>
+    <td width="80%"><input type="text" id="name" name="name" value="<?php echo "$name"; ?>" /> <br /></td>
+  </tr>
+  <tr>
+    <td><Label for ="currentpicture"> Picture </Label></td>
+    <td><img src="images/<?php echo "$picture"; ?>"  /><br /></td>
+  </tr>
+  <tr>
+    <td><label for="pic">Change Picture:</label></td>
+    <td><input type="file" id="pic" name="pic"  /><br /></td>
+  </tr>
+  <tr>
+    <td><label for="address">Address:</label></td>
+    <td><input type="text" id="address" name="address" value="<?php echo "$address"; ?>" /> <br /></td>
+  </tr>
+  <tr>
+    <td><label for="city">City:</label></td>
+    <td><input type="text" id="city" name="city" value="<?php echo "$city"; ?>" /> <br /></td>
+  </tr>
+  <tr>
+    <td><label for="state">State:</label></td>
+    <td><input type="text" id="state" name="state" value="<?php echo "$state"; ?>" /> <br /></td>
+  </tr>
+  <tr>
+    <td><label for="zip">Zip Code:</label></td>
+    <td><input type="text" id="zip" name="zip" value="<?php echo "$zip"; ?>" /> <br /></td>
+  </tr>
+</table>
+			<label for"description">Short description of your venue:</label><br>
     		<textarea id="description" name="description" rows="8" cols="54" ><?php echo "$description"; ?></textarea><br />
 			<?php
 			
@@ -151,7 +173,7 @@ else {
 	
 	if ($invalidresponses){
 	?>
-	<form method="post" action="<?php echo $PHP_SELF;?>">
+	<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
     
     
     <?php 
@@ -165,7 +187,7 @@ else {
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><?php echo "$membersstatus"; ?><br />
  
-			<?php echo "$descriptionstatus $frompage".":"; ?>
+			<label for"description"><?php echo "$descriptionstatus $frompage".":"; ?></label><br />
 				<textarea id="other" name="description" rows="5" cols="50" ><?php echo "$description"; ?></textarea><br />
             
 		<?php
@@ -173,17 +195,38 @@ else {
   		mysqli_close($db);
 		}else if($frompage == "venue"){
 		?>
-    	<label for="name">Venue Name:</label>
-			<input type="text" id="name" name="name" value="<?php echo "$name"; ?>" /><?php echo "$namestatus"; ?> <br />
-			<label for="address">Address:</label>
-			<input type="text" id="address" name="address" value="<?php echo "$address"; ?>" /><?php echo "$addressstatus"; ?> <br />
-			<label for="city">City:</label>
-			<input type="text" id="city" name="city" value="<?php echo "$city"; ?>" /><?php echo "$citystatus"; ?> <br />
-			<label for="state">State:</label>
-			<input type="text" id="state" name="state" value="<?php echo "$state"; ?>" /><?php echo "$statestatus"; ?> <br />
-			<label for="zip">Zip Code:</label>
-			<input type="text" id="zip" name="zip" value="<?php echo "$zip"; ?>" /><?php echo "$zipstatus"; ?> <br />
-			<?php echo "$descriptionstatus $frompage".":"; ?><br>
+        <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
+       <table width="100%" border="0" cellspacing="10" cellpadding="3"> 
+ <tr>
+    <td width="20%"><label for="name">Venue Name:</label></td>
+    <td width="80%"><input type="text" id="name" name="name" value="<?php echo "$name"; ?>" /><?php echo "$namestatus"; ?><br /></td>
+  </tr>
+  <tr>
+    <td><Label for ="currentpicture"> Picture </Label></td>
+    <td><img src="images/<?php echo "$picture"; ?>"  /><br /></td>
+  </tr>
+  <tr>
+    <td><label for="pic">Change Picture:</label></td>
+    <td><input type="file" id="pic" name="pic"  /><br /></td>
+  </tr>
+  <tr>
+    <td><label for="address">Address:</label></td>
+    <td><input type="text" id="address" name="address" value="<?php echo "$address"; ?>" /><?php echo "$addressstatus"; ?><br /></td>
+  </tr>
+  <tr>
+    <td><label for="city">City:</label></td>
+    <td><input type="text" id="city" name="city" value="<?php echo "$city"; ?>" /><?php echo "$citystatus"; ?> <br /></td>
+  </tr>
+  <tr>
+    <td><label for="state">State:</label></td>
+    <td><input type="text" id="state" name="state" value="<?php echo "$state"; ?>" /><?php echo "$statestatus"; ?> <br /></td>
+  </tr>
+  <tr>
+    <td><label for="zip">Zip Code:</label></td>
+    <td><input type="text" id="zip" name="zip" value="<?php echo "$zip"; ?>" /><?php echo "$zipstatus"; ?> <br /></td>
+  </tr>
+</table>
+			<label for"description"><?php echo "$descriptionstatus $frompage".":"; ?></label><br>
     		<textarea id="description" name="description" rows="8" cols="54" ><?php echo "$description"; ?></textarea><br />
      <?php 
 	 
@@ -201,6 +244,12 @@ else
 	if($frompage == "band"){
 			$query="UPDATE bands SET bandname='$bandname', members='$members', description='$description' WHERE id='$fromid'";
 		}else if($frompage == "venue"){
+			$pic = $_FILES['pic']['name'];
+			if(!empty($pic)){
+				$picture=$pic;
+				$target ="images/$pic";
+				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
+			}
 			$query="UPDATE venues SET name='$name', picture='$picture', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE id='$fromid'";
 		}
 		$result = mysqli_query($db, $query)

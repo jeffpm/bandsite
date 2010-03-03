@@ -20,6 +20,7 @@ header("location:login.php");
 <form method="post" action="reportvenue.php">
 	<label for="name">Venue Name:</label>
 		<input type="text" id="name" name="name" /> <br />
+    
 	<label for="address">Address:</label>
 		<input type="text" id="address" name="address" /> <br />
 	<label for="city">City:</label>
