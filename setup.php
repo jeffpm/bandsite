@@ -1,8 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
-//ob_start();
-//header("Location: index.php");
+ob_start();
+
 if(isset($_POST['create']))
 {
 $root = $_POST['root'];
@@ -22,13 +20,17 @@ mysqli_query($db,$line);
 }
 fclose($file);
 
-//header("Location: index.php");
-//ob_flush();
+header("Location: index.php");
+ob_flush();
 
 }
 else
 {
 ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
