@@ -23,6 +23,9 @@
 			
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" /><br />
+			
+			<label for="genre">Genre:</label>
+			<input type="text" id="genre" name="genre" /><br />
  
 			Description
 				<textarea id="other" name="description" rows="5" cols="50" ></textarea><br />

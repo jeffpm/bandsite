@@ -18,6 +18,7 @@
   
 	$bandname = $_POST['bandname'];
 	$members = $_POST['members'];
+	$genre = $_POST['genre'];
 	$description = $_POST['description'];
 
 	$valid_responses = true;
@@ -40,6 +41,9 @@
 			
 			<label for=\"members\">Members:</label>
 			<input type=\"text\" id=\"members\" name=\"members\" value=\"$members\" />$membersstatus<br />
+			
+			<label for=\"genre\">Genre:</label>
+			<input type=\"text\" id=\"genre\" name=\"genre\" value=\"$genre\" /><br />
  
 			<p>Description<p>
 				<textarea id=\"other\" name=\"description\" rows=\"5\" cols=\"50\" value=\"$description\" ></textarea><br />
@@ -48,8 +52,8 @@
 		</form>";
 	}
 	else {
-		$query = "INSERT INTO bands (bandname, members, description) " . 
-				 "VALUES ('$bandname', '$members', '$description')";
+		$query = "INSERT INTO bands (bandname, members, genre, description) " . 
+				 "VALUES ('$bandname', '$members', '$genre', '$description')";
   
 		$result = mysqli_query($db, $query)
 			or die("Error: Could not create band.");
