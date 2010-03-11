@@ -2,15 +2,27 @@
 include "dbconnect.php";
 
 ?>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Add an Event</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
+<script type="text/javascript" src="calendarDateInput.js"></script>
 <div id="wrap">
-    <?php include("header.html"); ?>
+    <?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
+    
 	<div id="main">	
 	
 	
@@ -49,6 +61,8 @@ if (!isset($_POST['submit'])) {
 ?>
 	<form method="post" action="<?php echo $PHP_SELF;?>">
 				<?php
+		$frompage = $_GET['page'];
+		$fromid = $_GET['id'];
 		echo "<input type =\"hidden\" name=\"frompage\" value=\"$frompage\" />\n";
 		echo "<input type =\"hidden\" name=\"fromid\" value=\"$fromid\" />\n";
 		
@@ -71,13 +85,13 @@ if (!isset($_POST['submit'])) {
 		}else if($frompage == "venue"){ //if the user got here from a venue's page, display list of bands
 			//Don't know the Band code, so this is rough, but you should get the idea
 			$table="bands";
-			$query = "SELECT id, name FROM $table";
+			$query = "SELECT id, bandname FROM $table";
 			$result = mysqli_query($db, $query)
    				or die("Error Querying Database");
 			echo "<label for=\"band\">Name of Band:</label><br /><select name=\"id\">";
 			while($row = mysqli_fetch_array($result)) {
 				$id = $row['id'];
-  				$name = $row['name'];
+  				$name = $row['bandname'];
   				echo "<option value=\"$id\">$name</option>";
   			}
 			echo "</select><br />"; 
@@ -120,29 +134,33 @@ else {
 else
 	{
 	if($frompage == "band"){
-			$bandid=$fromid;
-			$venueid=$id;
+			$bandid="$fromid";
+			$venueid="$id";
+			$var="bandname";
 		}else if($frompage == "venue"){
-			$bandid=$id;
-			$venueid=$frompage;
+			$bandid="$id";
+			$venueid="$frompage";
+			$var="name";
 		}
 		$query = "INSERT INTO events (date, venueid, bandid, description) VALUES ('$date', '$venueid', '$bandid', '$description')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-		$frompage.='s';
-		$query = "SELECT name from $frompage";
+		$query = "SELECT $var from ".$frompage."s where id='$fromid'";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 		$row = mysqli_fetch_array($result);
-		$name = $row['name'];
-		echo "An event has been added on $date for $name";
+		if($var == "bandname"){
+			$name = $row['bandname'];
+		}else if($var == "venue"){
+			$name = $row['name'];
+		}echo "An event has been added on $date for $name";
 		mysqli_close($db);
 	}
 }
 ?>
 	</div>
 	
-	<div id="footer"><p>Footer here</p></div>
+	<?php include("footer.html"); ?>
 </div>
 </body>
 </html>

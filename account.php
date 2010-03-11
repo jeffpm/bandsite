@@ -1,15 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <?php
 include "dbconnect.php";
 
 ?>
-<html>
+
 <head>
 <title>Account Creation</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <div id="wrap">
-    <?php include("header.html"); ?>
+    <?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
 	<div id="main">	
 	
 	
@@ -17,6 +27,7 @@ include "dbconnect.php";
 
 <?php
 //Collect the variables from the form
+$username=$_POST["username"];
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];
 $password = $_POST["password"];

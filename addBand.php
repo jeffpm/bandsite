@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!session_is_registered(myusername)){
+header("location:login.php");
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -11,7 +17,13 @@
 
 <div id="wrap">
 
-	<?php include("header.html"); ?>
+	<?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
 	
 	<div id="main">
 	
@@ -23,9 +35,6 @@
 			
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" /><br />
-			
-			<label for="genre">Genre:</label>
-			<input type="text" id="genre" name="genre" /><br />
  
 			Description
 				<textarea id="other" name="description" rows="5" cols="50" ></textarea><br />

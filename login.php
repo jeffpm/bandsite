@@ -15,7 +15,13 @@ if (!isset($_POST['submit'])) {
  
 <body>
  <div id="wrap">
-    <?php include("header.html"); ?>
+    <?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
 	<div id="main">	
 		<form method="post" action="<?php echo $PHP_SELF;?>">
 		<!--<form method="post" action="login.php">-->
@@ -47,15 +53,22 @@ $num=mysqli_num_rows($result);
 if ($num<1){
 	//header("location:login.php");
 	?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"€
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <HEAD>
   <TITLE>Log In </TITLE>
   <link rel="stylesheet" type="text/css" href="style.css" />
  </HEAD>
  <body>
  <div id="wrap">
-    <?php include("header.html"); ?>
+    <?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
 	<div id="main">	
 <form method="post" action="<?php echo $PHP_SELF;?>">
 <!--<form method="post" action="login.php">-->
@@ -69,7 +82,7 @@ Your username/password combination was incorrect. Please try again.
 </form>
 </body>
 </div>	
-	<div id="footer"><p>Footer here</p></div>
+	<?php include("footer.html"); ?>
 </div>
 </html>
 <?php
@@ -79,4 +92,4 @@ Your username/password combination was incorrect. Please try again.
 		header("location:index.php");
 		}
 }
-	?>
+?>

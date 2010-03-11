@@ -11,13 +11,19 @@
 <body>
 <div id="wrap">
 
-    <?php include("header.html"); ?>
+   <?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
 	<div id="main">
 	
 <?php
 	include "dbconnect.php";
 $search = $_POST['searchB'];
-$query ="SELECT * FROM bands WHERE (bandname) = '$search' or (members) = '$search'";
+$query ="SELECT * FROM bands WHERE (bandname) like '%$search%' or (members) like '%$search%' ORDER BY bandname";
 $result=mysqli_query($db, $query)
 or die("Error Querying Database");
 

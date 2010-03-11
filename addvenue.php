@@ -15,11 +15,18 @@ header("location:login.php");
  
  <body>
  <div id="wrap">
-     <?php include("header.html"); ?>
+     <?php
+		if(session_is_registered(myusername)){
+			include("headerUser.html");
+		} else {
+			include("headerGuest.html");
+		}
+	?>
 	<div id="main">	
 <form method="post" action="reportvenue.php">
 	<label for="name">Venue Name:</label>
 		<input type="text" id="name" name="name" /> <br />
+    
 	<label for="address">Address:</label>
 		<input type="text" id="address" name="address" /> <br />
 	<label for="city">City:</label>
