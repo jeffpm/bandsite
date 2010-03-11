@@ -24,12 +24,12 @@ or die("Error Querying Database");
 echo "<table id=\"hor-minimalist-b\">\n<tr><th>Band Name</th><th>Members</th><th>Description</th><tr>\n\n";
 
 while ($row = mysqli_fetch_array($result)) {
-
+$id=$row['id'];
 $bandname=$row['bandname'];
 $members=$row['members'];
 $description = $row['description'];
 
-echo "<tr><td>$bandname</td><td>$members</td><td>$description</td></tr>\n";
+echo "<tr><td><a href=\"band.php?id=$id\">$bandname</a></td><td>$members</td><td>$description</td></tr>\n";
 
 
 }
