@@ -25,10 +25,10 @@
 		<table border="1" width="750" cellpadding="5" cellspacing="10">
 			<tr align="center">
 			<td width="50%">
-			<h2>Featured Band</h2>
+			<tableHeader>Featured Band</tableHeader>
 			</td>
 			<td>
-			<h2>Featured Venue</h2>
+			<tableHeader>Featured Venue</tableHeader>
 			</tr>
 			<tr>
 			<td>

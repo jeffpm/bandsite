@@ -1,5 +1,6 @@
 <?php
 include "dbconnect.php";
+	session_start();
 //if the submit button was not pressed, show the form
 if (!isset($_POST['submit'])) {
 	?>
