@@ -30,7 +30,7 @@ $query = "select * from venues where id='$id'";
 
 <body>
 <div id="wrap">
-<<<<<<< HEAD
+
     <?php
 		if(session_is_registered(myusername)){
 			include("headerUser.html");
@@ -38,9 +38,8 @@ $query = "select * from venues where id='$id'";
 			include("headerGuest.html");
 		}
 	?>
-=======
+
     <?php include("header.html"); ?>
->>>>>>> 56e82d977f98ba0c007b56dca34dd5f51ba48b0d
 
     <?php include("sidebar.php"); ?>	
 	<div>
