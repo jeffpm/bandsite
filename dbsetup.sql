@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (`id` smallint(6) NOT NULL AUTO_INCREMENT,
 
 INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('test', 'password', 'Jeff', 'McElhannon', 'jeffpm@gmail.com');
 
-<<<<<<< HEAD
+
 CREATE TABLE IF NOT EXISTS `venues` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -61,4 +61,4 @@ CREATE TABLE IF NOT EXISTS `events` ( `id` smallint(6) NOT NULL AUTO_INCREMENT, 
 CREATE TABLE IF NOT EXISTS `bands` (`id` smallint(6) NOT NULL AUTO_INCREMENT, `bandname` varchar(50) NOT NULL, `members` varchar(150) NOT NULL, `description` BLOB NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `albums` (`id` smallint(6) NOT NULL AUTO_INCREMENT, `album_name` varchar(20), `album_year` smallint(4), `album_band` smallint(6), `album_genre` varchar(50), PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> 56e82d977f98ba0c007b56dca34dd5f51ba48b0d
+
