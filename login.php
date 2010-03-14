@@ -1,6 +1,5 @@
 <?php
 include "dbconnect.php";
-	session_start();
 //if the submit button was not pressed, show the form
 if (!isset($_POST['submit'])) {
 	?>
@@ -43,7 +42,6 @@ if (!isset($_POST['submit'])) {
 }
 else
 {
-session_start();
   $username=$_POST["username"];
   $password=$_POST["password"];
 
@@ -54,7 +52,7 @@ $num=mysqli_num_rows($result);
 if ($num<1){
 	//header("location:login.php");
 	?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"€
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <HEAD>

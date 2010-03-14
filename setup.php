@@ -41,9 +41,9 @@ else
 <body>
 <form method="post" action="setup.php">
 <H3>Enter your username and password to your MySql database server</H3>
-<b>Enter userame (root):</b><input type="text" name="root">
+<b>Enter username (root):</b><input type="text" name="root">
 <br>
-<b>Enter Password:</b> <input type="password" name="pass">
+<b>Enter password:</b> <input type="password" name="pass">
 <br>
 <input type="submit" name="create" value="Create">
 </form>
