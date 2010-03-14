@@ -39,7 +39,7 @@ $query = "select * from venues where id='$id'";
 		}
 	?>
 
-    <?php include("header.html"); ?>
+    
 
     <?php include("sidebar.php"); ?>	
 	<div>
