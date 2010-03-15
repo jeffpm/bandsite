@@ -63,25 +63,67 @@
 		$valid_responses= false;
 	}
 	if($valid_responses == false){
-		/*echo "<br>Invalid Submission<br>";*/
-		echo "<form method=\"post\" action=\"reportvenue.php\"><label for=\"name\">Venue Name:</label>
-		<input type=\"text\" id=\"name\" name=\"name\" value=\"$name\" /> $namestatus<br />
-		<label for=\"address\">Address:</label>
-		<input type=\"text\" id=\"address\" name=\"address\" value=\"$address\" /> $addressstatus<br /><label for=\"city\">City:</label>
-		<input type=\"text\" id=\"city\" name=\"city\" value=\"$city\" /> $citystatus<br /><label for=\"state\">State:</label>
-		<input type=\"text\" id=\"state\" name=\"state\" value=\"$state\" /> $statestatus<br />
-		<label for=\"zip\">Zip Code:</label><input type=\"text\" id=\"zip\" name=\"zip\" value=\"$zip\" /> $zipstatus
-		<br /> Short description of your venue:<br>
-    	<textarea id=\"description\" name=\"description\" rows=\"8\" cols=\"54\" >$description</textarea><br />
-		<input type=\"submit\" value=\"Add Venue\" name=\"submit\" /></form>";
+	?>
+		<table cellpadding="5" cellspacing="10">
+		<tr><td colspan="2">
+		<tableHeader>Create a New Venue</tableheader>
+		</td></tr>
+			<form method="post" action="reportvenue.php">
+		<tr>
+		<th rowspan="6"><img src="images/redDesign.gif"></th>
+		</tr>
+		<tr><td align="right">
+			<label for="name">Venue Name:</label>
+			<input type="text" id="name" name="name" value="<?php echo "$name" ?>" /> <label><?php echo $namestatus ?></label>
+		</td></tr>
+		<tr><td align="right">
+			<label for="address">Address:</label>
+			<input type="text" id="address" name="address" value="<?php echo "$address" ?>" /> <label><?php echo $addressstatus ?></label>
+		</td></tr>
+		<tr><td align="right">
+			<label for="city">City:</label>
+			<input type="text" id="city" name="city" value="<?php echo "$city" ?>" /> <label><?php echo $citystatus ?></label>
+		</td></tr>
+		<tr><td align="right">	
+			<label for="state">State:</label>
+			<input type="text" id="state" name="state" value="<?php echo "$state" ?>" /> <label><?php echo $statestatus ?></label>
+		</td></tr>
+		<tr><td align="right">	
+			<label for="zip">Zip Code:</label>
+			<input type="text" id="zip" name="zip" value="<?php echo "$zip" ?>" /> <label><?php echo $zipstatus ?></label>
+		</td></tr>
+		<tr><td align="left" colspan="2">
+			<label>Description:</label>
+			<textarea id="description" name="description" rows="5" cols="50" /> <?php echo $description ?></textarea>
+		<tr><td align="left">	
+			<input type="submit" value="Add Venue" name="submit" />
+		</td></tr>
+			</form>
+		</table>
+	<?php
 	}else{
 		$query = "INSERT INTO venues (name, picture, address, city, state, zip, description, userid) VALUES ('$name', '$picture', '$address', '$city', '$state', '$zip', '$description', '$userid')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-			echo "Thank you for submitting your venue location!";
+	?>
+		<table cellpadding="5" cellspacing="10">
+		<tr>
+			<th rowspan="4"><img src="images/redDesign.gif"></th>
+		</tr>
+		<tr><td>
+			<label>Success!</label>
+		</td></tr>
+		<tr><td>
+			<?php echo "<label>Your venue, $name, has been added successfully!</label>"; ?>
+		</td></tr>
+		<tr><td>
+			<label><a href=\"index.php\">Return to Main Page</a></label>
+		</td></tr>
+		</table>
+	<?php
 	}
 ?>
-</div>	
+</div>		
 	<div id="footer"><p>Footer here</p></div>
 </div>
 </body>

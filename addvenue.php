@@ -22,25 +22,45 @@ header("location:login.php");
 			include("headerGuest.html");
 		}
 	?>
-	<div id="main">	
-<form method="post" action="reportvenue.php">
-	<label for="name">Venue Name:</label>
-		<input type="text" id="name" name="name" /> <br />
-    
-	<label for="address">Address:</label>
-		<input type="text" id="address" name="address" /> <br />
-	<label for="city">City:</label>
-		<input type="text" id="city" name="city" /> <br />
-	<label for="state">State:</label>
-		<input type="text" id="state" name="state" /> <br />
-	<label for="zip">Zip Code:</label>
-		<input type="text" id="zip" name="zip" /> <br />
-    Short description of your venue:<br>
-    	<textarea id="description" name="description" rows="8" cols="54" ></textarea><br />
-	<input type="submit" value="Add Venue" name="submit" />
-</form>
-
-</div>	
+	<div id="main">
+	<table cellpadding="5" cellspacing="10">
+		<tr><td colspan="2">
+			<tableHeader>Create a New Venue</tableheader>
+		</td></tr>
+		<form method="post" action="reportvenue.php">
+		<tr>
+		<th rowspan="6"><img src="images/redDesign.gif"></th>
+		</tr>
+		<tr><td align="right">
+			<label for="name">Venue Name:</label>
+			<input type="text" id="name" name="name" /> <br />
+		</td></tr>
+		<tr><td align="right">
+			<label for="address">Address:</label>
+			<input type="text" id="address" name="address" /> <br />
+		</td></tr>
+		<tr><td align="right">
+			<label for="city">City:</label>
+			<input type="text" id="city" name="city" /> <br />
+		</td></tr>
+		<tr><td align="right">
+			<label for="state">State:</label>
+			<input type="text" id="state" name="state" /> <br />
+		</td></tr>
+		<tr><td align="right">
+			<label for="zip">Zip Code:</label>
+			<input type="text" id="zip" name="zip" /> <br />
+		</td></tr>
+		<tr><td align="left" colspan="2">
+			<label>Description:</label>
+			<textarea id="description" name="description" rows="5" cols="50" ></textarea>
+		</td></tr>
+		<tr><td align="left">
+			<input type="submit" value="Add Venue" name="submit" />
+		</td></tr>
+		</form>
+	</table>
+	</div>	
 	<?php include("footer.html"); ?>
 </div>
 </body>
