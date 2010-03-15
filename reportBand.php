@@ -89,7 +89,7 @@
 		<?php echo "<label>Your band, $bandname, has been added successfully!</label>"; ?>
 	</td></tr>
 	<tr><td>
-		<label><a href=\"index.php\">Return to Main Page</a></label>
+		<label><a href="index.php">Return to Main Page</a></label>
 	</td></tr>
 	</table>
 	<?php
