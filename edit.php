@@ -33,12 +33,17 @@ include "dbconnect.php";
 		
 	$frompage = $_POST['frompage'];
 	$fromid = $_POST['fromid'];
+	$_SESSION['id']=$fromid;
+	$_SESSION['type']=$frompage;
 
 	if($frompage == "band"){
 		$bandname = $_POST['bandname'];
+		$picture = $_POST['picture'];
 		$members = $_POST['members'];
+		$_SESSION['name']=$bandname;
 	}else if($frompage == "venue"){
 		$name = $_POST['name'];
+		$_SESSION['name']=$name;
 		$picture = $_POST['picture'];
 		$address = $_POST['address'];
 		$city = $_POST['city'];
@@ -51,10 +56,13 @@ include "dbconnect.php";
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {
 ?>
+	
 	<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
 				<?php
 		$frompage = $_GET['page'];
 		$fromid = $_GET['id'];
+		$_SESSION['id']=$fromid;
+		$_SESSION['type']=$frompage;
 		echo "<input type =\"hidden\" name=\"frompage\" value=\"$frompage\" />\n";
 		echo "<input type =\"hidden\" name=\"fromid\" value=\"$fromid\" />\n";
 		$table=$frompage.'s';
@@ -64,15 +72,46 @@ if (!isset($_POST['submit'])) {
 			$row=mysqli_fetch_array($result);
 		if($frompage == "band"){ 
 			$bandname = $row['bandname'];
+			$_SESSION['name']=$bandname;
+			$picture = $row['picture'];
 			$members = $row['members'];
 			$description = $row['description']; ?>
-            
+            <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
+            <a href="delete.php"> Delete Page </a><br />
+            <table>
+            <tr>
+            <td>
 			<label for="bandname">Band name:</label>
+            </td>
+            <td>
 			<input type="text" id="bandname" name="bandname" value="<?php echo "$bandname"; ?>" /><br />
-			
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <Label for ="currentpicture"> Picture </Label>
+            </td>
+            <td>
+            <img src="images/<?php echo "$picture"; ?>"  /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>
+			<label for="pic">Change Picture:</label>
+            </td>
+            <td>
+            <input type="file" id="pic" name="pic"  /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>
 			<label for="members">Members:</label>
+            </td>
+            <td>
 			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><br />
- 
+            </td>
+            </tr>
+ 			</table>
 			<label for"description">Short description of your band:</label><br />
 				<textarea id="other" name="description" rows="5" cols="50" ><?php echo "$description"; ?></textarea><br />
 			<?php
@@ -80,6 +119,7 @@ if (!isset($_POST['submit'])) {
   			mysqli_close($db);
 		}else if($frompage == "venue"){ 
 			$name = $row['name'];
+			$_SESSION['name']=$name;
 			$picture = $row['picture'];
 			$address = $row['address'];
 			$city = $row['city'];
@@ -87,6 +127,7 @@ if (!isset($_POST['submit'])) {
 			$zip = $row['zip'];
   			$description = $row['description']; ?>
             <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
+            <a href="delete.php"> Delete Page </a>
             <table width="100%" border="0" cellspacing="10" cellpadding="3">
   <tr>
     <td width="20%"><label for="name">Venue Name:</label></td>
@@ -187,11 +228,42 @@ else {
 		echo "<input type =\"hidden\" name=\"fromid\" value=\"$fromid\" />\n";
 	if($frompage == "band"){
 		?>
+        <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
+            <a href="delete.php"> Delete Page </a><br />
+        	<table>
+            <tr>
+            <td>
             <label for="bandname">Band name:</label>
+            </td>
+            <td>
 			<input type="text" id="bandname" name="bandname" value="<?php echo "$bandname"; ?>" /><?php echo "$bandnamestatus"; ?><br />
-			
+            </td>
+            </tr>
+            <tr>
+            <td>
+			<Label for ="currentpicture"> Picture </Label>
+            </td>
+            <td>
+            <img src="images/<?php echo "$picture"; ?>"  /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>
+			<label for="pic">Change Picture:</label>
+            </td>
+            <td>
+            <input type="file" id="pic" name="pic"  /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>
 			<label for="members">Members:</label>
+            </td>
+            <td>
 			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><?php echo "$membersstatus"; ?><br />
+            </td>
+            </tr>
+            </table>
  
 			<label for"description"><?php echo "$descriptionstatus $frompage".":"; ?></label><br />
 				<textarea id="other" name="description" rows="5" cols="50" ><?php echo "$description"; ?></textarea><br />
@@ -201,6 +273,7 @@ else {
   		mysqli_close($db);
 		}else if($frompage == "venue"){
 		?>
+        <a href="delete.php"> Delete Page </a><br />
         <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
        <table width="100%" border="0" cellspacing="10" cellpadding="3"> 
  <tr>
@@ -248,7 +321,13 @@ else {
 else
 	{
 	if($frompage == "band"){
-			$query="UPDATE bands SET bandname='$bandname', members='$members', description='$description' WHERE bandid='$fromid'";
+			$pic = $_FILES['pic']['name'];
+			if(!empty($pic)){
+				$picture=$pic;
+				$target ="images/$pic";
+				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
+			}
+			$query="UPDATE bands SET bandname='$bandname', picture='$picture', members='$members', description='$description' WHERE bandid='$fromid'";
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
