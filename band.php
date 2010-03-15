@@ -1,13 +1,13 @@
 <?php
 include "dbconnect.php";
-$id = $_GET['id'];
+$bandid = $_GET['id'];
 
-$query = "select * from bands where id='$id'";
+$query = "select * from bands where bandid='$bandid'";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	
 	$row = mysqli_fetch_array($result);
-	$id = $row['id'];
+	$bandid = $row['bandid'];
 	$bandname = $row['bandname'];
 	$members = $row['members'];
 	$description = $row['description'];

@@ -26,21 +26,31 @@ header("location:login.php");
 	?>
 	
 	<div id="main">
-	
-		<h2>Create Band:</h2>
-	
+		<table cellpadding="5" cellspacing="10">
+		<tr><td colspan="2">
+		<tableHeader>Create a New Band</tableheader>
+		</td></tr>
 		<form method="post" action="reportBand.php">
+		<tr>
+		<th rowspan="3"><img src="images/redDesign.gif"></th>
+		</tr>
+		<tr><td align="right">
 			<label for="bandname">Band name:</label>
 			<input type="text" id="bandname" name="bandname" /><br />
-			
+		</td></tr>
+		<tr><td align="right">
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" /><br />
- 
-			Description
-				<textarea id="other" name="description" rows="5" cols="50" ></textarea><br />
-
-			<input type="submit" value="Create Band" name="submit" />
+		</td></tr>
+		<tr><td align="left" colspan="2">
+			<label>Description:</label>
+			<textarea id="other" name="description" rows="5" cols="50" ></textarea>
+		</td></tr>
+		<tr><td align="left">
+			<input type="submit" value="Add Band" name="submit" />
+		</td></tr>
 		</form>
+		</table>
 	
 	</div>
 	

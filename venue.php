@@ -1,14 +1,14 @@
 <?php
 include "dbconnect.php";
 	session_start();
-$id = $_GET['id'];
+$venueid = $_GET['id'];
 
-$query = "select * from venues where id='$id'";
+$query = "select * from venues where venueid='$venueid'";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	
 	$row = mysqli_fetch_array($result);
-	$id = $row['id'];
+	$venueid = $row['venueid'];
 	$name = $row['name'];
 	$address = $row['address'];
 	$city = $row['city'];

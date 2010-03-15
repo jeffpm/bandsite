@@ -36,7 +36,7 @@
 					or die("Error querying Database");
 	
 				$row = mysqli_fetch_array($result);
-				$id = $row['id'];
+				$bandid = $row['bandid'];
 				$bandname = $row['bandname'];
 				$members = $row['members'];
 				$description = $row['description'];
@@ -46,7 +46,7 @@
 					<td><img src="tempBand.jpg"></td>
 					<td>
 						<?php
-							echo "<p><a href=\"band.php?id=$id\">$bandname</a> <br></p>";
+							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
 							echo "<p>Members: $members <br></p>";
 							echo "<p>Description: $description <br></p>";
 						?>
@@ -61,7 +61,7 @@
 					or die("Error querying Database");
 	
 				$row = mysqli_fetch_array($result);
-				$id = $row['id'];
+				$venueid = $row['venueid'];
 				$name = $row['name'];
 				$address = $row['address'];
 				$city = $row['city'];
@@ -74,7 +74,7 @@
 					<td><img src="tempVenue.jpg"></td>
 					<td>
 						<?php
-							echo "<p><a href=\"venue.php?id=$id\">$name</a> <br></p>";
+							echo "<p><a href=\"venue.php?id=$venueid\">$name</a> <br></p>";
 							echo "<p>Address: $address, $city, $state, $zip <br></p>";
 							echo "<p>Description: $description</p>";
 						?>

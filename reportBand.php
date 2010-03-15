@@ -41,20 +41,33 @@
 	}
 	
 	if(!$valid_responses){
-		echo "<h2>Create Band:</h2>
-		
-			<form method=\"post\" action=\"reportBand.php\">
-			<label for=\"bandname\">Band name:</label>
-			<input type=\"text\" id=\"bandname\" name=\"bandname\" value=\"$bandname\" />$bandnamestatus<br />
-			
-			<label for=\"members\">Members:</label>
-			<input type=\"text\" id=\"members\" name=\"members\" value=\"$members\" />$membersstatus<br />
- 
-			<p>Description<p>
-				<textarea id=\"other\" name=\"description\" rows=\"5\" cols=\"50\" value=\"$description\" ></textarea><br />
-
-			<input type=\"submit\" value=\"Create Band\" name=\"submit\" />
-		</form>";
+	?>
+		<table cellpadding="5" cellspacing="10">
+		<tr><td colspan="2">
+		<tableHeader>Create a New Band</tableheader>
+		</td></tr>
+			<form method="post" action="reportBand.php">
+		<tr>
+		<th rowspan="3"><img src="images/redDesign.gif"></th>
+		</tr>
+		<tr><td align="right">
+			<label for="bandname">Band name:</label>
+			<input type="text" id="bandname" name="bandname" value="<?php echo "$bandname" ?>" /><?php echo $bandnamestatus?>
+		</td></tr>
+		<tr><td align="right">
+			<label for="members">Members:</label>
+			<input type="text" id="members" name="members" value="<?php echo "$members" ?>" /><?php echo $membersstatus?>
+		</td></tr>
+		<tr><td align="left" colspan="2">
+			<label>Description</label>
+			<textarea id="other" name="description" rows="5" cols="50" value="$description" ></textarea>
+		</td></tr>
+		<tr><td align="left">
+			<input type="submit" value="Add Band" name="submit" />
+		</td></tr>
+		</form>
+		</table>
+	<?php	
 	}
 	else {
 		$query = "INSERT INTO bands (bandname, members, description) " . 
@@ -64,9 +77,22 @@
 			or die("Error: Could not create band.");
   
 	echo "<div id=\"main\">";
-	echo "<h3>Success!</h3>";
-	echo "Your band, <b>$bandname</b>, has been created successfully!<br />";
-	echo "<p><a href=\"index.php\">Return to Main Page</a></p>";
+	?>
+	<table cellpadding="5" cellspacing="10">
+	<tr>
+		<th rowspan="4"><img src="images/redDesign.gif"></th>
+	</tr>
+	<tr><td>
+		<label>Success!</label>
+	</td></tr>
+	<tr><td>
+		<?php echo "<label>Your band, $bandname, has been added successfully!</label>"; ?>
+	</td></tr>
+	<tr><td>
+		<label><a href=\"index.php\">Return to Main Page</a></label>
+	</td></tr>
+	</table>
+	<?php
 	echo "</div>";
 	
 	mysqli_close($db);
