@@ -10,6 +10,7 @@ $query = "select * from venues where venueid='$venueid'";
 	$row = mysqli_fetch_array($result);
 	$venueid = $row['venueid'];
 	$name = $row['name'];
+	$picture = $row['picture'];
 	$address = $row['address'];
 	$city = $row['city'];
 	$state = $row['state'];
@@ -37,12 +38,9 @@ $query = "select * from venues where venueid='$venueid'";
 		} else {
 			include("headerGuest.html");
 		}
-	?>
-
-    
-
-    <?php include("sidebar.php"); ?>	
-	<div>
+	?>	
+	<div id="main">
+    <img src="images/<?php echo "$picture"; ?>" />
 	<?php
 	echo "<p><a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";
     echo " - <a href=\"edit.php?page=venue&id=$venueid\">Edit</a>";
@@ -51,6 +49,9 @@ $query = "select * from venues where venueid='$venueid'";
 	echo "Address: $address, $city, $state, $zip <br>";
 	echo "Description: $description";
 	?>
+	</div>
+    <div id="sidebar">
+		<?php include("sidebar.php"); ?>
 	</div>
 	<?php include("footer.html"); ?>
 </div>

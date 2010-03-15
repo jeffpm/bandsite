@@ -9,6 +9,7 @@ $query = "select * from bands where bandid='$bandid'";
 	$row = mysqli_fetch_array($result);
 	$bandid = $row['bandid'];
 	$bandname = $row['bandname'];
+	$picture = $row['picture'];
 	$members = $row['members'];
 	$description = $row['description'];
 ?>
@@ -35,10 +36,9 @@ $query = "select * from bands where bandid='$bandid'";
 		} else {
 			include("headerGuest.html");
 		}
-	?>
-
-    <?php include("sidebar.php"); ?>	
-	<div>
+	?>	
+	<div id="main">
+    <img src="images/<?php echo "$picture"; ?>" />
 	<?php
 	echo "<p><a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
     echo " - <a href=\"edit.php?page=band&id=$bandid\">Edit</a>";
@@ -47,6 +47,9 @@ $query = "select * from bands where bandid='$bandid'";
 	echo "Members: $members <br>";
 	echo "Description: $description <br>";
 	?>
+	</div>
+    <div id="sidebar">
+		<?php include("sidebar.php"); ?>
 	</div>
 	<?php include("footer.html"); ?>
 </div>
