@@ -124,7 +124,7 @@
 	}
 ?>
 </div>		
-	<div id="footer"><p>Footer here</p></div>
+	<?php include("footer.html"); ?>
 </div>
 </body>
 </html>
