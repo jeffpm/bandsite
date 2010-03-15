@@ -1,10 +1,14 @@
+<?php session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <?php
+
 include "dbconnect.php";
-	session_start();
+	
+	 //or die ("");
 
 ?>
 
@@ -76,13 +80,14 @@ else {
 ?>
 <meta http-equiv="refresh" content="4;url=index.php">
 <?php
-
-	$query="DELETE FROM ".$type."s WHERE id=$id";
+	//echo "type: $type $id";
+	$query="DELETE FROM ".$type."s WHERE ".$type."id=$id";
+	//echo "$query";
 	$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
+   			or die("Error Querying Database1");
 	$query="DELETE FROM events WHERE ".$type."id=$id";
 	$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
+   			or die("Error Querying Database2");
 			
 	echo "Updated entry! now redirecting...";
 	

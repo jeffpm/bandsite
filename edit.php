@@ -339,8 +339,9 @@ else
 		}
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-		echo "Updated profile! now redirecting... (add that code here)";
+		echo "Updated profile! now redirecting..";
 		mysqli_close($db);
+		?><meta http-equiv="refresh" content="4;url=index.php"> <?php
 	}
 }
 ?>
