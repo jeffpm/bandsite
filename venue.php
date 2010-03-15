@@ -44,8 +44,8 @@ $query = "select * from venues where venueid='$venueid'";
     <?php include("sidebar.php"); ?>	
 	<div>
 	<?php
-	echo "<p><a href=\"addevent.php?page=venue&id=$id\">Add Event</a>";
-    echo " - <a href=\"edit.php?page=venue&id=$id\">Edit</a>";
+	echo "<p><a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";
+    echo " - <a href=\"edit.php?page=venue&id=$venueid\">Edit</a>";
     echo " </p>";
 	echo "Venue: $name<br>";
 	echo "Address: $address, $city, $state, $zip <br>";

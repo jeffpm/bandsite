@@ -71,7 +71,7 @@ if (!isset($_POST['submit'])) {
 		
 		if($frompage == "band"){ //if user got here from a band's page, display list of venues
 			$table="venues";
-			$query = "SELECT id, name, city, state FROM $table";
+			$query = "SELECT venueid, name, city, state FROM $table";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 			echo "<label for=\"venue\">Name of Venue:</label><br /><select name=\"id\">";
@@ -88,7 +88,7 @@ if (!isset($_POST['submit'])) {
 		}else if($frompage == "venue"){ //if the user got here from a venue's page, display list of bands
 			//Don't know the Band code, so this is rough, but you should get the idea
 			$table="bands";
-			$query = "SELECT id, bandname FROM $table";
+			$query = "SELECT bandid, bandname FROM $table";
 			$result = mysqli_query($db, $query)
    				or die("Error Querying Database");
 			echo "<label for=\"band\">Name of Band:</label><br /><select name=\"id\">";

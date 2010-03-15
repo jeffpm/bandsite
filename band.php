@@ -40,8 +40,8 @@ $query = "select * from bands where bandid='$bandid'";
     <?php include("sidebar.php"); ?>	
 	<div>
 	<?php
-	echo "<p><a href=\"addevent.php?page=band&id=$id\">Add Event</a>";
-    echo " - <a href=\"edit.php?page=band&id=$id\">Edit</a>";
+	echo "<p><a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
+    echo " - <a href=\"edit.php?page=band&id=$bandid\">Edit</a>";
     echo " </p>";
 	echo "Band: $bandname <br>";
 	echo "Members: $members <br>";
