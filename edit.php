@@ -58,7 +58,7 @@ if (!isset($_POST['submit'])) {
 		echo "<input type =\"hidden\" name=\"frompage\" value=\"$frompage\" />\n";
 		echo "<input type =\"hidden\" name=\"fromid\" value=\"$fromid\" />\n";
 		$table=$frompage.'s';
-		$query = "SELECT * FROM $table WHERE id='$fromid'";
+		$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
 			$result = mysqli_query($db, $query)
    				or die("Error Querying Database");
 			$row=mysqli_fetch_array($result);
@@ -248,7 +248,7 @@ else {
 else
 	{
 	if($frompage == "band"){
-			$query="UPDATE bands SET bandname='$bandname', members='$members', description='$description' WHERE id='$fromid'";
+			$query="UPDATE bands SET bandname='$bandname', members='$members', description='$description' WHERE bandid='$fromid'";
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
@@ -256,7 +256,7 @@ else
 				$target ="images/$pic";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
-			$query="UPDATE venues SET name='$name', picture='$picture', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE id='$fromid'";
+			$query="UPDATE venues SET name='$name', picture='$picture', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE venueid='$fromid'";
 		}
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");

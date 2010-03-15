@@ -80,7 +80,7 @@ if (!isset($_POST['submit'])) {
   				$name = $row['name'];
   				$city = $row['city'];
   				$state = $row['state'];
-  				echo "<option value=\"$id\">$name ($city, $state)</option>";
+  				echo "<option value=\"$venueid\">$name ($city, $state)</option>";
   			}
 			echo "</select><br />"; 
   
@@ -95,7 +95,7 @@ if (!isset($_POST['submit'])) {
 			while($row = mysqli_fetch_array($result)) {
 				$id = $row['id'];
   				$name = $row['bandname'];
-  				echo "<option value=\"$id\">$name</option>";
+  				echo "<option value=\"$bandid\">$name</option>";
   			}
 			echo "</select><br />"; 
   
