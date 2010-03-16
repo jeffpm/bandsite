@@ -27,6 +27,12 @@
 	move_uploaded_file($_FILES['picture']['tmp_name'], $target);
 	*/
 	$picture = "tempVenue.jpg";
+	$pic = $_FILES['pic']['name'];
+			if(!empty($pic)){
+				$picture=$pic;
+				$target ="images/$pic";
+				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
+			}
 	$address = $_POST['address'];
 	$city = $_POST['city'];
 	$state = $_POST['state'];

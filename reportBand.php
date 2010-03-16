@@ -28,7 +28,13 @@
 	$bandname = $_POST['bandname'];
 	$members = $_POST['members'];
 	$description = $_POST['description'];
-
+	$picture = "tempBand.jpg";
+	$pic = $_FILES['pic']['name'];
+			if(!empty($pic)){
+				$picture=$pic;
+				$target ="images/$pic";
+				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
+			}
 	$valid_responses = true;
 	
 	if (is_null($bandname) or $bandname == ""){
@@ -81,8 +87,8 @@
 	}
 	else {
 	//insert adding picture to database
-		$query = "INSERT INTO bands (bandname, members, description) " . 
-				 "VALUES ('$bandname', '$members', '$description')";
+		$query = "INSERT INTO bands (bandname, picture, members, description) " . 
+				 "VALUES ('$bandname', '$picture', '$members', '$description')";
   
 		$result = mysqli_query($db, $query)
 			or die("Error: Could not create band.");
