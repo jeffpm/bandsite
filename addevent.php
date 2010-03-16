@@ -170,7 +170,7 @@ else
 		$query = "INSERT INTO events (date, venueid, bandid, description) VALUES ('$date', '$venueid', '$bandid', '$description')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-		$query = "SELECT $var from ".$frompage."s where id='$fromid'";
+		$query = "SELECT $var from ".$frompage."s where ".$frompage."id='$fromid'";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
 		$row = mysqli_fetch_array($result);
@@ -178,11 +178,12 @@ else
 			$name = $row['bandname'];
 		}else if($var == "venue"){
 			$name = $row['name'];
-		}echo "An event has been added on $date for $name";
+		}echo "<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An event has been added on $date for $name<br /> <br />";
 		mysqli_close($db);
 	}
 }
 ?>
+<label><a href="index.php">Return to Main Page</a></label><br /><br />
 	</div>
 	
 	<?php include("footer.html"); ?>
