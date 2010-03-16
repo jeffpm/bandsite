@@ -27,13 +27,21 @@ header("location:login.php");
 		<tr><td colspan="2">
 			<tableHeader>Create a New Venue</tableheader>
 		</td></tr>
-		<form method="post" action="reportvenue.php">
+		<form method="post" action="reportvenue.php" enctype="multipart/form-data">
 		<tr>
-		<th rowspan="6"><img src="images/redDesign.gif"></th>
+		<th rowspan="8"><img src="images/redDesign.gif"></th>
 		</tr>
 		<tr><td align="right">
 			<label for="name">Venue Name:</label>
 			<input type="text" id="name" name="name" /> <br />
+		</td></tr>
+        <tr><td align="right">
+			<Label for ="defaultpicture">Default Picture:</Label><br />
+        	<img src="images/tempBand.jpg" /><br />
+		</td></tr>
+        <tr><td align="right">
+			<label for="pic">Change Picture:</label> <font color="#999999">(not required to change)</font>
+        	<input type="file" id="pic" name="pic"  /><br />
 		</td></tr>
 		<tr><td align="right">
 			<label for="address">Address:</label>

@@ -83,7 +83,7 @@ if (!isset($_POST['submit'])) {
 				<tr>
 					<td valign="top"><Label for ="currentpicture">Current Picture:</Label></td>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><img src="images/tempBand.jpg"></td>
+					<td><img src="images/<?php echo "$picture"; ?>"></td>
 				</tr>
 				<tr>
 					<td><label for="pic">Change Picture:</label></td>
@@ -124,7 +124,7 @@ if (!isset($_POST['submit'])) {
 				<tr>
 					<td valign="top"><Label for ="currentpicture">Current Picture: </Label></td>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><img src="images/tempVenue.jpg"></td>
+					<td><img src="images/<?php echo "$picture"; ?>"></td>
 				</tr>
 				<tr>
 					<td><label for="pic">Change Picture:</label></td>
