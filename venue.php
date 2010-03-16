@@ -55,7 +55,7 @@ $query = "select * from venues where venueid='$venueid'";
 			<td>
 			<?php //temporary picture until pictures implemented
 			  //this code to be used after implementation <img src="images/ (php) echo "$picture"; (/php)" /> ?>
-			<th rowspan="3"><img src="images/tempVenue.jpg" /></th>
+			<th rowspan="3"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
 		<tr><td>

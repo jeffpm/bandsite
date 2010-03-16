@@ -54,7 +54,7 @@ $query = "select * from bands where bandid='$bandid'";
 			<td>
 			<?php //temporary picture until pictures implemented
 			  //this code to be used after implementation <img src="images/ (php) echo "$picture"; (/php)" /> ?>
-			<th rowspan="3"><img src="images/tempBand.jpg" /></th>
+			<th rowspan="3"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
 		<tr><td>
