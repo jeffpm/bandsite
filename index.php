@@ -44,7 +44,8 @@
 			?>
 				<table cellpadding="5">
 					<tr>
-					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo "$picture"; ?>"  /></a></td>
+					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
+					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/tempBand.jpg"></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
@@ -73,7 +74,8 @@
 			?>
 				<table cellpadding="5">
 					<tr>
-					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo "$picture"; ?>"  /></a></td>
+					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
+					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/tempVenue.jpg"></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"venue.php?id=$venueid\">$name</a> <br></p>";

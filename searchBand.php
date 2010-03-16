@@ -23,27 +23,38 @@
 	?>
 	<div id="main">
 	
-<?php
-	include "dbconnect.php";
-$search = $_POST['searchB'];
-$query ="SELECT * FROM bands WHERE (bandname) like '%$search%' or (members) like '%$search%' ORDER BY bandname";
-$result=mysqli_query($db, $query)
-or die("Error Querying Database");
+		<?php
+		include "dbconnect.php";
+		$search = $_POST['searchB'];
+		$query ="SELECT * FROM bands WHERE (bandname) like '%$search%' or (members) like '%$search%' ORDER BY bandname";
+		$result=mysqli_query($db, $query)
+			or die("Error Querying Database");
+		?>
+		<table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="20%"><tableheader>Band Name</tableheader></td>
+				<td width="40%"><tableheader>Members</tableheader></td>
+				<td width="40%"><tableheader>Description</tableheader></td>
+			</tr>
+		<?php	
 
-echo "<table id=\"hor-minimalist-b\">\n<tr><th>Band Name</th><th>Members</th><th>Description</th><tr>\n\n";
+		while ($row = mysqli_fetch_array($result)) {
+			$id=$row['id'];
+			$bandname=$row['bandname'];
+			$members=$row['members'];
+			$description = $row['description'];
 
-while ($row = mysqli_fetch_array($result)) {
-$id=$row['id'];
-$bandname=$row['bandname'];
-$members=$row['members'];
-$description = $row['description'];
+			echo "<tr><td><a href=\"band.php?id=$id\">$bandname</a></td><td>$members</td><td>$description</td></tr>\n";
 
-echo "<tr><td><a href=\"band.php?id=$id\">$bandname</a></td><td>$members</td><td>$description</td></tr>\n";
-
-
-}
-echo "</table>\n";
-
-?>	
+		}
+		?>
+		</table>
+	</div>
+	<div id="sidebar">
+		<?php include("sidebar.php"); ?>
+	</div>
+	
+	<?php include("footer.html"); ?>
+</div>
 </body>
 </html>

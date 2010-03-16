@@ -55,9 +55,9 @@ if(!empty($id)){
 if (!isset($_POST['submit'])) {
 ?>
 <br />
-<h2>Delete entry for: <?php echo "$name" ?></h2>
+<tableheader>Delete page for: <?php echo "$name" ?></tableheader>
     
-Are you sure you want to delete this entry?<br /> 
+<p>Are you sure you want to delete this page?</p><br /> 
 <table width="25%" border="0" cellspacing="10" cellpadding="3">
 <tr height="25">
 <td width="35">
@@ -89,7 +89,7 @@ else {
 	$result = mysqli_query($db, $query)
    			or die("Error Querying Database2");
 			
-	echo "Updated entry! now redirecting...";
+	echo "<p>Page deleted! now redirecting to homepage...</p>";
 	
 	mysqli_close($db);
 	$_SESSION['id'] = "";
@@ -107,7 +107,7 @@ else {
 		<?php include("sidebar.php"); ?>
 	</div>
 	
-	<div id="footer"><p>Footer here</p></div>
+	<?php include("footer.html"); ?>
     
 </div>
 </body>

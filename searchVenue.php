@@ -22,31 +22,43 @@
 		}
 	?>
 	<div id="main">
+		<?php
+		include "dbconnect.php";
+		$search = $_POST['searchV'];
+		$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) like '%$search%'  or (address) like '%$search%' ORDER BY name";
+		$result=mysqli_query($db, $query)
+			or die("Error Querying Database");
+		?>
+
+		<table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="15%"><tableheader>Name</tableheader></td>
+				<td width="25%"><tableheader>Address</tableheader></td>
+				<td width="15%"><tableheader>City</tableheader></td>
+				<td width="15%"><tableheader>State</tableheader></td>
+				<td width="10%"><tableheader>Zip</tableheader></td>
+				<td width="20%"><tableheader>Description</tableheader></td>
+			</tr>
+			<?php
+			while ($row = mysqli_fetch_array($result)) {
+				$id=$row['id'];
+				$name=$row['name'];
+				$address=$row['address'];
+				$city=$row['city'];
+				$state=$row['state'];
+				$zip = $row['zip'];
+				$description = $row['description'];
+
+				echo "<tr><td><a href=\"venue.php?id=$id\">$name</a></td><td>$address</td><td>$city</td><td>$state</td><td>$zip</td><td>$description</td></tr>\n";
+			}
+			?>
+		</table>
+	</div>
+	<div id="sidebar">
+		<?php include("sidebar.php"); ?>
+	</div>
 	
-<?php
-	include "dbconnect.php";
-$search = $_POST['searchV'];
-$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) like '%$search%'  or (address) like '%$search%' ORDER BY name";
-$result=mysqli_query($db, $query)
-or die("Error Querying Database");
-
-echo "<table id=\"hor-minimalist-b\">\n<tr><th>Name</th><th>Address</th><th>City</th><th>State</th><th>Zip</th><th>Description</th><tr>\n\n";
-
-while ($row = mysqli_fetch_array($result)) {
-$id=$row['id'];
-$name=$row['name'];
-$address=$row['address'];
-$city=$row['city'];
-$state=$row['state'];
-$zip = $row['zip'];
-$description = $row['description'];
-
-echo "<tr><td><a href=\"venue.php?id=$id\">$name</a></td><td>$address</td><td>$city</td><td>$state</td><td>$zip</td><td>$description</td></tr>\n";
-
-
-}
-echo "</table>\n";
-
-?>	
+	<?php include("footer.html"); ?>
+</div>
 </body>
 </html>
