@@ -63,7 +63,8 @@ include "dbconnect.php";
 if (!isset($_POST['submit'])) {
 ?>
 	<form method="post" action="<?php echo $PHP_SELF;?>">
-				<?php
+		<table cellpadding="5" cellspacing="10">
+		<?php
 		$frompage = $_GET['page'];
 		$fromid = $_GET['id'];
 		echo "<input type =\"hidden\" name=\"frompage\" value=\"$frompage\" />\n";
@@ -74,16 +75,23 @@ if (!isset($_POST['submit'])) {
 			$query = "SELECT venueid, name, city, state FROM $table";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
-			echo "<label for=\"venue\">Name of Venue:</label><br /><select name=\"id\">";
-			while($row = mysqli_fetch_array($result)) {
-				$id = $row['id'];
-  				$name = $row['name'];
-  				$city = $row['city'];
-  				$state = $row['state'];
+			?>
+			<tr><td>
+				<?php echo "<label for=\"venue\">Name of Venue:</label><br /><select name=\"id\">";
+				while($row = mysqli_fetch_array($result)) {
+					$id = $row['id'];
+					$name = $row['name'];
+					$city = $row['city'];
+					$state = $row['state'];
   				echo "<option value=\"$venueid\">$name ($city, $state)</option>";
-  			}
-			echo "</select><br />"; 
-  
+				}
+				echo "</select><br />";
+
+				?>
+			</td><td>
+				<th rowspan="2"><img src="images/redDesign.gif"></th>
+			</td></tr>
+			<?php
   			mysqli_close($db);
 		}else if($frompage == "venue"){ //if the user got here from a venue's page, display list of bands
 			//Don't know the Band code, so this is rough, but you should get the idea
@@ -91,25 +99,39 @@ if (!isset($_POST['submit'])) {
 			$query = "SELECT bandid, bandname FROM $table";
 			$result = mysqli_query($db, $query)
    				or die("Error Querying Database");
-			echo "<label for=\"band\">Name of Band:</label><br /><select name=\"id\">";
-			while($row = mysqli_fetch_array($result)) {
-				$id = $row['id'];
-  				$name = $row['bandname'];
-  				echo "<option value=\"$bandid\">$name</option>";
-  			}
-			echo "</select><br />"; 
-  
+			?>
+			<tr><td>
+				<?php echo "<label for=\"band\">Name of Band:</label><br /><select name=\"id\">";
+				while($row = mysqli_fetch_array($result)) {
+					$id = $row['id'];
+					$name = $row['bandname'];
+					echo "<option value=\"$bandid\">$name</option>";
+				}
+				echo "</select><br />";
+
+				?>
+			</td><td>
+				<th rowspan="2"><img src="images/redDesign.gif"></th>
+			</td></tr>
+			<?php
   			mysqli_close($db);
 		}
 	
 	
 	?>
+	<tr><td>
 	<label for="date">Date of Event:</label>
     <script>DateInput('date', true, 'YYYY-MM-DD')</script>
-    <br />
+
+    </td></tr>
+	<tr><td>
     <p>Event Description<p>
-     <textarea id="description" name="description" rows="8" cols="54" ></textarea><br />
-     <input type="submit" value="Add Event" name="submit" />
+    <textarea id="description" name="description" rows="8" cols="54" ></textarea>
+	</td></tr>
+	<tr><td>
+    <input type="submit" value="Add Event" name="submit" />
+	</td></tr>
+	</table>
   </form>
 <?php
 }
