@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "dbconnect.php";
 $bandid = $_GET['id'];
 
@@ -14,7 +15,7 @@ $query = "select * from bands where bandid='$bandid'";
 	$description = $row['description'];
 ?>
 <?php
-	session_start();
+	//session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -40,8 +41,10 @@ $query = "select * from bands where bandid='$bandid'";
 	<div id="main">
     <img src="images/<?php echo "$picture"; ?>" />
 	<?php
+	if(session_is_registered(myusername)){
 	echo "<p><a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
     echo " - <a href=\"edit.php?page=band&id=$bandid\">Edit</a>";
+	}
     echo " </p>";
 	echo "Band: $bandname <br>";
 	echo "Members: $members <br>";

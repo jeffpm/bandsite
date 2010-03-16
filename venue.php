@@ -42,9 +42,11 @@ $query = "select * from venues where venueid='$venueid'";
 	<div id="main">
     <img src="images/<?php echo "$picture"; ?>" />
 	<?php
+	if(session_is_registered(myusername)){
 	echo "<p><a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";
     echo " - <a href=\"edit.php?page=venue&id=$venueid\">Edit</a>";
     echo " </p>";
+	}
 	echo "Venue: $name<br>";
 	echo "Address: $address, $city, $state, $zip <br>";
 	echo "Description: $description";
