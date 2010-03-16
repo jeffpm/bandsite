@@ -35,19 +35,49 @@ $email = $_POST["email"];
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {
 ?>
+<table cellpadding="5" cellspacing="10">
 <form method="post" action="<?php echo $PHP_SELF;?>">
-<label for="username">Username:</label>
-<input type="text" id="username" name="username" /><br />
-<label for="password">Password:</label>
-<input type="password" id="password" name="password" /><br />
-<label for="firstname">First name:</label>
-<input type="text" id="firstname" name="firstname" /><br />
-<label for="lastname">Last name:</label>
-<input type="text" id="lastname" name="lastname" /><br />
-<label for="email">Email:</label>
-<input type="text" id="email" name="email" /><br />
-<input type="submit" value="submit" name="submit">
-</form>
+<tr>
+	<th rowspan="7"><img src="images/redDesign.gif"></th>
+</tr>
+<tr>
+	<td align="right">
+		
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" /><br />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" /><br />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<label for="firstname">First name:</label>
+		<input type="text" id="firstname" name="firstname" /><br />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<label for="lastname">Last name:</label>
+		<input type="text" id="lastname" name="lastname" /><br />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="email" /><br />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<input type="submit" value="submit" name="submit">
+		</form>
+	</td>
+</tr>
+</table>
 <?php
 }
 else {
@@ -55,8 +85,13 @@ else {
 //if one of the fields was blank, show the form again
 	if (empty($username)|| empty($firstname)|| empty($lastname)|| empty ($password)|| empty($email)){
 		?>
+	<table cellpadding="5" cellspacing="10">
+	<tr>
+		<th rowspan="7"><img src="redDesign.gif"></th>
+	</tr>
 	<form method="post" action="<?php echo $PHP_SELF;?>">
-
+	<tr>
+		<td>
 	<?php
 		//display error message for username field
 	echo "<label for=\"username\">Username:</label>";
@@ -66,11 +101,21 @@ else {
 	else{
 	echo "<input type=\"text\" id=\"username\" name=\"username\" value=\"$username\" /><br />";
 	}
-
+	?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+	<?php
 		//display error message for password field
 	echo "<label for=\"password\">Password:</label>";
 	echo "<input type=\"text\" id=\"password\" name=\"password\" />Enter a password<br />";
-
+	?>
+		</td>	
+	</tr>
+	<tr>
+		<td>
+	<?php
 		//display error message for first name field
 	echo "<label for=\"firstname\">First name:</label>";
 	if (empty($firstname)){
@@ -79,7 +124,12 @@ else {
 	else{
 	echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"$firstname\" /><br />";
          }
-
+	?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+	<?php
 		//display error message for last name field
 	echo "<label for=\"lastname\">Last name:</label>";
 	if (empty($lastname)){
@@ -88,7 +138,12 @@ else {
 	else{
 	echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" value=\"$lastname\" /><br />";
 	}
-
+	?>
+		</td>
+	</tr>
+	<tr>
+		<td >
+	<?php
 		//display error messager for email field
 	echo "<label for=\"email\">Last name:</label>";
 	if (empty($email)){
@@ -97,22 +152,41 @@ else {
 	else{
 	echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"$email\" /><br />";
 	}
+	?>
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+	<?php
 	echo "<input type=\"submit\" value=\"submit\" name=\"submit\">";
 	echo "</form>";
-	}
+	?>
+		</td>
+	</tr>
+	</table>
+	<?php
 	//if everything was filled in correctly, add the entry to the database
-else
+}else
 	{
 	$query="INSERT INTO accounts(username, password, firstname, lastname, email) VALUES ('$username', '$password', '$firstname', '$lastname', '$email')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
-	echo "Thank you for submitting your form.";
+	?>
+	<table cellpadding="5" cellspacing="10">
+	<tr>
+		<td><img src="redDesign.gif"></td>
+		<td>
+			<label>Thank you for submitting your form.</label>
+		</td>
+	</tr>
+	</table>
+	<?php
 	}
 }
 ?>
 	</div>
 	
-	<div id="footer"><p>Footer here</p></div>
+	<?php include("footer.html"); ?>
 </div>
 </body>
 </html>

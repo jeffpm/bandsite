@@ -22,15 +22,35 @@ if (!isset($_POST['submit'])) {
 			include("headerGuest.html");
 		}
 	?>
-	<div id="main">	
+	<div id="main">
+	<table cellpadding="5" cellspacing="10">
 		<form method="post" action="<?php echo $PHP_SELF;?>">
 		<!--<form method="post" action="login.php">-->
-		<label for="username">Enter Username:</label>
-		<input type="text" id="username" name="username" /><br />
-		<label for="password">Enter Password:</label>
-		<input type="password" id="password" name="password" /><br />
-		<input type="submit" value="submit" name="submit">
+		<tr>
+			<th rowspan="4"><img src="images/redDesign.gif"></th>
+		</tr>
+		
+		<tr>
+			<td align="right">
+				<label for="username">Enter Username:</label>
+				<input type="text" id="username" name="username" /><br />
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="right">
+				<label for="password">Enter Password:</label>
+				<input type="password" id="password" name="password" /><br />
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="right">
+				<input type="submit" value="submit" name="submit">
+			</td>
+		</tr>
 		</form>
+	</table>
 	</div>
 	<?php include("footer.html"); ?>
  </div>
