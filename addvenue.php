@@ -37,7 +37,7 @@ header("location:login.php");
 		</td></tr>
         <tr><td align="right">
 			<Label for ="defaultpicture">Default Picture:</Label><br />
-        	<img src="images/tempBand.jpg" /><br />
+        	<img src="images/tempVenue.jpg" /><br />
 		</td></tr>
         <tr><td align="right">
 			<label for="pic">Change Picture:</label> <font color="#999999">(not required to change)</font>
