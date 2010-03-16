@@ -39,17 +39,31 @@ $query = "select * from bands where bandid='$bandid'";
 		}
 	?>	
 	<div id="main">
-    <img src="images/<?php echo "$picture"; ?>" />
 	<?php
 	if(session_is_registered(myusername)){
 	echo "<p><a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
     echo " - <a href=\"edit.php?page=band&id=$bandid\">Edit</a>";
 	}
     echo " </p>";
-	echo "Band: $bandname <br>";
-	echo "Members: $members <br>";
-	echo "Description: $description <br>";
 	?>
+	<table width="750" cellpadding="5" cellspacing="10">
+		<tr>
+			<td width="65%">
+			<tableheader><?php echo "$bandname";?></tableheader>
+			</td>
+			<td>
+			<?php //temporary picture until pictures implemented
+			  //this code to be used after implementation <img src="images/ (php) echo "$picture"; (/php)" /> ?>
+			<th rowspan="3"><img src="images/tempBand.jpg" /></th>
+			</td>
+		</tr>
+		<tr><td>
+			<p><?php echo "Members: $members";?></p>
+		</td></tr>
+		<tr><td>
+			<p><?php echo "Description: $description";?></p>
+		</td></tr>
+	</table>
 	</div>
     <div id="sidebar">
 		<?php include("sidebar.php"); ?>
