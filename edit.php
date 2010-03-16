@@ -308,7 +308,7 @@ else
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
 			//insert added picture to database later
-			$query="UPDATE bands SET bandname='$bandname', members='$members', description='$description' WHERE bandid='$fromid'";
+			$query="UPDATE bands SET bandname='$bandname', picture='$picture', members='$members', description='$description' WHERE bandid='$fromid'";
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
@@ -316,7 +316,7 @@ else
 				$target ="images/$pic";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
-			$query="UPDATE venues SET name='$name', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE venueid='$fromid'";
+			$query="UPDATE venues SET name='$name', picture='$picture', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE venueid='$fromid'";
 		}
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
