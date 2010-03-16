@@ -1,1 +1,4 @@
 CREATE TABLE IF NOT EXISTS `band_members` (`member_name` varchar(30) NOT NULL,`memberid` smallint(6) INT NOT NULL AUTO_INCREMENT PRIMARY KEY,`bandid` smallint(6) INT NOT NULL, FOREIGN KEY (bandid) REFERENCES bands (bandid) ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+//Comment Table
+//Genre table
