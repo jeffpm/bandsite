@@ -41,8 +41,8 @@ $query = "select * from bands where bandid='$bandid'";
 	<div id="main">
 	<?php
 	if(session_is_registered(myusername)){
-	echo "<p><a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
-    echo " - <a href=\"edit.php?page=band&id=$bandid\">Edit</a>";
+	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit Band Information</a>";
+	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
 	}
     echo " </p>";
 	?>

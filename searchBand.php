@@ -39,7 +39,7 @@
 		<?php	
 
 		while ($row = mysqli_fetch_array($result)) {
-			$id=$row['id'];
+			$id=$row['bandid'];
 			$bandname=$row['bandname'];
 			$members=$row['members'];
 			$description = $row['description'];

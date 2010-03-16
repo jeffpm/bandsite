@@ -41,7 +41,7 @@
 			</tr>
 			<?php
 			while ($row = mysqli_fetch_array($result)) {
-				$id=$row['id'];
+				$id=$row['venueid'];
 				$name=$row['name'];
 				$address=$row['address'];
 				$city=$row['city'];

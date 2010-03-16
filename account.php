@@ -87,7 +87,7 @@ else {
 		?>
 	<table cellpadding="5" cellspacing="10">
 	<tr>
-		<th rowspan="7"><img src="redDesign.gif"></th>
+		<th rowspan="7"><img src="images/redDesign.gif"></th>
 	</tr>
 	<form method="post" action="<?php echo $PHP_SELF;?>">
 	<tr>
@@ -96,10 +96,10 @@ else {
 		//display error message for username field
 	echo "<label for=\"username\">Username:</label>";
 	if(empty($username)){
-	echo "<input type=\"text\" id=\"username\" name=\"username\" />Enter a username<br />";
+	echo "<input type=\"text\" id=\"username\" name=\"username\" /> Enter a username";
 	}
 	else{
-	echo "<input type=\"text\" id=\"username\" name=\"username\" value=\"$username\" /><br />";
+	echo "<input type=\"text\" id=\"username\" name=\"username\" value=\"$username\" />";
 	}
 	?>
 		</td>
@@ -109,7 +109,7 @@ else {
 	<?php
 		//display error message for password field
 	echo "<label for=\"password\">Password:</label>";
-	echo "<input type=\"text\" id=\"password\" name=\"password\" />Enter a password<br />";
+	echo "<input type=\"text\" id=\"password\" name=\"password\" /> Enter a password";
 	?>
 		</td>	
 	</tr>
@@ -119,10 +119,10 @@ else {
 		//display error message for first name field
 	echo "<label for=\"firstname\">First name:</label>";
 	if (empty($firstname)){
-		echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" />Enter a first name<br />";
+		echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" /> Enter a first name";
 	}
 	else{
-	echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"$firstname\" /><br />";
+	echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"$firstname\" />";
          }
 	?>
 		</td>
@@ -133,10 +133,10 @@ else {
 		//display error message for last name field
 	echo "<label for=\"lastname\">Last name:</label>";
 	if (empty($lastname)){
-		echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" />Enter a last name<br />";
+		echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" /> Enter a last name";
 	}
 	else{
-	echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" value=\"$lastname\" /><br />";
+	echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" value=\"$lastname\" />";
 	}
 	?>
 		</td>
@@ -147,10 +147,10 @@ else {
 		//display error messager for email field
 	echo "<label for=\"email\">Last name:</label>";
 	if (empty($email)){
-		echo "<input type=\"text\" id=\"email\" name=\"email\" />Enter an email<br />";
+		echo "<input type=\"text\" id=\"email\" name=\"email\" /> Enter an email";
 	}
 	else{
-	echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"$email\" /><br />";
+	echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"$email\" />";
 	}
 	?>
 		</td>

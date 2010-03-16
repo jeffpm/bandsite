@@ -43,14 +43,29 @@ $query = "select * from venues where venueid='$venueid'";
     <img src="images/<?php echo "$picture"; ?>" />
 	<?php
 	if(session_is_registered(myusername)){
-	echo "<p><a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";
-    echo " - <a href=\"edit.php?page=venue&id=$venueid\">Edit</a>";
+	echo "<p><a href=\"edit.php?page=venue&id=$venueid\">Edit Venue Information</a>";
+	echo " - <a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";
     echo " </p>";
 	}
-	echo "Venue: $name<br>";
-	echo "Address: $address, $city, $state, $zip <br>";
-	echo "Description: $description";
 	?>
+	<table width="750" cellpadding="5" cellspacing="10">
+		<tr>
+			<td width="65%">
+			<tableheader><?php echo "$name";?></tableheader>
+			</td>
+			<td>
+			<?php //temporary picture until pictures implemented
+			  //this code to be used after implementation <img src="images/ (php) echo "$picture"; (/php)" /> ?>
+			<th rowspan="3"><img src="images/tempVenue.jpg" /></th>
+			</td>
+		</tr>
+		<tr><td>
+			<p><?php echo "Address: $address, $city, $state, $zip";?></p>
+		</td></tr>
+		<tr><td>
+			<p><?php echo "Description: $description";?></p>
+		</td></tr>
+	</table>
 	</div>
     <div id="sidebar">
 		<?php include("sidebar.php"); ?>
