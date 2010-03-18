@@ -24,7 +24,7 @@ $query = "select * from bands where bandid='$bandid'";
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <?php
-  echo "<title>Band Profile For $id</title>";
+  echo "<title>Band Profile For $bandname</title>";
   ?>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -64,6 +64,34 @@ $query = "select * from bands where bandid='$bandid'";
 			<p><?php echo "Description: $description";?></p>
 		</td></tr>
 	</table>
+    
+    <?php 
+		$query = "select events.date, venues.venueid, venues.name, events.description from events INNER JOIN venues ON events.venueid=venues.venueid AND events.bandid='$bandid' ORDER BY events.date";
+		$result = mysqli_query($db, $query)
+	  	or die("Error querying Database");
+		$hasResults=true;
+	  	while ($row = mysqli_fetch_array($result)) {
+			if($hasResults){ //creates the start of table on first run
+			?>
+            <table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="15%"><tableheader>Date</tableheader></td>
+				<td width="25%"><tableheader>Location</tableheader></td>
+				<td width="15%"><tableheader>Details</tableheader></td>
+			</tr>
+            <?php
+				$hasResults=false;
+			}
+				$id=$row['venueid'];
+				$date=$row['date'];
+				$description = $row['description'];
+				$name=$row['name'];
+				$temp=substr($date, -5, 2)."/".substr($date, -2)."/".substr($date, 0, 4);
+				echo "<tr><td>$temp</td><td><a href=\"venue.php?id=$id\">$name</a></td><td>$description</td></tr>\n";
+			}
+	
+	?>
+    </table>
 	</div>
     <div id="sidebar">
 		<?php include("sidebar.php"); ?>

@@ -16,6 +16,8 @@ $query = "select * from venues where venueid='$venueid'";
 	$state = $row['state'];
 	$zip = $row['zip'];
 	$description = $row['description'];
+
+	  
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -65,6 +67,37 @@ $query = "select * from venues where venueid='$venueid'";
 			<p><?php echo "Description: $description";?></p>
 		</td></tr>
 	</table>
+    
+    <?php
+	
+		
+	$query = "select events.date, bands.bandid, bands.bandname, events.description from events INNER JOIN bands ON events.bandid=bands.bandid AND events.venueid='$venueid' ORDER BY events.date";
+	$result = mysqli_query($db, $query)
+	  or die("Error querying Database");
+	  $hasResults=true;
+	  	while ($row = mysqli_fetch_array($result)) {
+			if($hasResults){ //creates the start of table on first run
+			?>
+            <table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="15%"><tableheader>Date</tableheader></td>
+				<td width="25%"><tableheader>Featured Band</tableheader></td>
+				<td width="15%"><tableheader>Details</tableheader></td>
+			</tr>
+            <?php
+				$hasResults=false;
+			}
+				$id=$row['bandid'];
+				$date=$row['date'];
+				$description = $row['description'];
+				$name=$row['bandname'];
+				$temp=substr($date, -5, 2)."/".substr($date, -2)."/".substr($date, 0, 4);
+				echo "<tr><td>$temp</td><td><a href=\"band.php?id=$id\">$name</a></td><td>$description</td></tr>\n";
+			}
+	
+	
+	?>
+    </table>
 	</div>
     <div id="sidebar">
 		<?php include("sidebar.php"); ?>

@@ -74,16 +74,16 @@ if (!isset($_POST['submit'])) {
 			$table="venues";
 			$query = "SELECT venueid, name, city, state FROM $table";
 		$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
+   			or die("Error Querying Database1");
 			?>
 			<tr><td>
 				<?php echo "<label for=\"venue\">Name of Venue:</label><br /><select name=\"id\">";
 				while($row = mysqli_fetch_array($result)) {
-					$id = $row['id'];
+					$id = $row['venueid'];
 					$name = $row['name'];
 					$city = $row['city'];
 					$state = $row['state'];
-  				echo "<option value=\"$venueid\">$name ($city, $state)</option>";
+  				echo "<option value=\"$id\">$name ($city, $state)</option>";
 				}
 				echo "</select><br />";
 
@@ -98,14 +98,14 @@ if (!isset($_POST['submit'])) {
 			$table="bands";
 			$query = "SELECT bandid, bandname FROM $table";
 			$result = mysqli_query($db, $query)
-   				or die("Error Querying Database");
+   				or die("Error Querying Database2");
 			?>
 			<tr><td>
 				<?php echo "<label for=\"band\">Name of Band:</label><br /><select name=\"id\">";
 				while($row = mysqli_fetch_array($result)) {
-					$id = $row['id'];
+					$id = $row['bandid'];
 					$name = $row['bandname'];
-					echo "<option value=\"$bandid\">$name</option>";
+					echo "<option value=\"$id\">$name</option>";
 				}
 				echo "</select><br />";
 
@@ -164,21 +164,22 @@ else
 			$var="bandname";
 		}else if($frompage == "venue"){
 			$bandid="$id";
-			$venueid="$frompage";
+			$venueid="$fromid";
 			$var="name";
 		}
 		$query = "INSERT INTO events (date, venueid, bandid, description) VALUES ('$date', '$venueid', '$bandid', '$description')";
 		$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
+   			or die("Error Querying Database3");
 		$query = "SELECT $var from ".$frompage."s where ".$frompage."id='$fromid'";
 		$result = mysqli_query($db, $query)
-   			or die("Error Querying Database");
+   			or die("Error Querying Database4");
 		$row = mysqli_fetch_array($result);
 		if($var == "bandname"){
 			$name = $row['bandname'];
-		}else if($var == "venue"){
+		}else if($var == "name"){
 			$name = $row['name'];
-		}echo "<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An event has been added on $date for $name<br /> <br />";
+		}
+		echo "<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An event has been added on $date for $name<br /> <br />";
 		mysqli_close($db);
 	}
 }
