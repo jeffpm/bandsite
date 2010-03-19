@@ -23,3 +23,5 @@ INSERT INTO bands (bandname, picture, members, description) VALUES ('Rockers', '
 CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `album_name` varchar(20), `album_year` smallint(4), `album_band` smallint(6), `album_genre` varchar(50), PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `band_members` (`member_name` varchar(30) NOT NULL,`memberid` smallint(6) INT NOT NULL AUTO_INCREMENT PRIMARY KEY,`bandid` smallint(6) INT NOT NULL, FOREIGN KEY (bandid) REFERENCES bands (bandid) ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `comments` (`commentid` smallint(6) NOT NULL AUTO_INCREMENT, `bandid` smallint(6), `name` varchar(30) NOT NULL, `comment` blob, PRIMARY KEY (`commentid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;

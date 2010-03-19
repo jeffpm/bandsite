@@ -63,7 +63,25 @@ $query = "select * from bands where bandid='$bandid'";
 		<tr><td>
 			<p><?php echo "Description: $description";?></p>
 		</td></tr>
+		<tr><td>Add a comment:</td>
+		</tr>
+		<tr>
+		
+		<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
+		
+		<tr><td>
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" /> <br />
+		</td></tr>
+		<tr><td>
+			<label for="name">Comment:</label>
+			<textarea id="comment" name="comment" rows="5" cols="50" ></textarea>
+		</td></tr>
+		<tr><td>
+			<input type="submit" value="Submit Comment" name="submit" />
+		</td></tr>
 	</table>
+	</form>
 	</div>
     <div id="sidebar">
 		<?php include("sidebar.php"); ?>
