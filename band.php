@@ -92,8 +92,28 @@ $query = "select * from bands where bandid='$bandid'";
 	if(!hasResults){
 		echo "</table>";
 	}
+	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
+		$result = mysqli_query($db, $query)
+	  	or die("Error querying Database");
+		
 	?>
-    
+	Comments:
+	<table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="20%"><tableheader>Date</tableheader></td>
+				<td width="40%"><tableheader>Name</tableheader></td>
+				<td width="40%"><tableheader>Comment</tableheader></td>
+			</tr>
+			<?php
+			while ($row = mysqli_fetch_array($result)) {
+			$date=$row['date'];
+			$name=$row['name'];
+			$comment=$row['comment'];
+			echo "<tr><td>$date</td><td>$name</td><td>$comment</td></tr>\n";
+			}
+			?>
+					</table>
+   
     <table>
     <tr><td>Add a comment:</td>
 		</tr>
@@ -107,7 +127,7 @@ $query = "select * from bands where bandid='$bandid'";
 		</td></tr>
 		<tr><td>
 			<label for="name">Comment:</label>
-			<textarea id="comment" name="comment" rows="5" cols="50" ></textarea>
+			<textarea id="comment" name="comment" rows="3" cols="50" ></textarea>
 		</td></tr>
 		<tr><td>
 			<input type="submit" value="Submit Comment" name="submit" />

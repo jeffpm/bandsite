@@ -22,16 +22,18 @@ $bandid = $_GET['id'];
 		}
 		$name = $_POST['name'];
 		$comment = $_POST['comment'];
+		$date=date("Y-m-d");
 		
-	$query = "INSERT INTO comments(bandid, name, comment) " . 
-			 "VALUES ('$bandid', '$name', '$comment')";
+	$query = "INSERT INTO comments(bandid, name, comment, date) " . 
+			 "VALUES ('$bandid', '$name', '$comment', '$date')";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	  
 	  
 	?>
 	
-	<div id="features">
+	<div id="main">
+	Thank you, your comment has been added.
 			
 	</div>
 	
