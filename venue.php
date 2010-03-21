@@ -35,7 +35,8 @@ $query = "select * from venues where venueid='$venueid'";
 <div id="wrap">
 
     <?php
-		if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+		//if(session_is_registered(myusername)){
 			include("headerUser.html");
 		} else {
 			include("headerGuest.html");
@@ -43,7 +44,8 @@ $query = "select * from venues where venueid='$venueid'";
 	?>	
 	<div id="main">
 	<?php
-	if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+	//if(session_is_registered(myusername)){
 	echo "<p><a href=\"edit.php?page=venue&id=$venueid\">Edit Venue Information</a>";
 	echo " - <a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";
     echo " </p>";

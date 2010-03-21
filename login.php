@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "dbconnect.php";
 //if the submit button was not pressed, show the form
 if (!isset($_POST['submit'])) {
@@ -16,7 +17,8 @@ if (!isset($_POST['submit'])) {
 <body>
  <div id="wrap">
     <?php
-		if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+		//if(session_is_registered(myusername)){
 			include("headerUser.html");
 		} else {
 			include("headerGuest.html");
@@ -67,6 +69,9 @@ else
 
 $query="SELECT * FROM accounts where username='$username' AND password=SHA('$password')";
 $result=mysqli_query($db, $query);
+	$row = mysqli_fetch_array($result);
+
+$userid=$row['userid'];
 
 $num=mysqli_num_rows($result);
 if ($num<1){
@@ -107,7 +112,8 @@ Your username/password combination was incorrect. Please try again.
 <?php
 }
 	else {
-		session_register("myusername");
+		//session_register("myusername");
+		$_SESSION['userid']=$userid;
 		header("location:index.php");
 		}
 }

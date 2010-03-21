@@ -19,7 +19,8 @@ include "dbconnect.php";
 <script type="text/javascript" src="calendarDateInput.js"></script>
 <div id="wrap">
     <?php
-		if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+		//if(session_is_registered(myusername)){
 			include("headerUser.html");
 		} else {
 			include("headerGuest.html");

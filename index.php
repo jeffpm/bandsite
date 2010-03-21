@@ -1,4 +1,7 @@
-<?php include "dbconnect.php"; session_start(); ?>
+<?php 
+session_start();
+include "dbconnect.php";  
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -12,7 +15,8 @@
 <body>
 <div id="wrap">
     <?php
-		if(session_is_registered(myusername)){
+		//if(session_is_registered(myusername)){
+		if(isset($_SESSION['userid'])){
 			include("headerUser.html");
 		} else {
 			include("headerGuest.html");

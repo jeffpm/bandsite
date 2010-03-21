@@ -15,7 +15,8 @@ $bandid = $_GET['id'];
 <body>
 <div id="wrap">
     <?php
-		if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+		//if(session_is_registered(myusername)){
 			include("headerUser.html");
 		} else {
 			include("headerGuest.html");

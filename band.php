@@ -32,7 +32,8 @@ $query = "select * from bands where bandid='$bandid'";
 <body>
 <div id="wrap">
     <?php
-		if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+		//if(session_is_registered(myusername)){
 			include("headerUser.html");
 		} else {
 			include("headerGuest.html");
@@ -40,7 +41,8 @@ $query = "select * from bands where bandid='$bandid'";
 	?>	
 	<div id="main">
 	<?php
-	if(session_is_registered(myusername)){
+	if(isset($_SESSION['userid'])){
+	//if(session_is_registered(myusername)){
 	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit Band Information</a>";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
 	}
