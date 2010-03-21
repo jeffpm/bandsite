@@ -63,7 +63,7 @@ $query = "select * from bands where bandid='$bandid'";
 		</td></tr>
 	</table>
     
-	<tableheader>Events:</tableheader>
+	
 	
     <?php 
 		$query = "select events.date, venues.venueid, venues.name, events.description from events INNER JOIN venues ON events.venueid=venues.venueid AND events.bandid='$bandid' ORDER BY events.date";
@@ -72,7 +72,7 @@ $query = "select * from bands where bandid='$bandid'";
 		$hasResults=true;
 	  	while ($row = mysqli_fetch_array($result)) {
 			if($hasResults){ //creates the start of table on first run
-			?>
+			?><tableheader>Events:</tableheader>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="25%"><commentheader>Date</commentheader></td>
@@ -101,22 +101,33 @@ $query = "select * from bands where bandid='$bandid'";
 		
 	?>
 	
-	<tableheader>Comments:</tableheader>
-	<table width="750" cellpadding="5" cellspacing="10">
+	
+			<?php
+			$hasResults=true;
+			while ($row = mysqli_fetch_array($result)) {
+				if($hasResults){ //runs once (if there are comments) and displays the headers of the table
+					?> 
+     <tableheader>Comments:</tableheader>
+		<table width="750" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="25%"><commentheader>Date</commentheader></td>
 				<td width="35%"><commentheader>Name</commentheader></td>
 				<td width="40%"><commentheader>Comment</commentheader></td>
 			</tr>
-			<?php
-			while ($row = mysqli_fetch_array($result)) {
+					
+					<?php
+					$hasResults=false;
+				}
 			$date=$row['date'];
 			$name=$row['name'];
 			$comment=$row['comment'];
 			echo "<tr><td>$date</td><td>$name</td><td>$comment</td></tr>\n";
 			}
+			if(!$hasResults){
+				echo "</table>";
+			}
 			?>
-					</table>
+					
    
     <table>
     <tr><td><p>Add a comment:</p></td>

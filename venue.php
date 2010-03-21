@@ -68,7 +68,7 @@ $query = "select * from venues where venueid='$venueid'";
 		</td></tr>
 	</table>
     
-	<tableheader>Events:</tableheader>
+	
 	
     <?php
 	
@@ -79,6 +79,7 @@ $query = "select * from venues where venueid='$venueid'";
 	  	while ($row = mysqli_fetch_array($result)) {
 			if($hasResults){ //creates the start of table on first run
 			?>
+            <tableheader>Events:</tableheader>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="25%"><commentheader>Date</commentheader></td>
