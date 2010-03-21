@@ -168,7 +168,7 @@ else {
 	//if everything was filled in correctly, add the entry to the database
 }else
 	{
-	$query="INSERT INTO accounts(username, password, firstname, lastname, email) VALUES ('$username', '$password', '$firstname', '$lastname', '$email')";
+	$query="INSERT INTO accounts(username, password, firstname, lastname, email) VALUES ('$username', SHA('$password'), '$firstname', '$lastname', '$email')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
 	?>

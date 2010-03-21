@@ -65,7 +65,7 @@ else
   $username=$_POST["username"];
   $password=$_POST["password"];
 
-$query="SELECT * FROM accounts where username='$username' AND password='$password'";
+$query="SELECT * FROM accounts where username='$username' AND password=SHA('$password')";
 $result=mysqli_query($db, $query);
 
 $num=mysqli_num_rows($result);
