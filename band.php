@@ -49,11 +49,9 @@ $query = "select * from bands where bandid='$bandid'";
 	<table width="750" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
-			<tableheader><?php echo "$bandname";?></tableheader>
+			<pagetitle><?php echo "$bandname";?></pagetitle>
 			</td>
 			<td>
-			<?php //temporary picture until pictures implemented
-			  //this code to be used after implementation <img src="images/ (php) echo "$picture"; (/php)" /> ?>
 			<th rowspan="3"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
@@ -65,6 +63,8 @@ $query = "select * from bands where bandid='$bandid'";
 		</td></tr>
 	</table>
     
+	<tableheader>Events:</tableheader>
+	
     <?php 
 		$query = "select events.date, venues.venueid, venues.name, events.description from events INNER JOIN venues ON events.venueid=venues.venueid AND events.bandid='$bandid' ORDER BY events.date";
 		$result = mysqli_query($db, $query)
@@ -75,9 +75,9 @@ $query = "select * from bands where bandid='$bandid'";
 			?>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="15%"><tableheader>Date</tableheader></td>
-				<td width="25%"><tableheader>Location</tableheader></td>
-				<td width="15%"><tableheader>Details</tableheader></td>
+				<td width="15%"><commentheader>Date</commentheader></td>
+				<td width="25%"><commentheader>Location</commentheader></td>
+				<td width="15%"><commentheader>Details</commentheader></td>
 			</tr>
             <?php
 				$hasResults=false;
@@ -92,17 +92,21 @@ $query = "select * from bands where bandid='$bandid'";
 	if(!hasResults){
 		echo "</table>";
 	}
+	?>
+	</table>
+	<?php
 	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
 		$result = mysqli_query($db, $query)
 	  	or die("Error querying Database");
 		
 	?>
-	Comments:
+	
+	<tableheader>Comments:</tableheader>
 	<table width="750" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="20%"><tableheader>Date</tableheader></td>
-				<td width="40%"><tableheader>Name</tableheader></td>
-				<td width="40%"><tableheader>Comment</tableheader></td>
+				<td width="20%"><commentheader>Date</commentheader></td>
+				<td width="40%"><commentheader>Name</commentheader></td>
+				<td width="40%"><commentheader>Comment</commentheader></td>
 			</tr>
 			<?php
 			while ($row = mysqli_fetch_array($result)) {

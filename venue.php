@@ -52,7 +52,7 @@ $query = "select * from venues where venueid='$venueid'";
 	<table width="750" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
-			<tableheader><?php echo "$name";?></tableheader>
+			<pagetitle><?php echo "$name";?></pagetitle>
 			</td>
 			<td>
 			<?php //temporary picture until pictures implemented
@@ -68,9 +68,10 @@ $query = "select * from venues where venueid='$venueid'";
 		</td></tr>
 	</table>
     
+	<tableheader>Events:</tableheader>
+	
     <?php
 	
-		
 	$query = "select events.date, bands.bandid, bands.bandname, events.description from events INNER JOIN bands ON events.bandid=bands.bandid AND events.venueid='$venueid' ORDER BY events.date";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
@@ -80,9 +81,9 @@ $query = "select * from venues where venueid='$venueid'";
 			?>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="15%"><tableheader>Date</tableheader></td>
-				<td width="25%"><tableheader>Featured Band</tableheader></td>
-				<td width="15%"><tableheader>Details</tableheader></td>
+				<td width="15%"><commentheader>Date</commentheader></td>
+				<td width="25%"><commentheader>Featured Band</commentheader></td>
+				<td width="15%"><commentheader>Details</commentheader></td>
 			</tr>
             <?php
 				$hasResults=false;

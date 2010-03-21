@@ -133,6 +133,19 @@
 		font-family: "Gill Sans Ultra Bold", "Lucinda Grande", Sans-Serif;
 	}
 	
+	pagetitle{
+		color: #800000;
+		background-color: transparent;
+		font-family: "Gill Sans Ultra Bold", "Lucinda Grande", Sans-Serif;
+		font-size: 40px;
+	}
+	
+	commentheader{
+		color: #8b4513;
+		background-color: transparent;
+		font-family: "Impact", "Lucinda Grande", Sans-Serif;
+	}
+	
 	label{
 		color: #ffffff;
 		background-color: transparent;
