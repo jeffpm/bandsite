@@ -146,7 +146,7 @@ else {
 		<td >
 	<?php
 		//display error messager for email field
-	echo "<label for=\"email\">Last name:</label>";
+	echo "<label for=\"email\">Email:</label>";
 	if (empty($email)){
 		echo "<input type=\"text\" id=\"email\" name=\"email\" /> Enter an email";
 	}
