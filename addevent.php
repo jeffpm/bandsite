@@ -147,10 +147,17 @@ else {
         echo "<input type =\"hidden\" name=\"id\" value=\"$id\" />\n";
 		echo "<input type =\"hidden\" name=\"date\" value=\"$date\" />\n";
 	?>
-    
-    	<p>*Please Enter Event Description<p>
-     <textarea id="description" name="description" rows="8" cols="54" ></textarea><br />
-     <input type="submit" value="Add Event" name="submit" />
+	<table cellpadding="5" cellspacing="10">
+		<tr><td>
+			<p>*Please Enter Event Description<p>
+		</td></tr>
+		<tr><td>
+			<textarea id="description" name="description" rows="8" cols="54" ></textarea>
+		</td></tr>
+		<tr><td>
+			<input type="submit" value="Add Event" name="submit" />
+		</td></tr>
+	</table>
     </form>
 <?php
 	//if everything was filled in correctly, add the entry to the database

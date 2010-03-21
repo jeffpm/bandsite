@@ -33,8 +33,14 @@ $bandid = $_GET['id'];
 	?>
 	
 	<div id="main">
+	<table cellpadding="5" cellspacing="10">
+	<tr><td>
 	Thank you, your comment has been added.
-			
+	</td></tr>
+	<tr><td>
+	<label><a href="index.php">Return to Main Page</a></label>
+	</td></tr>
+	</table>	
 	</div>
 	
 	<div id="sidebar">

@@ -75,9 +75,9 @@ $query = "select * from bands where bandid='$bandid'";
 			?>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="15%"><commentheader>Date</commentheader></td>
-				<td width="25%"><commentheader>Location</commentheader></td>
-				<td width="15%"><commentheader>Details</commentheader></td>
+				<td width="25%"><commentheader>Date</commentheader></td>
+				<td width="35%"><commentheader>Location</commentheader></td>
+				<td width="40%"><commentheader>Details</commentheader></td>
 			</tr>
             <?php
 				$hasResults=false;
@@ -104,8 +104,8 @@ $query = "select * from bands where bandid='$bandid'";
 	<tableheader>Comments:</tableheader>
 	<table width="750" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="20%"><commentheader>Date</commentheader></td>
-				<td width="40%"><commentheader>Name</commentheader></td>
+				<td width="25%"><commentheader>Date</commentheader></td>
+				<td width="35%"><commentheader>Name</commentheader></td>
 				<td width="40%"><commentheader>Comment</commentheader></td>
 			</tr>
 			<?php
@@ -119,7 +119,7 @@ $query = "select * from bands where bandid='$bandid'";
 					</table>
    
     <table>
-    <tr><td>Add a comment:</td>
+    <tr><td><p>Add a comment:</p></td>
 		</tr>
 		<tr>
 		

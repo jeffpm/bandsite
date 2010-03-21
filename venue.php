@@ -81,9 +81,9 @@ $query = "select * from venues where venueid='$venueid'";
 			?>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="15%"><commentheader>Date</commentheader></td>
-				<td width="25%"><commentheader>Featured Band</commentheader></td>
-				<td width="15%"><commentheader>Details</commentheader></td>
+				<td width="25%"><commentheader>Date</commentheader></td>
+				<td width="35%"><commentheader>Featured Band</commentheader></td>
+				<td width="40%"><commentheader>Details</commentheader></td>
 			</tr>
             <?php
 				$hasResults=false;
