@@ -88,8 +88,9 @@
 	}
 	else {
 	//insert adding picture to database
-		$query = "INSERT INTO bands (bandname, picture, members, description) " . 
-				 "VALUES ('$bandname', '$picture', '$members', '$description')";
+	$userid = $_SESSION['userid'];
+		$query = "INSERT INTO bands (bandname, picture, members, description, userid) " . 
+				 "VALUES ('$bandname', '$picture', '$members', '$description', '$userid')";
   
 		$result = mysqli_query($db, $query)
 			or die("Error: Could not create band.");

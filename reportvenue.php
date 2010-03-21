@@ -117,6 +117,7 @@
 		</table>
 	<?php
 	}else{
+		$userid = $_SESSION['userid'];
 		$query = "INSERT INTO venues (name, picture, address, city, state, zip, description, userid) VALUES ('$name', '$picture', '$address', '$city', '$state', '$zip', '$description', '$userid')";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database");
