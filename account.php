@@ -110,7 +110,7 @@ else {
 	<?php
 		//display error message for password field
 	echo "<label for=\"password\">Password:</label>";
-	echo "<input type=\"text\" id=\"password\" name=\"password\" /> Enter a password";
+	echo "<input type=\"password\" id=\"password\" name=\"password\" /> Enter a password";
 	?>
 		</td>	
 	</tr>
