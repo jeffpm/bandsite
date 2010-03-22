@@ -55,6 +55,18 @@ $query = "select * from bands where bandid='$bandid'";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
 	}
     echo " </p>";
+	
+	$query = "SELECT * FROM bandmembers WHERE bandid='$bandid' ORDER BY memberid ASC";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+				$firstloop=true;
+			while ($row = mysqli_fetch_array($result)) {
+				if(!$firstloop){
+					$members=$members.", ";
+				}
+				$members=$members.$row['membername'];
+				$firstloop=false;
+			}
 	?>
 	<table width="800" cellpadding="5" cellspacing="10">
 		<tr>

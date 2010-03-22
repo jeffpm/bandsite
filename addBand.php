@@ -53,6 +53,7 @@ header("location:login.php");
 		<tr><td align="right">
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" /><br />
+            <font color="#999999">(Separate members with a comma ",")</font>
 		</td></tr>
 		<tr><td align="left" colspan="2">
 			<label>Description:</label>

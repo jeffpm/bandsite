@@ -35,21 +35,21 @@ include "dbconnect.php";
 	$_SESSION['type']=$frompage;
 
 	if($frompage == "band"){
-		$bandname = $_POST['bandname'];
-		$picture = $_POST['picture'];
-		$members = $_POST['members'];
+		$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
+		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
+		$members = mysqli_real_escape_string($db, trim($_POST['members']));
 		$_SESSION['name']=$bandname;
 	}else if($frompage == "venue"){
-		$name = $_POST['name'];
+		$name = mysqli_real_escape_string($db, trim($_POST['name']));
 		$_SESSION['name']=$name;
-		$picture = $_POST['picture'];
-		$address = $_POST['address'];
-		$city = $_POST['city'];
-		$state = $_POST['state'];
-		$zip = $_POST['zip'];
+		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
+		$address = mysqli_real_escape_string($db, trim($_POST['address']));
+		$city = mysqli_real_escape_string($db, trim($_POST['city']));
+		$state = mysqli_real_escape_string($db, trim($_POST['state']));
+		$zip = mysqli_real_escape_string($db, trim($_POST['zip']));
 	}
 	
-	$description = $_POST['description'];
+	$description = mysqli_real_escape_string($db, trim($_POST['description']));
 
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {
@@ -72,8 +72,19 @@ if (!isset($_POST['submit'])) {
 			$bandname = $row['bandname'];
 			$_SESSION['name']=$bandname;
 			$picture = $row['picture'];
-			$members = $row['members'];
-			$description = $row['description']; ?>
+			$description = $row['description']; 
+			$query = "SELECT * FROM bandmembers WHERE bandid='$fromid' ORDER BY memberid ASC";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+				$firstloop=true;
+			while ($row = mysqli_fetch_array($result)) {
+				if(!$firstloop){
+					$members=$members.", ";
+				}
+				$members=$members.$row['membername'];
+				$firstloop=false;
+			}
+			?>
             <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
             <a href="delete.php"> Delete Page </a><br />
 			<table cellpadding="5" cellspacing="10">
@@ -92,7 +103,8 @@ if (!isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td><label for="members">Members:</label></td>
-					<td><input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /></td>
+					<td><input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><br />
+                    <font color="#999999">(Separate members with a comma ",")</font></td>
 				</tr>
 				<tr><td colspan="2">
 					<label for"description">Description:</label>
@@ -239,7 +251,8 @@ else {
             <tr>
             <td><label for="members">Members:</label></td>
             <td>
-			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><?php echo "$membersstatus"; ?></td>
+			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><?php echo "$membersstatus"; ?><br />
+            <font color="#999999">(Separate members with a comma ",")</font></td>
             </tr>
 			<tr><td colspan="2">
 					<label for="description">Description:</label>
@@ -308,8 +321,20 @@ else
 				$target ="images/$pic";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
-			//insert added picture to database later
-			$query="UPDATE bands SET bandname='$bandname', picture='$picture', members='$members', description='$description' WHERE bandid='$fromid'";
+			//First, delete the bandmembers (Only way I know how to do this)
+			$query = "DELETE FROM bandmembers WHERE bandid='$fromid'";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+			//Then, add the (possibly) new ones back
+			$members=explode(",", $members);
+			for($i=0; $i<sizeof($members); $i++){
+				$query = "INSERT INTO bandmembers (membername, bandid) " . 
+				 	"VALUES ('".trim($members[$i])."', '$fromid')";
+  
+				$result = mysqli_query($db, $query)
+					or die("Error: Could not add members.");
+			}
+			$query="UPDATE bands SET bandname='$bandname', picture='$picture', description='$description' WHERE bandid='$fromid'";
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){

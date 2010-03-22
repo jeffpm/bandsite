@@ -26,7 +26,7 @@
 	
 		<?php
 		include "dbconnect.php";
-		$search = $_POST['searchB'];
+		$search = mysqli_real_escape_string($db, trim($_POST['searchB']));
 		$query ="SELECT * FROM bands WHERE (bandname) like '%$search%' ORDER BY bandname";
 		$result=mysqli_query($db, $query)
 			or die("Error Querying Database");

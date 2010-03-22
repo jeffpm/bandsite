@@ -25,7 +25,7 @@
 	<div id="main">
 		<?php
 		include "dbconnect.php";
-		$search = $_POST['searchV'];
+		$search = mysqli_real_escape_string($db, trim($_POST['searchV']));
 		$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) like '%$search%'  or (address) like '%$search%' ORDER BY name";
 		$result=mysqli_query($db, $query)
 			or die("Error Querying Database");

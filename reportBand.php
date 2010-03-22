@@ -26,9 +26,9 @@
 <?php
 	include "dbconnect.php";
   
-	$bandname = $_POST['bandname'];
-	$members = $_POST['members'];
-	$description = $_POST['description'];
+	$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
+	$members = mysqli_real_escape_string($db, trim($_POST['members']));
+	$description = mysqli_real_escape_string($db, trim($_POST['description']));
 	$picture = "tempBand.jpg";
 	$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
@@ -73,7 +73,8 @@
         </tr>
 		<tr><td align="right">
 			<label for="members">Members:</label>
-			<input type="text" id="members" name="members" value="<?php echo "$members" ?>" /><?php echo $membersstatus?>
+			<input type="text" id="members" name="members" value="<?php echo "$members" ?>" /><?php echo $membersstatus?><br />
+            <font color="#999999">(Separate members with a comma ",")</font>
 		</td></tr>
 		<tr><td align="left" colspan="2">
 			<label>Description</label>
