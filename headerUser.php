@@ -7,6 +7,8 @@
 		<td width="20%"></td>
 		<td width="20%"><a href="addBand.php">Create Band</a></td>
 		<td width="20%"><a href="addvenue.php">Create Venue</a></td>
+		<td width="15%"><a href="admin.php">Account Management</a></td>
+
 		<td width="20%"><?php echo $_SESSION['username'] ?> <a href="logout.php">Logout</a></td>
 		<td width="20%"></td>
 	</table>
