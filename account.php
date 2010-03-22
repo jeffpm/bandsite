@@ -175,9 +175,9 @@ else {
 	?>
 	<table cellpadding="5" cellspacing="10">
 	<tr>
-		<td><img src="redDesign.gif"></td>
+		<td><img src="images/redDesign.gif"></td>
 		<td>
-			<label>Thank you for submitting your form.</label>
+			<label>Thank you for creating an account.</label>
 		</td>
 	</tr>
 	</table>
