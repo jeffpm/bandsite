@@ -54,7 +54,18 @@ include "dbconnect.php";
 					}
 					$members=$members.$row['membername'];
 					$firstloop=false;
-			}
+				}
+				$query = "SELECT genre FROM genre NATURAL JOIN bands NATURAL JOIN bandgenre WHERE bandid='$bandid' ORDER BY genreid ASC";
+				$result = mysqli_query($db, $query)
+   					or die("Error Querying Database");
+				$firstloop=true;
+				while ($row = mysqli_fetch_array($result)) {
+					if(!$firstloop){
+						$genre=$genre.", ";
+					}
+					$genre=$genre.$row['genre'];
+					$firstloop=false;
+				}
 			?>
 				<table cellpadding="5">
 					<tr>
@@ -64,7 +75,7 @@ include "dbconnect.php";
 						<?php
 							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
 							echo "<commentheader>Members:</commentheader> <p>$members <br></p>";
-							echo "<commentheader>Genre:</commentheader> <p> <br></p>";
+							echo "<commentheader>Genre:</commentheader> <p>$genre <br></p>";
 							echo "<commentheader>Description:</commentheader> <p>$description <br></p>";
 						?>
 					</td>
