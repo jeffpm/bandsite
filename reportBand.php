@@ -89,12 +89,26 @@
 	else {
 	//insert adding picture to database
 	$userid = $_SESSION['userid'];
-		$query = "INSERT INTO bands (bandname, picture, members, description, userid) " . 
-				 "VALUES ('$bandname', '$picture', '$members', '$description', '$userid')";
+		$query = "INSERT INTO bands (bandname, picture, description, userid) " . 
+				 "VALUES ('$bandname', '$picture', '$description', '$userid')";
   
 		$result = mysqli_query($db, $query)
 			or die("Error: Could not create band.");
+			
+		$query = "SELECT bandid FROM bands WHERE userid='$userid' AND bandname='$bandname' AND picture='$picture' AND description='$description'";
+  		
+		$result = mysqli_query($db, $query)
+			or die("Error: Could not find band.");
+		$row = mysqli_fetch_array($result);
+		$bandid=$row['bandid'];
+		$members=explode(",", $members);
+		for($i=0; $i<sizeof($members); $i++){
+			$query = "INSERT INTO bandmembers (membername, bandid) " . 
+				 "VALUES ('".trim($members[$i])."', '$bandid')";
   
+			$result = mysqli_query($db, $query)
+				or die("Error: Could not add members.");
+		}
 	echo "<div id=\"main\">";
 	?>
 	<table cellpadding="5" cellspacing="10">
