@@ -14,6 +14,13 @@ $query = "select * from bands where bandid='$bandid'";
 	$members = $row['members'];
 	$description = $row['description'];
 	$refid = $row['userid'];
+	
+	$albumid = $row['albumid'];
+	$albumname = $row[albumname];
+	$albumyear = $row[albumyear];
+	$albumband = $row[albumband];
+	$albumgenre = $row[albumgenre];
+
 ?>
 <?php
 	//session_start();
@@ -63,6 +70,9 @@ $query = "select * from bands where bandid='$bandid'";
 		</td></tr>
 		<tr><td>
 			<p><?php echo "Description: $description";?></p>
+		</td></tr>
+		<tr><td> 
+			<p><?php echo "Albums: $albumname";?></p>
 		</td></tr>
 	</table>
     
