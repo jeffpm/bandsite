@@ -27,11 +27,11 @@ include "dbconnect.php";
 
 <?php
 //Collect the variables from the form
-$username=$_POST["username"];
-$firstname = $_POST["firstname"];
-$lastname = $_POST["lastname"];
-$password = $_POST["password"];
-$email = $_POST["email"];
+$username=mysqli_real_escape_string($db, trim($_POST["username"]));
+$firstname = mysqli_real_escape_string($db, trim($_POST["firstname"]));
+$lastname = mysqli_real_escape_string($db, trim($_POST["lastname"]));
+$password = mysqli_real_escape_string($db, trim($_POST["password"]));
+$email = mysqli_real_escape_string($db, trim($_POST["email"]));
 
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {

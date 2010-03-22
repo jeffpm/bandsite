@@ -26,9 +26,9 @@
 <?php
 	include "dbconnect.php";
   
-	$bandname = $_POST['bandname'];
-	$members = $_POST['members'];
-	$description = $_POST['description'];
+	$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
+	$members = mysqli_real_escape_string($db, trim($_POST['members']));
+	$description = mysqli_real_escape_string($db, trim($_POST['description']));
 	$picture = "tempBand.jpg";
 	$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){

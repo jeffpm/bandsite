@@ -21,9 +21,9 @@ $bandid = $_GET['id'];
 		} else {
 			include("headerGuest.html");
 		}
-		$name = $_POST['name'];
-		$comment = $_POST['comment'];
-		$date=date("Y-m-d");
+		$name = mysqli_real_escape_string($db, trim($_POST['name']));
+		$comment = mysqli_real_escape_string($db, trim($_POST['comment']));
+		$date=mysqli_real_escape_string($db, trim(date("Y-m-d")));
 		
 	$query = "INSERT INTO comments(bandid, name, comment, date) " . 
 			 "VALUES ('$bandid', '$name', '$comment', '$date')";

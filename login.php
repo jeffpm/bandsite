@@ -64,8 +64,8 @@ if (!isset($_POST['submit'])) {
 }
 else
 {
-  $username=$_POST["username"];
-  $password=$_POST["password"];
+  $username=mysqli_real_escape_string($db, trim($_POST["username"]));
+  $password=mysqli_real_escape_string($db, trim($_POST["password"]));
 
 $query="SELECT * FROM accounts where username='$username' AND password=SHA('$password')";
 $result=mysqli_query($db, $query);

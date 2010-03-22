@@ -35,21 +35,21 @@ include "dbconnect.php";
 	$_SESSION['type']=$frompage;
 
 	if($frompage == "band"){
-		$bandname = $_POST['bandname'];
-		$picture = $_POST['picture'];
-		$members = $_POST['members'];
+		$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
+		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
+		$members = mysqli_real_escape_string($db, trim($_POST['members']));
 		$_SESSION['name']=$bandname;
 	}else if($frompage == "venue"){
-		$name = $_POST['name'];
+		$name = mysqli_real_escape_string($db, trim($_POST['name']));
 		$_SESSION['name']=$name;
-		$picture = $_POST['picture'];
-		$address = $_POST['address'];
-		$city = $_POST['city'];
-		$state = $_POST['state'];
-		$zip = $_POST['zip'];
+		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
+		$address = mysqli_real_escape_string($db, trim($_POST['address']));
+		$city = mysqli_real_escape_string($db, trim($_POST['city']));
+		$state = mysqli_real_escape_string($db, trim($_POST['state']));
+		$zip = mysqli_real_escape_string($db, trim($_POST['zip']));
 	}
 	
-	$description = $_POST['description'];
+	$description = mysqli_real_escape_string($db, trim($_POST['description']));
 
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {

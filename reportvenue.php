@@ -21,7 +21,7 @@
 	<div id="main">	
 <?php
 	include "dbconnect.php";
-	$name = $_POST['name'];
+	$name = mysqli_real_escape_string($db, trim($_POST['name']));
 	/*
 	$picture = $_FILES['picture']['name'];
 	$target ="images/$picture";
@@ -34,11 +34,11 @@
 				$target ="images/$pic";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
-	$address = $_POST['address'];
-	$city = $_POST['city'];
-	$state = $_POST['state'];
-	$zip = $_POST['zip'];
-	$description = $_POST['description'];
+	$address = mysqli_real_escape_string($db, trim($_POST['address']));
+	$city = mysqli_real_escape_string($db, trim($_POST['city']));
+	$state = mysqli_real_escape_string($db, trim($_POST['state']));
+	$zip = mysqli_real_escape_string($db, trim($_POST['zip']));
+	$description = mysqli_real_escape_string($db, trim($_POST['description']));
 	$valid_responses = true;
 	/*echo " (test code) PASSED VARS: $name $address $city $state $zip $description";*/
 	if(is_null($name) or $name == ""){
