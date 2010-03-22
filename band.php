@@ -80,11 +80,15 @@ $query = "select * from bands where bandid='$bandid'";
 		<tr><td>
 			<p><?php echo "Members: $members";?></p>
 		</td></tr>
+
 		<tr><td>
 			<p><?php echo "Description: $description";?></p>
 		</td></tr>
 		<tr><td> 
 			<p><?php echo "Albums: $albumname";?></p>
+		</td></tr>
+				<tr><td>
+			<p><?php echo "Genre:";?></p>
 		</td></tr>
 	</table>
     
