@@ -16,6 +16,7 @@ $query = "select * from venues where venueid='$venueid'";
 	$state = $row['state'];
 	$zip = $row['zip'];
 	$description = $row['description'];
+	$refid=$row['userid'];
 
 	  
 ?>
