@@ -68,6 +68,11 @@ $query = "select * from venues where venueid='$venueid'";
 		<tr><td>
 			<p><?php echo "Description: $description";?></p>
 		</td></tr>
+		
+		<tr>
+			<th rowspan="3">Location:<img src="http://maps.google.com/maps/api/staticmap?size=400x400&maptype=roadmap\&markers=size:mid|color:red|
+			<?php echo"$address,$zip";?>&sensor=false" /></th>
+		</td></tr>
 	</table>
     
 	
