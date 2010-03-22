@@ -9,5 +9,3 @@
 <input type = "text" id="searchV" name = "searchV" />
 <input type = "submit" value= "go" name="submit"/>
 </form>
-
-<p>Upcoming Events</p>

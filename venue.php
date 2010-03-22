@@ -52,7 +52,7 @@ $query = "select * from venues where venueid='$venueid'";
     echo " </p>";
 	}
 	?>
-	<table width="750" cellpadding="5" cellspacing="10">
+	<table width="900" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$name";?></pagetitle>
@@ -71,7 +71,7 @@ $query = "select * from venues where venueid='$venueid'";
 		</td></tr>
 		
 		<tr>
-			<th rowspan="3">Location:<img src="http://maps.google.com/maps/api/staticmap?size=400x400&maptype=roadmap\&markers=size:mid|color:red|
+			<th rowspan="3"><p>Location:</p><img src="http://maps.google.com/maps/api/staticmap?size=400x400&maptype=roadmap\&markers=size:mid|color:red|
 			<?php echo"$address,$zip";?>&sensor=false" /></th>
 		</td></tr>
 	</table>

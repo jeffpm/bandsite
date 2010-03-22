@@ -56,7 +56,7 @@ $query = "select * from bands where bandid='$bandid'";
 	}
     echo " </p>";
 	?>
-	<table width="750" cellpadding="5" cellspacing="10">
+	<table width="900" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$bandname";?></pagetitle>
