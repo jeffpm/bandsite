@@ -20,6 +20,14 @@ INSERT into venues (name, picture, address, city, state, zip, description, useri
 
 CREATE TABLE IF NOT EXISTS `events` ( `eventid` smallint(6) NOT NULL AUTO_INCREMENT, `date` date NOT NULL, `venueid` INT NOT NULL, `bandid` INT NOT NULL, `description` BLOB NOT NULL, PRIMARY KEY (`eventid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO events (date, venueid, bandid, description) VALUES ('2010-05-03', '3', '1', "Doors open at 6:00pm. Show starts at 8:00pm.");
+
+INSERT INTO events (date, venueid, bandid, description) VALUES ('2010-05-13', '3', '6', "Doors open at 7:00pm. Show starts at 8:30pm.");
+
+INSERT INTO events (date, venueid, bandid, description) VALUES ('2010-04-09', '1', '4', "Held in the Great Hall. Doors open at 7:15pm. Show starts at 8:00pm.");
+
+INSERT INTO events (date, venueid, bandid, description) VALUES ('2010-06-15', '2', '3', "Show starts at 9:00pm.");
+
 CREATE TABLE IF NOT EXISTS `bands` (`bandid` smallint(6) NOT NULL AUTO_INCREMENT, `userid` smallint(6) NOT NULL, `bandname` varchar(50) NOT NULL, `picture` varchar(50) NOT NULL, `city` varchar(30) NOT NULL, `state` varchar(30) NOT NULL, `description` BLOB NOT NULL, PRIMARY KEY (`bandid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lady Antebellum', '1', 'ladya.jpg', 'Nashville', 'Tennessee', 'This group was formed in 2006 and has quickly become popular. They newest album is #3 on the Billboard Charts.');
