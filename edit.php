@@ -72,8 +72,19 @@ if (!isset($_POST['submit'])) {
 			$bandname = $row['bandname'];
 			$_SESSION['name']=$bandname;
 			$picture = $row['picture'];
-			$members = $row['members'];
-			$description = $row['description']; ?>
+			$description = $row['description']; 
+			$query = "SELECT * FROM bandmembers WHERE bandid='$fromid' ORDER BY memberid ASC";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+				$firstloop=true;
+			while ($row = mysqli_fetch_array($result)) {
+				if(!$firstloop){
+					$members=$members.", ";
+				}
+				$members=$members.$row['membername'];
+				$firstloop=false;
+			}
+			?>
             <input type="hidden" name="picture" value="<?php echo "$picture"; ?>" />
             <a href="delete.php"> Delete Page </a><br />
 			<table cellpadding="5" cellspacing="10">
@@ -308,8 +319,20 @@ else
 				$target ="images/$pic";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
-			//insert added picture to database later
-			$query="UPDATE bands SET bandname='$bandname', picture='$picture', members='$members', description='$description' WHERE bandid='$fromid'";
+			//First, delete the bandmembers (Only way I know how to do this)
+			$query = "DELETE FROM bandmembers WHERE bandid='$fromid'";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+			//Then, add the (possibly) new ones back
+			$members=explode(",", $members);
+			for($i=0; $i<sizeof($members); $i++){
+				$query = "INSERT INTO bandmembers (membername, bandid) " . 
+				 	"VALUES ('".trim($members[$i])."', '$fromid')";
+  
+				$result = mysqli_query($db, $query)
+					or die("Error: Could not add members.");
+			}
+			$query="UPDATE bands SET bandname='$bandname', picture='$picture', description='$description' WHERE bandid='$fromid'";
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
