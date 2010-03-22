@@ -44,7 +44,7 @@ $query = "select * from venues where venueid='$venueid'";
 	?>	
 	<div id="main">
 	<?php
-	if(isset($_SESSION['userid'])){
+	if(isset($_SESSION['userid'])  AND $_SESSION['userid']==$refid){
 	//if(session_is_registered(myusername)){
 	echo "<p><a href=\"edit.php?page=venue&id=$venueid\">Edit Venue Information</a>";
 	echo " - <a href=\"addevent.php?page=venue&id=$venueid\">Add Event</a>";

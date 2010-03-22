@@ -13,6 +13,7 @@ $query = "select * from bands where bandid='$bandid'";
 	$picture = $row['picture'];
 	$members = $row['members'];
 	$description = $row['description'];
+	$refid = $row['userid'];
 ?>
 <?php
 	//session_start();
@@ -41,7 +42,7 @@ $query = "select * from bands where bandid='$bandid'";
 	?>	
 	<div id="main">
 	<?php
-	if(isset($_SESSION['userid'])){
+	if(isset($_SESSION['userid']) AND $_SESSION['userid']==$refid){
 	//if(session_is_registered(myusername)){
 	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit Band Information</a>";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
