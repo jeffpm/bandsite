@@ -24,13 +24,26 @@ header("location:login.php");
 		} else {
 			include("headerGuest.html");
 		}
+		$userid=$_SESSION['userid'];
+		$query="SELECT * from bands where userid=$userid ORDER BY bandname";
+		$result = mysqli_query($db, $query)
+		or die("Error querying Database");
+	
 	?>
+
 	<div id="main">
-	<a href=changeaccount.php>Change account information</a
-	<br>
-	<a href=managebands.php>Manage added bands</a>
-	<br>
-	<a href=managevenues.php>Manage added venues</a>
+		<table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="25%"><commentheader>Band</commentheader></td>
+				<td width="35%"><commentheader>Edit</commentheader></td>
+			</tr>
+			<?php
+			while ($row = mysqli_fetch_array($result)) {
+			$bandname=$row['bandname'];
+			$bandid=$row['bandid'];
+			echo "<tr><td>$bandname</td><td><a href=http://localhost/bandsite/edit.php?page=band&id=$bandid>Edit</a></td></tr>\n";
+			}
+			?>
 	</div>
 
 	<?php include("footer.html"); ?>
