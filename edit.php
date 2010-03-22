@@ -103,7 +103,8 @@ if (!isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td><label for="members">Members:</label></td>
-					<td><input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /></td>
+					<td><input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><br />
+                    <font color="#999999">(Separate members with a comma ",")</font></td>
 				</tr>
 				<tr><td colspan="2">
 					<label for"description">Description:</label>
@@ -250,7 +251,8 @@ else {
             <tr>
             <td><label for="members">Members:</label></td>
             <td>
-			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><?php echo "$membersstatus"; ?></td>
+			<input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><?php echo "$membersstatus"; ?><br />
+            <font color="#999999">(Separate members with a comma ",")</font></td>
             </tr>
 			<tr><td colspan="2">
 					<label for="description">Description:</label>

@@ -73,7 +73,8 @@
         </tr>
 		<tr><td align="right">
 			<label for="members">Members:</label>
-			<input type="text" id="members" name="members" value="<?php echo "$members" ?>" /><?php echo $membersstatus?>
+			<input type="text" id="members" name="members" value="<?php echo "$members" ?>" /><?php echo $membersstatus?><br />
+            <font color="#999999">(Separate members with a comma ",")</font>
 		</td></tr>
 		<tr><td align="left" colspan="2">
 			<label>Description</label>
