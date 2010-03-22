@@ -31,11 +31,11 @@
 		$result=mysqli_query($db, $query)
 			or die("Error Querying Database");
 		?>
-		<table width="750" cellpadding="5" cellspacing="10">
+		<table width="1050" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="20%"><tableheader>Band Name</tableheader></td>
-				<td width="40%"><tableheader>Members</tableheader></td>
-				<td width="40%"><tableheader>Description</tableheader></td>
+				<td width="35%"><tableheader>Members</tableheader></td>
+				<td width="45%"><tableheader>Description</tableheader></td>
 			</tr>
 		<?php	
 

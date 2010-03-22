@@ -24,7 +24,7 @@ include "dbconnect.php";
 	?>
 	
 	<div id="features">
-		<table border="1" width="750" cellpadding="5" cellspacing="10">
+		<table border="1" width="700" cellpadding="5" cellspacing="10">
 			<tr align="center">
 			<td width="50%">
 			<tableHeader>Featured Band</tableHeader>
@@ -53,8 +53,9 @@ include "dbconnect.php";
 					<td>
 						<?php
 							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
-							echo "<p>Members: $members <br></p>";
-							echo "<p>Description: $description <br></p>";
+							echo "<commentheader>Members:</commentheader> <p>$members <br></p>";
+							echo "<commentheader>Genre:</commentheader> <p> <br></p>";
+							echo "<commentheader>Description:</commentheader> <p>$description <br></p>";
 						?>
 					</td>
 					</tr>
@@ -83,8 +84,8 @@ include "dbconnect.php";
 					<td>
 						<?php
 							echo "<p><a href=\"venue.php?id=$venueid\">$name</a> <br></p>";
-							echo "<p>Address: $address, $city, $state, $zip <br></p>";
-							echo "<p>Description: $description</p>";
+							echo "<commentheader>Address:</commentheader> <p>$address, $city, $state, $zip <br></p>";
+							echo "<commentheader>Description:</commentheader> <p>$description</p>";
 						?>
 					</td>
 					</tr>

@@ -31,14 +31,14 @@
 			or die("Error Querying Database");
 		?>
 
-		<table width="750" cellpadding="5" cellspacing="10">
+		<table width="1050" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="15%"><tableheader>Name</tableheader></td>
-				<td width="25%"><tableheader>Address</tableheader></td>
+				<td width="20%"><tableheader>Address</tableheader></td>
 				<td width="15%"><tableheader>City</tableheader></td>
-				<td width="15%"><tableheader>State</tableheader></td>
+				<td width="10%"><tableheader>State</tableheader></td>
 				<td width="10%"><tableheader>Zip</tableheader></td>
-				<td width="20%"><tableheader>Description</tableheader></td>
+				<td width="30%"><tableheader>Description</tableheader></td>
 			</tr>
 			<?php
 			while ($row = mysqli_fetch_array($result)) {
