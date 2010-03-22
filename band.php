@@ -20,7 +20,6 @@ $query = "select * from bands where bandid='$bandid'";
 	$albumyear = $row[albumyear];
 	$albumband = $row[albumband];
 	$albumgenre = $row[albumgenre];
-
 ?>
 <?php
 	//session_start();
@@ -67,6 +66,17 @@ $query = "select * from bands where bandid='$bandid'";
 				$members=$members.$row['membername'];
 				$firstloop=false;
 			}
+	$query = "SELECT genre FROM genre NATURAL JOIN bands NATURAL JOIN bandgenre WHERE bandid='$bandid' ORDER BY genreid ASC";
+				$result = mysqli_query($db, $query)
+   					or die("Error Querying Database");
+				$firstloop=true;
+				while ($row = mysqli_fetch_array($result)) {
+					if(!$firstloop){
+						$genre=$genre.", ";
+					}
+					$genre=$genre.$row['genre'];
+					$firstloop=false;
+				}
 	?>
 	<table width="1050" cellpadding="5" cellspacing="10">
 		<tr>
@@ -83,7 +93,7 @@ $query = "select * from bands where bandid='$bandid'";
 			<p><?php echo "<commentheader>Description:</commentheader> $description";?></p>
 		</td></tr>
 		<tr><td>
-			<p><?php echo "<commentheader>Genre:</commentheader>";?></p>
+			<p><?php echo "<commentheader>Genre:</commentheader> $genre";?></p>
 		</td></tr>
 		<tr><td> 
 			<p><?php echo "<commentheader>Albums:</commentheader> $albumname";?></p>
