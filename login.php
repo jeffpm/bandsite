@@ -72,6 +72,7 @@ $result=mysqli_query($db, $query);
 	$row = mysqli_fetch_array($result);
 
 $userid=$row['userid'];
+$username = $row['firstname'] . " " . $row['lastname'];
 
 $num=mysqli_num_rows($result);
 if ($num<1){
@@ -114,6 +115,8 @@ Your username/password combination was incorrect. Please try again.
 	else {
 		//session_register("myusername");
 		$_SESSION['userid']=$userid;
+		$_SESSION['username'] = $username;
+		
 		header("location:index.php");
 		}
 }

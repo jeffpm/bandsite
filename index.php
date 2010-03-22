@@ -17,7 +17,7 @@ include "dbconnect.php";
     <?php
 		//if(session_is_registered(myusername)){
 		if(isset($_SESSION['userid'])){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}
