@@ -52,22 +52,18 @@ $query = "select * from venues where venueid='$venueid'";
     echo " </p>";
 	}
 	?>
-	<table width="800" cellpadding="5" cellspacing="10">
+	<table width="1050" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$name";?></pagetitle>
-			</td>
-			<td>
-			<?php //temporary picture until pictures implemented
-			  //this code to be used after implementation <img src="images/ (php) echo "$picture"; (/php)" /> ?>
 			<th rowspan="3"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
 		<tr><td>
-			<p><?php echo "Address: $address, $city, $state, $zip";?></p>
+			<p><?php echo "<commentheader>Address:</commentheader> $address, $city, $state, $zip";?></p>
 		</td></tr>
 		<tr><td>
-			<p><?php echo "Description: $description";?></p>
+			<p><?php echo "<commentheader>Description:</commentheader> $description";?></p>
 		</td></tr>
 		
 		<tr>
