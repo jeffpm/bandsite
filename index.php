@@ -43,8 +43,18 @@ include "dbconnect.php";
 				$bandid = $row['bandid'];
 				$bandname = $row['bandname'];
 				$picture = $row['picture'];
-				$members = $row['members'];
 				$description = $row['description'];
+				$query = "SELECT * FROM bandmembers WHERE bandid='$bandid' ORDER BY memberid ASC";
+				$result = mysqli_query($db, $query)
+   					or die("Error Querying Database");
+				$firstloop=true;
+				while ($row = mysqli_fetch_array($result)) {
+					if(!$firstloop){
+						$members=$members.", ";
+					}
+					$members=$members.$row['membername'];
+					$firstloop=false;
+			}
 			?>
 				<table cellpadding="5">
 					<tr>
