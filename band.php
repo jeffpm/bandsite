@@ -68,27 +68,25 @@ $query = "select * from bands where bandid='$bandid'";
 				$firstloop=false;
 			}
 	?>
-	<table width="800" cellpadding="5" cellspacing="10">
+	<table width="1050" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$bandname";?></pagetitle>
-			</td>
-			<td>
-			<th rowspan="3"><img src="images/<?php echo"$picture"; ?>" /></th>
+			<th rowspan="5"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
 		<tr><td>
-			<p><?php echo "Members: $members";?></p>
+			<p><?php echo "<commentheader>Members:</commentheader> $members";?></p>
 		</td></tr>
 
 		<tr><td>
-			<p><?php echo "Description: $description";?></p>
+			<p><?php echo "<commentheader>Description:</commentheader> $description";?></p>
+		</td></tr>
+		<tr><td>
+			<p><?php echo "<commentheader>Genre:</commentheader>";?></p>
 		</td></tr>
 		<tr><td> 
-			<p><?php echo "Albums: $albumname";?></p>
-		</td></tr>
-				<tr><td>
-			<p><?php echo "Genre:";?></p>
+			<p><?php echo "<commentheader>Albums:</commentheader> $albumname";?></p>
 		</td></tr>
 	</table>
     
