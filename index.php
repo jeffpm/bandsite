@@ -70,7 +70,7 @@ include "dbconnect.php";
 				<table cellpadding="5">
 					<tr>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo"$picture"; ?>"></a></td>
+					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo"$picture"; ?>" width=375 height=350></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
@@ -101,7 +101,7 @@ include "dbconnect.php";
 				<table cellpadding="5">
 					<tr>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo"$picture"; ?>"></a></td>
+					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo"$picture"; ?>" width=375 height=350></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"venue.php?id=$venueid\">$name</a> <br></p>";
