@@ -53,6 +53,7 @@ $query = "select * from bands where bandid='$bandid'";
 	//if(session_is_registered(myusername)){
 	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit Band Information</a>";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
+	echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
 	}
     echo " </p>";
 	
