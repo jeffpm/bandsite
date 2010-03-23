@@ -157,3 +157,13 @@ INSERT INTO bandgenre (bandid, genreid) VALUES ('6', '3');
 INSERT INTO bandgenre (bandid, genreid) VALUES ('6', '4');
 
 CREATE TABLE IF NOT EXISTS `comments` (`commentid` smallint(6) NOT NULL AUTO_INCREMENT, `bandid` smallint(6), `name` varchar(30) NOT NULL, `comment` blob, `date` date, PRIMARY KEY (`commentid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+INSERT INTO comments (bandid, name, comment, date) VALUES ('3', 'Sarah', 'Awesome sound!', '2010-02-21');
+
+INSERT INTO comments (bandid, name, comment, date) VALUES ('2', 'Tony', 'Awesome sound!', '2009-11-02');
+
+INSERT INTO comments (bandid, name, comment, date) VALUES ('5', 'Adam', 'I still listen to these guys.  Their music is incredible.', '2010-03-15');
+
+INSERT INTO comments (bandid, name, comment, date) VALUES ('4', 'George', 'Can\'t wait for the concert!', '2010-03-24');
+
+INSERT INTO comments (bandid, name, comment, date) VALUES ('4', 'Betty', 'Yea, it\'s gonna be incredible', '2010-03-29');
