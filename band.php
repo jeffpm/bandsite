@@ -85,6 +85,7 @@ $query = "select * from bands where bandid='$bandid'";
 				while($row = mysqli_fetch_array($result)) {
 					if(!$firstloop){
 						$albumname=$albumname.", ";
+						
 					}
 					$albumname=$albumname.$row['albumname'];
 					$firstloop = false;
@@ -95,7 +96,7 @@ $query = "select * from bands where bandid='$bandid'";
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$bandname";?></pagetitle>
-			<th rowspan="5"><img src="images/<?php echo"$picture"; ?>" /></th>
+			<th rowspan="6"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
 		<tr><td>
