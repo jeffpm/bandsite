@@ -38,6 +38,7 @@ include "dbconnect.php";
 		$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
 		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
 		$members = mysqli_real_escape_string($db, trim($_POST['members']));
+		$genreid = $_POST['genre'];
 		$_SESSION['name']=$bandname;
 	}else if($frompage == "venue"){
 		$name = mysqli_real_escape_string($db, trim($_POST['name']));
@@ -101,6 +102,25 @@ if (!isset($_POST['submit'])) {
 					<td><label for="pic">Change Picture:</label></td>
 					<td><input type="file" id="pic" name="pic"  /></td>
 				</tr>
+						<?php
+		$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
+
+		<tr>
+		<td><label for="pic">Genre:</label>
+		<td><select name="genre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genreid>$genre</option>";
+		}
+		?>
+			</select>
+			</td>
+		</td></tr>
 				<tr>
 					<td><label for="members">Members:</label></td>
 					<td><input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><br />
@@ -248,6 +268,19 @@ else {
             <td><label for="pic">Change Picture:</label></td>
             <td><input type="file" id="pic" name="pic"  /></td>
             </tr>
+			<tr>
+		<td><label for="pic">Genre:</label>
+		<td><select name="genre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genreid>$genre</option>";
+		}
+		?>
+			</select>
+			</td>
+		</td></tr>
             <tr>
             <td><label for="members">Members:</label></td>
             <td>
@@ -335,7 +368,11 @@ else
 				$result = mysqli_query($db, $query)
 					or die("Error: Could not add members.");
 			}
+			$query = "UPDATE bandgenre SET genreid='$genreid' WHERE bandid='$fromid'";
+			$result = mysqli_query($db, $query)
+   			or die("Error editing genre");
 			$query="UPDATE bands SET bandname='$bandname', picture='$picture', description='$description' WHERE bandid='$fromid'";
+			
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){

@@ -27,6 +27,7 @@
 	include "dbconnect.php";
   
 	$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
+	$genreid = $_POST['genre'];
 	$members = mysqli_real_escape_string($db, trim($_POST['members']));
 	$description = mysqli_real_escape_string($db, trim($_POST['description']));
 	$picture = "tempBand.jpg";
@@ -43,6 +44,7 @@
 		$valid_responses = false;
 		$bandnamestatus = "*Invalid Entry";
 	}
+
 	if(is_null($members) or $members == ""){
 		$valid_responses = false;
 		$membersstatus = "*Invalid Entry";
@@ -72,6 +74,25 @@
         	<input type="file" id="pic" name="pic"  /><br />
         </td>
         </tr>
+				<?php
+		$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
+
+		<tr><td align="right">
+		<label for="pic">Genre:</label>
+		<select name="genre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genreid>$genre</option>";
+		}
+		?>
+			</select>
+		</td></tr>
+		
 		<tr><td align="right">
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" value="<?php echo "$members" ?>" /><?php echo $membersstatus?><br />
@@ -103,6 +124,7 @@
 			or die("Error: Could not find band.");
 		$row = mysqli_fetch_array($result);
 		$bandid=$row['bandid'];
+				
 		$members=explode(",", $members);
 		for($i=0; $i<sizeof($members); $i++){
 			$query = "INSERT INTO bandmembers (membername, bandid) " . 
@@ -111,6 +133,10 @@
 			$result = mysqli_query($db, $query)
 				or die("Error: Could not add members.");
 		}
+		$query = "INSERT INTO bandgenre (bandid, genreid) VALUES ($bandid, $genreid)";
+
+		$result = mysqli_query($db, $query)
+			or die("Error: Could not insert genre");
 	echo "<div id=\"main\">";
 	?>
 	<table cellpadding="5" cellspacing="10">

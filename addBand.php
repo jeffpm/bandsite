@@ -1,4 +1,5 @@
 <?php
+include "dbconnect.php";
 session_start();
 if(!isset($_SESSION['userid'])){
 //if(!session_is_registered(myusername)){
@@ -34,7 +35,7 @@ header("location:login.php");
 		</td></tr>
 		<form method="post" action="reportBand.php" enctype="multipart/form-data">
 		<tr>
-		<th rowspan="5"><img src="images/redDesign.gif"></th>
+		<th rowspan="6"><img src="images/redDesign.gif"></th>
 		</tr>
 		<tr><td align="right">
 			<label for="bandname">Band name:</label>
@@ -50,11 +51,30 @@ header("location:login.php");
         	<input type="file" id="pic" name="pic"  /><br />
         </td>
         </tr>
+		<?php
+		$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
+
+		<tr><td align="right">
+		<label for="pic">Genre:</label>
+		<select name="genre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genreid>$genre</option>";
+		}
+		?>
+			</select>
+		</td></tr>
 		<tr><td align="right">
 			<label for="members">Members:</label>
 			<input type="text" id="members" name="members" /><br />
             <font color="#999999">(Separate members with a comma ",")</font>
 		</td></tr>
+	
 		<tr><td align="left" colspan="2">
 			<label>Description:</label>
 			<textarea id="other" name="description" rows="5" cols="50" ></textarea>
