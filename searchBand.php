@@ -30,6 +30,7 @@
 		$query ="SELECT * FROM bands WHERE (bandname) like '%$search%' ORDER BY bandname";
 		$result=mysqli_query($db, $query)
 			or die("Error Querying Database");
+				
 		?>
 		<table width="1050" cellpadding="5" cellspacing="10">
 			<tr>
@@ -42,11 +43,22 @@
 		while ($row = mysqli_fetch_array($result)) {
 			$id=$row['bandid'];
 			$bandname=$row['bandname'];
-			$members=$row['members'];
 			$description = $row['description'];
-
+			
+			$query = "SELECT * FROM bandmembers WHERE bandid='$id' ORDER BY memberid ASC";
+			$result2 = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+			$firstloop=true;
+			while ($row = mysqli_fetch_array($result2)) {
+				if(!$firstloop){
+					$members=$members.", ";
+				}
+				$members=$members.$row['membername'];
+				$firstloop=false;
+			}
+			
 			echo "<tr><td><a href=\"band.php?id=$id\">$bandname</a></td><td>$members</td><td>$description</td></tr>\n";
-
+			$members='';
 		}
 		?>
 		</table>

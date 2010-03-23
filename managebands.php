@@ -44,8 +44,11 @@ header("location:login.php");
 			echo "<tr><td>$bandname</td><td><a href=http://localhost/bandsite/edit.php?page=band&id=$bandid>Edit</a></td></tr>\n";
 			}
 			?>
+		</table>
 	</div>
-
+	<div id="sidebar">
+		<?php include("sidebar.php"); ?>
+	</div>
 	<?php include("footer.html"); ?>
 </div>
 </body>
