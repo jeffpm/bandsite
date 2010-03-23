@@ -26,11 +26,20 @@ header("location:login.php");
 		}
 	?>
 	<div id="main">
-	<a href=changeaccount.php>Change account information</a
-	<br>
-	<a href=managebands.php>Manage added bands</a>
-	<br>
-	<a href=managevenues.php>Manage added venues</a>
+		<table cellpadding="5" cellspacing="10">
+			<tr>
+				<th rowspan="4"><img src="images/redDesign.gif"></th>
+			</tr>
+			<tr><td>
+				<a href=changeaccount.php>Change account information</a>
+			</td></tr>
+			<tr><td>
+				<a href=managebands.php>Manage added bands</a>
+			</td></tr>
+			<tr><td>
+				<a href=managevenues.php>Manage added venues</a>
+			</td></tr>
+		</table>
 	</div>
 
 	<?php include("footer.html"); ?>
