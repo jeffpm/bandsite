@@ -84,11 +84,11 @@ header("location:login.php");
 </table>
 <?php }
 else {
-$username = $_POST['username'];
-$password = $_POST['password'];
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$email = $_POST['email'];
+$username=mysqli_real_escape_string($db, trim($_POST["username"]));
+$password=mysqli_real_escape_string($db, trim($_POST["password"]));
+$firstname=mysqli_real_escape_string($db, trim($_POST["firstname"]));
+$lastname = mysqli_real_escape_string($db, trim($_POST["lastname"]));
+$email = mysqli_real_escape_string($db, trim($_POST["email"]));
 
 		$query="SELECT * FROM accounts where userid=$userid";
 		$result=mysqli_query($db, $query);
