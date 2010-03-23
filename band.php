@@ -16,10 +16,11 @@ $query = "select * from bands where bandid='$bandid'";
 	$refid = $row['userid'];
 	
 	$albumid = $row['albumid'];
-	$albumname = $row[albumname];
-	$albumyear = $row[albumyear];
-	$albumband = $row[albumband];
-	$albumgenre = $row[albumgenre];
+	$albumname = $row['albumname'];
+	$albumyear = $row['albumyear'];
+	$albumband = $row['albumband'];
+	$albumgenre = $row['albumgenre'];
+	
 ?>
 <?php
 	//session_start();
@@ -77,7 +78,19 @@ $query = "select * from bands where bandid='$bandid'";
 					$genre=$genre.$row['genre'];
 					$firstloop=false;
 				}
-	?>
+	$query = "SELECT albumname FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";
+				$result = mysqli_query($db, $query)
+					or die("Error Querying Database");
+				$firstloop = true;
+				while($row = mysqli_fetch_array($result)) {
+					if(!$firstloop){
+						$albumname=$albumname.", ";
+					}
+					$albumname=$albumname.$row['albumname'];
+					$firstloop = false;
+				}
+			   
+			       ?>
 	<table width="1050" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
