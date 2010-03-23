@@ -62,18 +62,7 @@ if (!isset($_POST['submit'])) {
 		<input type="text" id="albumgenre" name="albumgenre" /><br />
 	</td>
 </tr>
-<tr>
-	<td align="right">
-		<label for="lastname">Last name:</label>
-		<input type="text" id="lastname" name="lastname" /><br />
-	</td>
-</tr>
-<tr>
-	<td align="right">
-		<label for="email">Email:</label>
-		<input type="text" id="email" name="email" /><br />
-	</td>
-</tr>
+
 <tr>
 	<td align="right">
 		<input type="submit" value="submit" name="submit">
