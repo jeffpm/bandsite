@@ -31,7 +31,8 @@
 	$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
 				$picture=$pic;
-				$target ="images/$pic";
+				$picture=urlencode($picture);
+				$target ="images/$picture";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
 	$address = mysqli_real_escape_string($db, trim($_POST['address']));

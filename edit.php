@@ -318,7 +318,8 @@ else
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
 				$picture=$pic;
-				$target ="images/$pic";
+				$picture=urlencode($picture);
+				$target ="images/$picture";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
 			//First, delete the bandmembers (Only way I know how to do this)
@@ -339,7 +340,8 @@ else
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
 				$picture=$pic;
-				$target ="images/$pic";
+				$picture=urlencode($picture);
+				$target ="images/$picture";
 				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
 			}
 			$query="UPDATE venues SET name='$name', picture='$picture', address='$address', city='$city', state='$state', zip='$zip', description='$description' WHERE venueid='$fromid'";
