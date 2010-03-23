@@ -56,7 +56,7 @@ $query = "select * from venues where venueid='$venueid'";
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$name";?></pagetitle>
-			<th rowspan="3"><img src="images/<?php echo"$picture"; ?>" /></th>
+			<th rowspan="4" valign="top"><img src="images/<?php echo"$picture"; ?>" /></th>
 			</td>
 		</tr>
 		<tr><td>
