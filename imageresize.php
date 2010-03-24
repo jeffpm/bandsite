@@ -27,7 +27,21 @@ function imageResize($w, $h, $target) {
 		}
 //returns the new sizes in html image tag format...this is so you 
 //can plug this function inside an image tag and just get the 
-
+		if($width > $w OR $height > $h){
+			if ($width > $height) { 
+			$percentageW = ($w / $width); 
+			
+			} else { 
+				$percentageH = ($h / $height); 
+			}
+			if($percentageW == 0){
+			$width = round($width * $percentageH); 
+				$height = round($height * $percentageH); 
+			}else if($percentageH == 0){
+				$width = round($width * $percentageW); 
+				$height = round($height * $percentageW); 
+			}
+		}
 		echo "width=\"$width\" height=\"$height\""; 
 	}else{
 		return "123";
