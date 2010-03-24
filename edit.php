@@ -31,8 +31,6 @@ include "dbconnect.php";
 		
 	$frompage = $_POST['frompage'];
 	$fromid = $_POST['fromid'];
-	$_SESSION['id']=$fromid;
-	$_SESSION['type']=$frompage;
 
 	if($frompage == "band"){
 		$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
@@ -49,26 +47,38 @@ include "dbconnect.php";
 		$state = mysqli_real_escape_string($db, trim($_POST['state']));
 		$zip = mysqli_real_escape_string($db, trim($_POST['zip']));
 	}
-	
 	$description = mysqli_real_escape_string($db, trim($_POST['description']));
-
+	if(empty($fromid)){
+		$frompage = $_GET['page'];
+		$fromid = $_GET['id'];
+	}
+$table=$frompage.'s';
+$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database 0");
+			$row=mysqli_fetch_array($result);
+			$userid=$row['userid'];
 //If the submit button wasn't pressed, show the form
+if($_SESSION['userid']!=$userid){
+	?>
+    <meta http-equiv="refresh" content="0;url=index.php">
+    Error. Redirecting. Click <a href="index.php">here</a> if redirection fails.
+    <?php
+}else{
 if (!isset($_POST['submit'])) {
 ?>
 	
 	<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
 				<?php
-		$frompage = $_GET['page'];
-		$fromid = $_GET['id'];
 		$_SESSION['id']=$fromid;
 		$_SESSION['type']=$frompage;
 		echo "<input type =\"hidden\" name=\"frompage\" value=\"$frompage\" />\n";
 		echo "<input type =\"hidden\" name=\"fromid\" value=\"$fromid\" />\n";
 		$table=$frompage.'s';
-		$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
-			$result = mysqli_query($db, $query)
-   				or die("Error Querying Database 1");
-			$row=mysqli_fetch_array($result);
+		//$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
+			//$result = mysqli_query($db, $query)
+   			//	or die("Error Querying Database 1");
+			//$row=mysqli_fetch_array($result);
 		if($frompage == "band"){ 
 			$bandname = $row['bandname'];
 			$_SESSION['name']=$bandname;
@@ -391,6 +401,7 @@ else
 		mysqli_close($db);
 		?><meta http-equiv="refresh" content="4;url=index.php"> <?php
 	}
+}
 }
 ?>
 	</div>
