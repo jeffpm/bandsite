@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "dbconnect.php";
+include "imageresize.php";
 $bandid = $_GET['id'];
 
 $query = "select * from bands where bandid='$bandid'";
@@ -97,7 +98,7 @@ $query = "select * from bands where bandid='$bandid'";
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$bandname";?></pagetitle>
-			<th rowspan="6"><img src="images/<?php echo"$picture"; ?>" /></th>
+			<th rowspan="6"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(300, 300,"images/$picture");  ?>/></th>
 			</td>
 		</tr>
 		<tr><td>

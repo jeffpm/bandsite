@@ -1,6 +1,7 @@
 <?php
 include "dbconnect.php";
 	session_start();
+	include "imageresize.php";
 $venueid = $_GET['id'];
 
 $query = "select * from venues where venueid='$venueid'";
@@ -56,7 +57,7 @@ $query = "select * from venues where venueid='$venueid'";
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$name";?></pagetitle>
-			<th rowspan="4" valign="top"><img src="images/<?php echo"$picture"; ?>" /></th>
+			<th rowspan="4" valign="top"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(300, 300,"images/$picture");  ?>/></th>
 			</td>
 		</tr>
 		<tr><td>
