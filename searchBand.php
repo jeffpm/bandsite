@@ -1,3 +1,4 @@
+
 <?php
 	session_start();
 	$searcha = $_GET['search'];
@@ -38,7 +39,7 @@
 			or die("Error Querying Database");
 				
 		?>
-		<table width="1050" cellpadding="5" cellspacing="10">
+		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="15%"><tableheader>Band Name</tableheader></td>
 				<td width="30%"><tableheader>Members</tableheader></td>
@@ -83,9 +84,6 @@
 		}
 		?>
 		</table>
-	</div>
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>

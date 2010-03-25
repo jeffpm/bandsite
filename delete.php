@@ -104,9 +104,6 @@ else {
 	
 	}
 	?>
-	</div><div id="sidebar">
-		<?php include("sidebar.php"); ?>
-	</div>
 	
 	<?php include("footer.html"); ?>
     

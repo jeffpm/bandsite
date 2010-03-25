@@ -53,7 +53,7 @@ $query = "select * from venues where venueid='$venueid'";
     echo " </p>";
 	}
 	?>
-	<table width="1050" cellpadding="5" cellspacing="10">
+	<table width="800" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$name";?></pagetitle>
@@ -105,9 +105,6 @@ $query = "select * from venues where venueid='$venueid'";
 	
 	?>
     </table>
-	</div>
-    <div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	<?php include("footer.html"); ?>
 </div>
