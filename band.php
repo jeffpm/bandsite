@@ -52,7 +52,7 @@ $query = "select * from bands where bandid='$bandid'";
 	<?php
 	if(isset($_SESSION['userid']) AND $_SESSION['userid']==$refid){
 	//if(session_is_registered(myusername)){
-	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit Band Information</a>";
+	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit/Delete Band Information</a>";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
 	echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
 	}
