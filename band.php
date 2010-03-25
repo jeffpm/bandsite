@@ -69,7 +69,7 @@ $query = "select * from bands where bandid='$bandid'";
 				$members=$members.$row['membername'];
 				$firstloop=false;
 			}
-	$query = "SELECT genre FROM genre NATURAL JOIN bands NATURAL JOIN bandgenre WHERE bandid='$bandid' ORDER BY genreid ASC";
+	$query = "SELECT genre, genreid FROM genre NATURAL JOIN bands NATURAL JOIN bandgenre WHERE bandid='$bandid' ORDER BY genreid ASC";
 				$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
 				$firstloop=true;
@@ -77,7 +77,8 @@ $query = "select * from bands where bandid='$bandid'";
 					if(!$firstloop){
 						$genre=$genre.", ";
 					}
-					$genre=$genre.$row['genre'];
+					$gid = $row['genreid'];
+					$genre = $genre."<a href=\"relatedBands.php?genre=".$gid."\">".$row['genre']."</a>";
 					$firstloop=false;
 				}
 	$query = "SELECT albumname FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";
