@@ -44,10 +44,6 @@ $bandid = $_GET['id'];
 	</table>	
 	</div>
 	
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
-	</div>
-	
 	<?php include("footer.html"); ?>
 </div>
 </body>

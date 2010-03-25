@@ -32,7 +32,7 @@
 		$result = mysqli_query($db, $query)
 			or die("Error Querying Database");
 		?>
-		<table width="1050" cellpadding="5" cellspacing="10">
+		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="20%"><tableheader>Band Name</tableheader></td>
 				<td width="35%"><tableheader>Members</tableheader></td>
@@ -62,9 +62,6 @@
 		}
 		?>
 		</table>
-	</div>
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>

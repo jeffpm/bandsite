@@ -95,7 +95,7 @@ $query = "select * from bands where bandid='$bandid'";
 				}
 			   
 			       ?>
-	<table width="1050" cellpadding="5" cellspacing="10">
+	<table width="800" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$bandname";?></pagetitle>
@@ -203,9 +203,6 @@ $query = "select * from bands where bandid='$bandid'";
             </form>
 		</td></tr>
         </table>
-	</div>
-    <div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	<?php include("footer.html"); ?>
 </div>

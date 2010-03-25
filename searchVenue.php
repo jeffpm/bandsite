@@ -31,7 +31,7 @@
 			or die("Error Querying Database");
 		?>
 
-		<table width="1050" cellpadding="5" cellspacing="10">
+		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="15%"><tableheader>Name</tableheader></td>
 				<td width="20%"><tableheader>Address</tableheader></td>
@@ -54,9 +54,6 @@
 			}
 			?>
 		</table>
-	</div>
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>

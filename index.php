@@ -25,7 +25,7 @@ include "imageresize.php";
 	?>
 	
 	<div id="features">
-		<table border="1" width="700" cellpadding="5" cellspacing="10">
+		<table border="1" width="800" cellpadding="5" cellspacing="10">
 			<tr align="center">
 			<td width="50%">
 			<tableHeader>Featured Band</tableHeader>
@@ -71,7 +71,7 @@ include "imageresize.php";
 				<table cellpadding="5">
 					<tr>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(300, 300,"images/$picture");  ?>/></a></td>
+					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(200, 200,"images/$picture");  ?>/></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
@@ -102,7 +102,7 @@ include "imageresize.php";
 				<table cellpadding="5">
 					<tr>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(300, 300,"images/$picture");  ?>/></a></td>
+					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(200, 200,"images/$picture");  ?>/></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"venue.php?id=$venueid\">$name</a> <br></p>";
@@ -115,10 +115,6 @@ include "imageresize.php";
 			</td>
 			</tr>
 		</table>
-	</div>
-	
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>
