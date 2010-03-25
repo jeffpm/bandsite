@@ -34,14 +34,14 @@ include "dbconnect.php";
 
 	if($frompage == "band"){
 		$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
-		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
+		$picture = $_POST['picture'];
 		$members = mysqli_real_escape_string($db, trim($_POST['members']));
 		$genreid = $_POST['genre'];
 		$_SESSION['name']=$bandname;
 	}else if($frompage == "venue"){
 		$name = mysqli_real_escape_string($db, trim($_POST['name']));
 		$_SESSION['name']=$name;
-		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
+		$picture = $_POST['picture'];
 		$address = mysqli_real_escape_string($db, trim($_POST['address']));
 		$city = mysqli_real_escape_string($db, trim($_POST['city']));
 		$state = mysqli_real_escape_string($db, trim($_POST['state']));
@@ -271,14 +271,18 @@ else {
             </tr>
             <tr>
             <td valign="top"><Label for ="currentpicture">Current Picture: </Label></td>
-			<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-			<td><img src="images/tempVenue.jpg"></td>
+			<td><img src="images/<?php echo "$picture"; ?>"></td>
             </tr>
             <tr>
             <td><label for="pic">Change Picture:</label></td>
             <td><input type="file" id="pic" name="pic"  /></td>
             </tr>
 			<tr>
+            <?php
+		$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
 		<td><label for="pic">Genre:</label>
 		<td><select name="genre">
 		<?php
@@ -316,8 +320,8 @@ else {
 			</tr>
 			<tr>
 				<td valign="top"><Label for ="currentpicture">Current Picture: </Label></td>
-				<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-				<td><img src="images/tempVenue.jpg"></td>
+				
+				<td><img src="images/<?php echo "$picture"; ?>"> </td>
 			</tr>
 			<tr>
 				<td><label for="pic">Change Picture:</label></td>
