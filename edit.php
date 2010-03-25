@@ -31,13 +31,12 @@ include "dbconnect.php";
 		
 	$frompage = $_POST['frompage'];
 	$fromid = $_POST['fromid'];
-	$_SESSION['id']=$fromid;
-	$_SESSION['type']=$frompage;
 
 	if($frompage == "band"){
 		$bandname = mysqli_real_escape_string($db, trim($_POST['bandname']));
 		$picture = mysqli_real_escape_string($db, trim($_POST['picture']));
 		$members = mysqli_real_escape_string($db, trim($_POST['members']));
+		$genreid = $_POST['genre'];
 		$_SESSION['name']=$bandname;
 	}else if($frompage == "venue"){
 		$name = mysqli_real_escape_string($db, trim($_POST['name']));
@@ -48,26 +47,38 @@ include "dbconnect.php";
 		$state = mysqli_real_escape_string($db, trim($_POST['state']));
 		$zip = mysqli_real_escape_string($db, trim($_POST['zip']));
 	}
-	
 	$description = mysqli_real_escape_string($db, trim($_POST['description']));
-
+	if(empty($fromid)){
+		$frompage = $_GET['page'];
+		$fromid = $_GET['id'];
+	}
+$table=$frompage.'s';
+$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database 0");
+			$row=mysqli_fetch_array($result);
+			$userid=$row['userid'];
 //If the submit button wasn't pressed, show the form
+if($_SESSION['userid']!=$userid){
+	?>
+    <meta http-equiv="refresh" content="0;url=index.php">
+    Error. Redirecting. Click <a href="index.php">here</a> if redirection fails.
+    <?php
+}else{
 if (!isset($_POST['submit'])) {
 ?>
 	
 	<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
 				<?php
-		$frompage = $_GET['page'];
-		$fromid = $_GET['id'];
 		$_SESSION['id']=$fromid;
 		$_SESSION['type']=$frompage;
 		echo "<input type =\"hidden\" name=\"frompage\" value=\"$frompage\" />\n";
 		echo "<input type =\"hidden\" name=\"fromid\" value=\"$fromid\" />\n";
 		$table=$frompage.'s';
-		$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
-			$result = mysqli_query($db, $query)
-   				or die("Error Querying Database 1");
-			$row=mysqli_fetch_array($result);
+		//$query = "SELECT * FROM $table WHERE ".$frompage."id='$fromid'";
+			//$result = mysqli_query($db, $query)
+   			//	or die("Error Querying Database 1");
+			//$row=mysqli_fetch_array($result);
 		if($frompage == "band"){ 
 			$bandname = $row['bandname'];
 			$_SESSION['name']=$bandname;
@@ -101,6 +112,25 @@ if (!isset($_POST['submit'])) {
 					<td><label for="pic">Change Picture:</label></td>
 					<td><input type="file" id="pic" name="pic"  /></td>
 				</tr>
+						<?php
+		$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
+
+		<tr>
+		<td><label for="pic">Genre:</label>
+		<td><select name="genre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genreid>$genre</option>";
+		}
+		?>
+			</select>
+			</td>
+		</td></tr>
 				<tr>
 					<td><label for="members">Members:</label></td>
 					<td><input type="text" id="members" name="members" value="<?php echo "$members"; ?>" /><br />
@@ -248,6 +278,19 @@ else {
             <td><label for="pic">Change Picture:</label></td>
             <td><input type="file" id="pic" name="pic"  /></td>
             </tr>
+			<tr>
+		<td><label for="pic">Genre:</label>
+		<td><select name="genre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genreid>$genre</option>";
+		}
+		?>
+			</select>
+			</td>
+		</td></tr>
             <tr>
             <td><label for="members">Members:</label></td>
             <td>
@@ -335,7 +378,11 @@ else
 				$result = mysqli_query($db, $query)
 					or die("Error: Could not add members.");
 			}
+			$query = "UPDATE bandgenre SET genreid='$genreid' WHERE bandid='$fromid'";
+			$result = mysqli_query($db, $query)
+   			or die("Error editing genre");
 			$query="UPDATE bands SET bandname='$bandname', picture='$picture', description='$description' WHERE bandid='$fromid'";
+			
 		}else if($frompage == "venue"){
 			$pic = $_FILES['pic']['name'];
 			if(!empty($pic)){
@@ -354,6 +401,7 @@ else
 		mysqli_close($db);
 		?><meta http-equiv="refresh" content="4;url=index.php"> <?php
 	}
+}
 }
 ?>
 	</div>
