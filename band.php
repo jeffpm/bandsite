@@ -116,95 +116,11 @@ $query = "select * from bands where bandid='$bandid'";
 			<p><?php echo "<commentheader>Albums:</commentheader> $albumname";?></p>
 		</td></tr>
 	</table>
-    
-	
-	
-    <?php 
-		$query = "select events.date, venues.venueid, venues.name, events.description from events INNER JOIN venues ON events.venueid=venues.venueid AND events.bandid='$bandid' ORDER BY events.date";
-		$result = mysqli_query($db, $query)
-	  	or die("Error querying Database");
-		$hasResults=true;
-	  	while ($row = mysqli_fetch_array($result)) {
-			if($hasResults){ //creates the start of table on first run
-			?><tableheader>Events:</tableheader>
-            <table width="750" cellpadding="5" cellspacing="10">
-			<tr>
-				<td width="25%"><commentheader>Date</commentheader></td>
-				<td width="35%"><commentheader>Location</commentheader></td>
-				<td width="40%"><commentheader>Details</commentheader></td>
-			</tr>
-            <?php
-				$hasResults=false;
-			}
-				$id=$row['venueid'];
-				$date=$row['date'];
-				$description = $row['description'];
-				$name=$row['name'];
-				$temp=substr($date, -5, 2)."/".substr($date, -2)."/".substr($date, 0, 4);
-				echo "<tr><td>$temp</td><td><a href=\"venue.php?id=$id\">$name</a></td><td>$description</td></tr>\n";
-			}
-	if(!hasResults){
-		echo "</table>";
-	}
-	?>
-	</table>
-	
-	<?php
-	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
-		$result = mysqli_query($db, $query)
-	  	or die("Error querying Database");
-		
-	?>
-	
-	
-			<?php
-			$hasResults=true;
-			while ($row = mysqli_fetch_array($result)) {
-				if($hasResults){ //runs once (if there are comments) and displays the headers of the table
-					?> 
-     <tableheader>Comments:</tableheader>
-		<table width="750" cellpadding="5" cellspacing="10">
-			<tr>
-				<td width="25%"><commentheader>Date</commentheader></td>
-				<td width="35%"><commentheader>Name</commentheader></td>
-				<td width="40%"><commentheader>Comment</commentheader></td>
-			</tr>
-					
-					<?php
-					$hasResults=false;
-				}
-			$date=$row['date'];
-			$name=$row['name'];
-			$comment=$row['comment'];
-			echo "<tr><td>$date</td><td>$name</td><td>$comment</td></tr>\n";
-			}
-			if(!$hasResults){
-				echo "</table>";
-			}
-			?>
-					
-   
     <table>
-    <tr><td><p>Add a comment:</p></td>
-		</tr>
-		<tr>
-		
-		<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
-		
-		<tr><td>
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" /> <br />
-		</td></tr>
-		<tr><td>
-			<label for="name">Comment:</label>
-			<textarea id="comment" name="comment" rows="3" cols="50" ></textarea>
-		</td></tr>
-		<tr><td>
-			<input type="submit" value="Submit Comment" name="submit" />
-            </form>
-		</td></tr>
-        </table>
+	<tableheader>Videos:</tableheader>
+	</table>
 	<div id="videoPlayer">
+	
 	</div>
 
   <!--
@@ -246,11 +162,13 @@ $query = "select * from bands where bandid='$bandid'";
 
     var videoBar;
     var options = {
+	string_allDone : "Close this window",
+	//thumbnailSize : GSvideoBar.THUMBNAILS_SMALL,
         largeResultSet : !true,
         horizontal : true,
         autoExecuteList : {
-          cycleTime : GSvideoBar.CYCLE_TIME_MEDIUM,
-          cycleMode : GSvideoBar.CYCLE_MODE_LINEAR,
+          cycleTime : GSvideoBar.CYCLE_TIME_SHORT,
+          cycleMode : GSvideoBar.CYCLE_MODE_RANDOM,
           executeList : ["<?php echo "$bandname"; ?>"]
         }
       }
@@ -265,8 +183,96 @@ $query = "select * from bands where bandid='$bandid'";
     GSearch.setOnLoadCallback(LoadVideoBar);
   </script>
   
-                
-	</div>
+  
+           
+	
+    <?php 
+		$query = "select events.date, venues.venueid, venues.name, events.description from events INNER JOIN venues ON events.venueid=venues.venueid AND events.bandid='$bandid' ORDER BY events.date";
+		$result = mysqli_query($db, $query)
+	  	or die("Error querying Database");
+		$hasResults=true;
+	  	while ($row = mysqli_fetch_array($result)) {
+			if($hasResults){ //creates the start of table on first run
+			?>
+			<tableheader>Events:</tableheader>
+            <table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+				<td width="25%"><commentheader>Date</commentheader></td>
+				<td width="35%"><commentheader>Location</commentheader></td>
+				<td width="40%"><commentheader>Details</commentheader></td>
+			</tr>
+            <?php
+				$hasResults=false;
+			}
+				$id=$row['venueid'];
+				$date=$row['date'];
+				$description = $row['description'];
+				$name=$row['name'];
+				$temp=substr($date, -5, 2)."/".substr($date, -2)."/".substr($date, 0, 4);
+				echo "<tr><td>$temp</td><td><a href=\"venue.php?id=$id\">$name</a></td><td>$description</td></tr>\n";
+			}
+	if(!hasResults){
+		echo "</table>";
+	}
+	?>
+	</table>
+	
+	<?php
+	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
+		$result = mysqli_query($db, $query)
+	  	or die("Error querying Database");
+		
+	?>
+	
+	
+			<?php
+			$hasResults=true;
+			while ($row = mysqli_fetch_array($result)) {
+				if($hasResults){ //runs once (if there are comments) and displays the headers of the table
+					?> 
+     <tableheader>Comments:</tableheader>
+		<table width="500" cellpadding="5" cellspacing="10">
+			<tr>
+				<td><commentheader>Date</commentheader></td>
+				<td><commentheader>Name</commentheader></td>
+				<td><commentheader>Comment</commentheader></td>
+			</tr>
+					
+					<?php
+					$hasResults=false;
+				}
+			$date=$row['date'];
+			$name=$row['name'];
+			$comment=$row['comment'];
+			echo "<tr><td>$date</td><td>$name</td><td>$comment</td></tr>\n";
+			}
+			if(!$hasResults){
+				echo "</table>";
+			}
+			?>
+					
+   
+    <table>
+    <tr><td><p>Add a comment:</p></td>
+		</tr>
+		<tr>
+		
+		<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
+		
+		<tr><td>
+			<label for="name">Name:</label>
+			<td><input type="text" id="name" name="name" /> <br /></td>
+		</td></tr>
+		<tr><td>
+			<label for="name">Comment:</label>
+			<td><textarea id="comment" name="comment" rows="3" cols="50" ></textarea></td>
+		</td></tr>
+		<tr><td>
+			<input type="submit" value="Submit Comment" name="submit" />
+            </form>
+		</td></tr>
+        </table>
+	
 
 	<?php include("footer.html"); ?>
 </div>
