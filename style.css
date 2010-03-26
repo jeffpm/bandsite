@@ -118,6 +118,27 @@
 		border-color:#C4611B;
 		border-style:solid;
 	}
+	#bandFeature{
+		border-top-width:thin;
+		border-top-color:#C4611B;
+		border-top-style:solid;
+		border-right-width:thin;
+		border-right-color:#C4611B;
+		border-right-style:solid;
+	}
+	#venueFeature{
+		border-top-width:thin;
+		border-top-color:#C4611B;
+		border-top-style:solid;
+		border-left-width:thin;
+		border-left-color:#C4611B;
+		border-left-style:solid;
+	}
+	#featuredPicture{
+		border-color:#333;
+		border-width:thin;
+		border-style:solid;
+	}
 	a:link{
 		color: #ffffff;
 		text-decoration: underline;
@@ -144,6 +165,9 @@
 		color: #800000;
 		background-color: transparent;
 		font-family: "Gill Sans Ultra Bold", "Lucinda Grande", Sans-Serif;
+		border-bottom-color:#FFF;
+		border-bottom-style:solid;
+		border-bottom-width:thin;
 	}
 	
 	pagetitle{
