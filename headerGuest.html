@@ -23,7 +23,7 @@ function refill(type){
 	}
 }
 </script>
-<div id="header"><h1><a href="index.php"><img src=images/logo2.png></a></h1></div>
+<div id="header"><h1><a href="./"><img src=images/logo2.png></a></h1></div>
 
 <div id="header2"><p><i>All your favorite bands and where to find them!</i></p></div>
 
