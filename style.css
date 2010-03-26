@@ -39,7 +39,7 @@
 	}
 	
 	#toolbar{
-		width: 800px;
+		
 		margin-top: 10px;
 		margin-right: auto;
 		margin-left: auto;
@@ -76,7 +76,6 @@
     #footer{
      	clear: both;
      	background: #8b4513;
-		width: 800px;
 		margin-bottom: 10px;
 		text-align: center;
     }
@@ -109,7 +108,16 @@
 		color: #dceef6;
 		text-align: left;
 	}
-	
+	#searchV{
+		background-color:#8b4513;
+		border-color:#C4611B;
+		border-style:solid;
+	}
+	#searchB{
+		background-color:#8b4513;
+		border-color:#C4611B;
+		border-style:solid;
+	}
 	a:link{
 		color: #ffffff;
 		text-decoration: underline;
@@ -182,7 +190,9 @@
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 		font-size: 0.8em;
 	}
-
+	select{
+		background-color: #CCCC99;
+	}
     #plain{
 		color: #039;
 		background-color: transparent;

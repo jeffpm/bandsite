@@ -7,6 +7,17 @@ function make_blank2()
 {
 document.form2.searchV.value ="";
 }
+function refill(type){
+	if(type == "venue"){
+		if(document.form2.searchV.value==""){
+			document.form2.searchV.value="Search for a venue";
+		}
+	}else if(type == "band"){
+		if(document.form1.searchB.value ==""){
+			document.form1.searchB.value ="Search for a band";
+		}
+	}
+}
 </script>
 <div id="header"><h1><a href="index.php"><img src=images/logo2.png></a></h1></div>
 
@@ -22,13 +33,13 @@ document.form2.searchV.value ="";
 <tr>
 <td>
 <form name="form1" = "post" action= "searchBand.php">
-<input type = "text" id="searchB" name = "searchB" value="Search for a band" onclick="make_blank1();"/>
+<input type = "text" id="searchB" name = "searchB" value="Search for a band" onclick="make_blank1();" onBlur="refill('band')" />
 <input type = "submit" value= "go" name="submit" />
 </form>
 </td>
 <td>
 <form name="form2" method = "post" action= "searchVenue.php">
-<input type = "text" id="searchV" name = "searchV" value="Search for a venue" onclick="make_blank2();"/>
+<input type = "text" id="searchV" name = "searchV" value="Search for a venue" onclick="make_blank2();" onBlur="refill('venue')" />
 <input type = "submit" value= "go" name="submit"/>
 </form>
 </td>
