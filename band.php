@@ -148,6 +148,7 @@ $query = "select * from bands where bandid='$bandid'";
 	}
 	?>
 	</table>
+	
 	<?php
 	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
 		$result = mysqli_query($db, $query)
@@ -203,7 +204,70 @@ $query = "select * from bands where bandid='$bandid'";
             </form>
 		</td></tr>
         </table>
+	<div id="videoPlayer">
 	</div>
+
+  <!--
+  // The Following div element will end up holding the actual videobar.
+  // You can place this anywhere on your page.
+  -->
+  <div id="videoBar-bar">
+    <span style="color:#676767;font-size:11px;margin:10px;padding:4px;">Loading...</span>
+  </div>
+
+  <!-- Ajax Search Api and Stylesheet
+  // Note: If you are already using the AJAX Search API, then do not include it
+  //       or its stylesheet again
+  -->
+  <script src="http://www.google.com/uds/api?file=uds.js&v=1.0&source=uds-vbw"
+    type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/css/gsearch.css");
+  </style>
+
+  <!-- Video Bar Code and Stylesheet -->
+  <script type="text/javascript">
+    window._uds_vbw_donotrepair = true;
+  </script>
+  <script src="http://www.google.com/uds/solutions/videobar/gsvideobar.js?mode=new"
+    type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/solutions/videobar/gsvideobar.css");
+  </style>
+
+  <style type="text/css">
+    .playerInnerBox_gsvb .player_gsvb {
+      width : 360px;
+      height : 240px;
+    }
+  </style>
+  <script type="text/javascript">
+    function LoadVideoBar() {
+
+    var videoBar;
+    var options = {
+        largeResultSet : !true,
+        horizontal : true,
+        autoExecuteList : {
+          cycleTime : GSvideoBar.CYCLE_TIME_MEDIUM,
+          cycleMode : GSvideoBar.CYCLE_MODE_LINEAR,
+          executeList : ["<?php echo "$bandname"; ?>"]
+        }
+      }
+
+	  
+    videoBar = new GSvideoBar(document.getElementById("videoBar-bar"),
+                              document.getElementById("videoPlayer"),
+                              options);
+    }
+    // arrange for this function to be called during body.onload
+    // event processing
+    GSearch.setOnLoadCallback(LoadVideoBar);
+  </script>
+  
+                
+	</div>
+
 	<?php include("footer.html"); ?>
 </div>
 </body>
