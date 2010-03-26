@@ -139,6 +139,11 @@
 		border-width:thin;
 		border-style:solid;
 	}
+	#mainPageHeader{
+		border-bottom-color:#FFF;
+		border-bottom-style:solid;
+		border-bottom-width:thin;
+	}
 	a:link{
 		color: #ffffff;
 		text-decoration: underline;
@@ -165,9 +170,7 @@
 		color: #800000;
 		background-color: transparent;
 		font-family: "Gill Sans Ultra Bold", "Lucinda Grande", Sans-Serif;
-		border-bottom-color:#FFF;
-		border-bottom-style:solid;
-		border-bottom-width:thin;
+		
 	}
 	
 	pagetitle{

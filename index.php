@@ -28,10 +28,10 @@ include "imageresize.php";
 		<table border="0" width="800" cellpadding="5" cellspacing="10">
 			<tr align="center">
 			<td width="400">
-			<tableHeader>Featured Band</tableHeader>
+			<tableHeader id="mainPageHeader">Featured Band</tableHeader>
 			</td>
 			<td>
-			<tableHeader>Featured Venue</tableHeader>
+			<tableHeader id="mainPageHeader">Featured Venue</tableHeader>
 			</tr>
 			<tr>
 			<td id="bandFeature">
