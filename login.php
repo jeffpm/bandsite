@@ -19,7 +19,7 @@ if (!isset($_POST['submit'])) {
     <?php
 	if(isset($_SESSION['userid'])){
 		//if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}
@@ -89,7 +89,7 @@ if ($num<1){
  <div id="wrap">
     <?php
 		if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}

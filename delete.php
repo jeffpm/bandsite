@@ -33,7 +33,7 @@ include "dbconnect.php";
     <?php
 	if(isset($_SESSION['userid'])){
 		//if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}
@@ -104,9 +104,6 @@ else {
 	
 	}
 	?>
-	</div><div id="sidebar">
-		<?php include("sidebar.php"); ?>
-	</div>
 	
 	<?php include("footer.html"); ?>
     

@@ -17,7 +17,7 @@
     <?php
 	if(isset($_SESSION['userid'])){
 		//if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}
@@ -26,12 +26,15 @@
 		<?php
 		include "dbconnect.php";
 		$search = mysqli_real_escape_string($db, trim($_POST['searchV']));
+		if($search=="Search for a venue" AND $_POST['hidden']=="false"){
+			$search="";
+		}
 		$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) like '%$search%'  or (address) like '%$search%' ORDER BY name";
 		$result=mysqli_query($db, $query)
 			or die("Error Querying Database");
 		?>
 
-		<table width="1050" cellpadding="5" cellspacing="10">
+		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="15%"><tableheader>Name</tableheader></td>
 				<td width="20%"><tableheader>Address</tableheader></td>
@@ -54,9 +57,6 @@
 			}
 			?>
 		</table>
-	</div>
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>

@@ -43,7 +43,7 @@ $query = "select * from bands where bandid='$bandid'";
     <?php
 	if(isset($_SESSION['userid'])){
 		//if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}
@@ -52,9 +52,9 @@ $query = "select * from bands where bandid='$bandid'";
 	<?php
 	if(isset($_SESSION['userid']) AND $_SESSION['userid']==$refid){
 	//if(session_is_registered(myusername)){
-	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit Band Information</a>";
+	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit/Delete Band Information</a>";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
-	echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
+	//echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
 	}
     echo " </p>";
 	
@@ -69,7 +69,7 @@ $query = "select * from bands where bandid='$bandid'";
 				$members=$members.$row['membername'];
 				$firstloop=false;
 			}
-	$query = "SELECT genre FROM genre NATURAL JOIN bands NATURAL JOIN bandgenre WHERE bandid='$bandid' ORDER BY genreid ASC";
+	$query = "SELECT genre, genreid FROM genre NATURAL JOIN bands NATURAL JOIN bandgenre WHERE bandid='$bandid' ORDER BY genreid ASC";
 				$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
 				$firstloop=true;
@@ -77,7 +77,8 @@ $query = "select * from bands where bandid='$bandid'";
 					if(!$firstloop){
 						$genre=$genre.", ";
 					}
-					$genre=$genre.$row['genre'];
+					$gid = $row['genreid'];
+					$genre = $genre."<a href=\"relatedBands.php?genre=".$gid."\">".$row['genre']."</a>";
 					$firstloop=false;
 				}
 	$query = "SELECT albumname FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";
@@ -94,7 +95,7 @@ $query = "select * from bands where bandid='$bandid'";
 				}
 			   
 			       ?>
-	<table width="1050" cellpadding="5" cellspacing="10">
+	<table width="800" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
 			<pagetitle><?php echo "$bandname";?></pagetitle>
@@ -115,8 +116,75 @@ $query = "select * from bands where bandid='$bandid'";
 			<p><?php echo "<commentheader>Albums:</commentheader> $albumname";?></p>
 		</td></tr>
 	</table>
-    
+    <table>
+	<tableheader>Videos:</tableheader>
+	</table>
+	<div id="videoPlayer">
 	
+	</div>
+
+  <!--
+  // The Following div element will end up holding the actual videobar.
+  // You can place this anywhere on your page.
+  -->
+  <div id="videoBar-bar">
+    <span style="color:#676767;font-size:11px;margin:10px;padding:4px;">Loading...</span>
+  </div>
+
+  <!-- Ajax Search Api and Stylesheet
+  // Note: If you are already using the AJAX Search API, then do not include it
+  //       or its stylesheet again
+  -->
+  <script src="http://www.google.com/uds/api?file=uds.js&v=1.0&source=uds-vbw"
+    type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/css/gsearch.css");
+  </style>
+
+  <!-- Video Bar Code and Stylesheet -->
+  <script type="text/javascript">
+    window._uds_vbw_donotrepair = true;
+  </script>
+  <script src="http://www.google.com/uds/solutions/videobar/gsvideobar.js?mode=new"
+    type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/solutions/videobar/gsvideobar.css");
+  </style>
+
+  <style type="text/css">
+    .playerInnerBox_gsvb .player_gsvb {
+      width : 360px;
+      height : 240px;
+    }
+  </style>
+  <script type="text/javascript">
+    function LoadVideoBar() {
+
+    var videoBar;
+    var options = {
+	string_allDone : "Close this window",
+	//thumbnailSize : GSvideoBar.THUMBNAILS_SMALL,
+        largeResultSet : !true,
+        horizontal : true,
+        autoExecuteList : {
+          cycleTime : GSvideoBar.CYCLE_TIME_SHORT,
+          cycleMode : GSvideoBar.CYCLE_MODE_RANDOM,
+          executeList : ["<?php echo "$bandname"; ?>"]
+        }
+      }
+
+	  
+    videoBar = new GSvideoBar(document.getElementById("videoBar-bar"),
+                              document.getElementById("videoPlayer"),
+                              options);
+    }
+    // arrange for this function to be called during body.onload
+    // event processing
+    GSearch.setOnLoadCallback(LoadVideoBar);
+  </script>
+  
+  
+           
 	
     <?php 
 		$query = "select events.date, venues.venueid, venues.name, events.description from events INNER JOIN venues ON events.venueid=venues.venueid AND events.bandid='$bandid' ORDER BY events.date";
@@ -125,7 +193,8 @@ $query = "select * from bands where bandid='$bandid'";
 		$hasResults=true;
 	  	while ($row = mysqli_fetch_array($result)) {
 			if($hasResults){ //creates the start of table on first run
-			?><tableheader>Events:</tableheader>
+			?>
+			<tableheader>Events:</tableheader>
             <table width="750" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="25%"><commentheader>Date</commentheader></td>
@@ -147,6 +216,7 @@ $query = "select * from bands where bandid='$bandid'";
 	}
 	?>
 	</table>
+	
 	<?php
 	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
 		$result = mysqli_query($db, $query)
@@ -161,11 +231,11 @@ $query = "select * from bands where bandid='$bandid'";
 				if($hasResults){ //runs once (if there are comments) and displays the headers of the table
 					?> 
      <tableheader>Comments:</tableheader>
-		<table width="750" cellpadding="5" cellspacing="10">
+		<table width="500" cellpadding="5" cellspacing="10">
 			<tr>
-				<td width="25%"><commentheader>Date</commentheader></td>
-				<td width="35%"><commentheader>Name</commentheader></td>
-				<td width="40%"><commentheader>Comment</commentheader></td>
+				<td><commentheader>Date</commentheader></td>
+				<td><commentheader>Name</commentheader></td>
+				<td><commentheader>Comment</commentheader></td>
 			</tr>
 					
 					<?php
@@ -191,21 +261,19 @@ $query = "select * from bands where bandid='$bandid'";
 		
 		<tr><td>
 			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" /> <br />
+			<td><input type="text" id="name" name="name" /> <br /></td>
 		</td></tr>
 		<tr><td>
 			<label for="name">Comment:</label>
-			<textarea id="comment" name="comment" rows="3" cols="50" ></textarea>
+			<td><textarea id="comment" name="comment" rows="3" cols="50" ></textarea></td>
 		</td></tr>
 		<tr><td>
 			<input type="submit" value="Submit Comment" name="submit" />
             </form>
 		</td></tr>
         </table>
-	</div>
-    <div id="sidebar">
-		<?php include("sidebar.php"); ?>
-	</div>
+	
+
 	<?php include("footer.html"); ?>
 </div>
 </body>

@@ -19,7 +19,7 @@ header("location:login.php");
     <?php
 	if(isset($_SESSION['userid'])){
 		//if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 
 		} else {
 			include("headerGuest.html");
@@ -32,7 +32,7 @@ header("location:login.php");
 	?>
 
 	<div id="main">
-		<table width="750" cellpadding="5" cellspacing="10">
+		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="25%"><commentheader>Venue</commentheader></td>
 				<td width="35%"><commentheader>Edit</commentheader></td>
@@ -45,9 +45,6 @@ header("location:login.php");
 			}
 			?>
 		</table>
-	</div>
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	<?php include("footer.html"); ?>
 </div>

@@ -17,7 +17,7 @@ $bandid = $_GET['id'];
     <?php
 	if(isset($_SESSION['userid'])){
 		//if(session_is_registered(myusername)){
-			include("headerUser.html");
+			include("headerUser.php");
 		} else {
 			include("headerGuest.html");
 		}
@@ -42,10 +42,6 @@ $bandid = $_GET['id'];
 	<label><a href="index.php">Return to Main Page</a></label>
 	</td></tr>
 	</table>	
-	</div>
-	
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>
