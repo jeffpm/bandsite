@@ -26,11 +26,11 @@ include "dbconnect.php";
 	
 
 <?php
-$bandid = $_GET['bandid'];
+$bandid = $_GET['id'];
 
 //Collect the variables from the form 
 $albumname = mysqli_real_escape_string($db, trim($_POST["albumname"]));
-$albumband = mysqli_real_escape_string($db, trim($_POST["albumband"]));
+$albumband = mysqli_real_escape_string($db, trim("$bandid"));
 $albumgenre = mysqli_real_escape_string($db, trim($_POST["albumgenre"]));
 $albumyear = mysqli_real_escape_string($db, trim($_POST["albumyear"]));
 $picture = $_POST['picture'];
@@ -57,13 +57,28 @@ if (!isset($_POST['submit'])) {
 		<input type="text" id="albumyear" name="albumyear" /><br />
 	</td>
 </tr>
-<tr>
+<!--tr>
 	<td align="right">
 		<label for="albumgenre">Album Genre:</label>
 		<input type="text" id="albumgenre" name="albumgenre" /><br />
 	</td>
-</tr>
+</tr-->
+<?php
+$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
 
+		<tr>
+		<td><label for="pic">Genre:</label>
+		<select name="albumgenre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genre>$genre</option>";
+		}
+?>
 <tr>
 	<td align="right">
 		<input type="submit" value="submit" name="submit">
@@ -118,13 +133,28 @@ else {
 	<?php
 		//display error message for albumgenre field
 		
-	echo "<label for=\"albumgenre\">Album Genre:</label>";
+	/*echo "<label for=\"albumgenre\">Album Genre:</label>";
 	if(empty($albumgenre)){
 	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" /> Enter an Album Genre";
 	}
 	else{
 	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" value=\"$albumgenre\" />";
 	}
+	*/
+		$query="SELECT * from genre";
+		$result = mysqli_query($db, $query)
+				or die("Error: Could not query genre database.");
+				?>
+
+		<tr>
+		<td><label for="pic">Genre:</label>
+		<select name="albumgenre">
+		<?php
+		while($row = mysqli_fetch_array($result)) {
+		$genre=$row['genre'];
+		$genreid=$row['genreid'];
+		echo "<option value=$genre>$genre</option>";
+		}
 	?>
 		</td>
 	</tr>
@@ -147,7 +177,7 @@ else {
 	//if everything was filled in correctly, add the album to the database
 }else
 	{
-	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre, picture) VALUES ('$albumname', '$albumyear', '$bandid', '$albumgenre', '$picture')";
+	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre, picture) VALUES ('$albumname', '$albumyear', '$albumband', '$albumgenre', 'tempband.png')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
 	?>
