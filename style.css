@@ -13,6 +13,15 @@
 		
 	}
 	
+	#videoBar-bar{
+	padding:10px;
+	margin-right:400px;
+	float:left;
+	}
+	#videoPlayer{
+	margin-right:400px;
+	float:left;
+	}
 	#wrap{
 		width: 800px;
 		margin: 0 auto;
@@ -39,7 +48,7 @@
 	}
 	
 	#toolbar{
-		width: 800px;
+		
 		margin-top: 10px;
 		margin-right: auto;
 		margin-left: auto;
@@ -76,7 +85,6 @@
     #footer{
      	clear: both;
      	background: #8b4513;
-		width: 800px;
 		margin-bottom: 10px;
 		text-align: center;
     }
@@ -109,7 +117,42 @@
 		color: #dceef6;
 		text-align: left;
 	}
-	
+	#searchV{
+		background-color:#8b4513;
+		border-color:#C4611B;
+		border-style:solid;
+	}
+	#searchB{
+		background-color:#8b4513;
+		border-color:#C4611B;
+		border-style:solid;
+	}
+	#bandFeature{
+		border-top-width:thin;
+		border-top-color:#C4611B;
+		border-top-style:solid;
+		border-right-width:thin;
+		border-right-color:#C4611B;
+		border-right-style:solid;
+	}
+	#venueFeature{
+		border-top-width:thin;
+		border-top-color:#C4611B;
+		border-top-style:solid;
+		border-left-width:thin;
+		border-left-color:#C4611B;
+		border-left-style:solid;
+	}
+	#featuredPicture{
+		border-color:#333;
+		border-width:thin;
+		border-style:solid;
+	}
+	#mainPageHeader{
+		border-bottom-color:#FFF;
+		border-bottom-style:solid;
+		border-bottom-width:thin;
+	}
 	a:link{
 		color: #ffffff;
 		text-decoration: underline;
@@ -136,6 +179,7 @@
 		color: #800000;
 		background-color: transparent;
 		font-family: "Gill Sans Ultra Bold", "Lucinda Grande", Sans-Serif;
+		
 	}
 	
 	pagetitle{
@@ -182,7 +226,9 @@
 		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 		font-size: 0.8em;
 	}
-
+	select{
+		background-color: #CCCC99;
+	}
     #plain{
 		color: #039;
 		background-color: transparent;

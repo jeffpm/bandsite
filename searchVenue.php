@@ -7,7 +7,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>The Ultimate Band Surf</title>
+  <title>The Ultimate Band Search</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -26,6 +26,9 @@
 		<?php
 		include "dbconnect.php";
 		$search = mysqli_real_escape_string($db, trim($_POST['searchV']));
+		if($search=="Search for a venue" AND $_POST['hidden']=="false"){
+			$search="";
+		}
 		$query ="SELECT * FROM venues WHERE (city) = '$search' or (state) = '$search'  or (name) like '%$search%'  or (address) like '%$search%' ORDER BY name";
 		$result=mysqli_query($db, $query)
 			or die("Error Querying Database");

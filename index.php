@@ -9,8 +9,9 @@ include "imageresize.php";
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>The Ultimate Band Surf</title>
+  <title>The Ultimate Band Search</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -25,16 +26,16 @@ include "imageresize.php";
 	?>
 	
 	<div id="features">
-		<table border="1" width="800" cellpadding="5" cellspacing="10">
+		<table border="0" width="800" cellpadding="5" cellspacing="10">
 			<tr align="center">
-			<td width="50%">
-			<tableHeader>Featured Band</tableHeader>
+			<td width="400">
+			<tableHeader id="mainPageHeader">Featured Band</tableHeader>
 			</td>
 			<td>
-			<tableHeader>Featured Venue</tableHeader>
+			<tableHeader id="mainPageHeader">Featured Venue</tableHeader>
 			</tr>
 			<tr>
-			<td>
+			<td id="bandFeature">
 			<?php
 				$query = "select * from bands ORDER BY RAND() LIMIT 1";
 				$result = mysqli_query($db, $query)
@@ -71,7 +72,7 @@ include "imageresize.php";
 				<table cellpadding="5">
 					<tr>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(200, 200,"images/$picture");  ?>/></a></td>
+					<td><a href="band.php?id=<?php echo "$bandid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(200, 200,"images/$picture");  ?> id="featuredPicture" /></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"band.php?id=$bandid\">$bandname</a> <br></p>";
@@ -83,7 +84,7 @@ include "imageresize.php";
 					</tr>
 				</table>
 			</td>
-			<td width="50%">
+			<td width="50%" id="venueFeature">
 			<?php
 				$query = "select * from venues ORDER BY RAND() LIMIT 1";
 				$result = mysqli_query($db, $query)
@@ -102,7 +103,7 @@ include "imageresize.php";
 				<table cellpadding="5">
 					<tr>
 					<?php //to be used later <img src="images/(php) echo "$picture"; (/php)"  /> ?>
-					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(200, 200,"images/$picture");  ?>/></a></td>
+					<td><a href="venue.php?id=<?php echo "$venueid"; ?>"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(200, 200,"images/$picture");  ?> id="featuredPicture" /></a></td>
 					<td>
 						<?php
 							echo "<p><a href=\"venue.php?id=$venueid\">$name</a> <br></p>";
