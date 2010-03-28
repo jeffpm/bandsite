@@ -29,7 +29,7 @@ include "dbconnect.php";
 $bandid = $_GET['bandid'];
 
 //Collect the variables from the form 
-$albumame = mysqli_real_escape_string($db, trim($_POST["albumname"]));
+$albumname = mysqli_real_escape_string($db, trim($_POST["albumname"]));
 $albumband = mysqli_real_escape_string($db, trim($_POST["albumband"]));
 $albumgenre = mysqli_real_escape_string($db, trim($_POST["albumgenre"]));
 $albumyear = mysqli_real_escape_string($db, trim($_POST["albumyear"]));
@@ -86,8 +86,8 @@ else {
 		<td>
 	<?php
 		//display error message for albumname field
-	echo "<label for=\"albumname\">Albumname:</label>";
-	if(empty($username)){
+	echo "<label for=\"albumname\">Album name:</label>";
+	if(empty($albumname)){
 	echo "<input type=\"text\" id=\"albumname\" name=\"albumname\" /> Enter a Album Name";
 	}
 	else{
@@ -98,10 +98,17 @@ else {
 	</tr>
 	<tr>
 		<td>
+	
 	<?php
 		//display error message for albumyear field
+		
 	echo "<label for=\"albumyear\">Album Year:</label>";
-	echo "<input type=\"albumyear\" id=\"albumyear\" name=\"albumyear\" /> Enter an Album Year";
+	if (empty($albumyear)){
+	echo "<input type=\"text\" id=\"albumyear\" name=\"albumyear\" /> Enter an Album Year";
+	}
+	else{
+	echo "<input type=\"text\" id=\"albumyear\" name=\"albumyear\" value=\"$albumyear\" />";
+	}
 	?>
 		</td>	
 	</tr>
@@ -109,9 +116,14 @@ else {
 		<td>
 	<?php
 		//display error message for albumgenre field
+		
 	echo "<label for=\"albumgenre\">Album Genre:</label>";
+	if(empty($albumgenre)){
 	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" /> Enter an Album Genre";
-	
+	}
+	else{
+	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" value=\"$albumgenre\" />";
+	}
 	?>
 		</td>
 	</tr>
@@ -131,10 +143,10 @@ else {
 	</tr>
 	</table>
 	<?php
-	//if everything was filled in correctly, add the entry to the database
+	//if everything was filled in correctly, add the album to the database
 }else
 	{
-	$query="INSERT INTO accounts(albumname, albumyear, albumgenre) VALUES ('$albumname', '$albumyear', '$albumgenre')";
+	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre) VALUES ('$albumname', '$albumyear', '$bandid', '$albumgenre')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
 	?>
@@ -142,7 +154,7 @@ else {
 	<tr>
 		<td><img src="images/redDesign.gif"></td>
 		<td>
-			<label>Thank you for creating an account.</label>
+			<label>Thank you for adding an album.</label>
 		</td>
 	</tr>
 	</table>
