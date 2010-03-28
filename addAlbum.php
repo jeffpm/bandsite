@@ -33,6 +33,7 @@ $albumname = mysqli_real_escape_string($db, trim($_POST["albumname"]));
 $albumband = mysqli_real_escape_string($db, trim($_POST["albumband"]));
 $albumgenre = mysqli_real_escape_string($db, trim($_POST["albumgenre"]));
 $albumyear = mysqli_real_escape_string($db, trim($_POST["albumyear"]));
+$picture = $_POST['picture'];
 //$email = mysqli_real_escape_string($db, trim($_POST["email"])); (picture look at edit.php)
 
 //If the submit button wasn't pressed, show the form
@@ -146,7 +147,7 @@ else {
 	//if everything was filled in correctly, add the album to the database
 }else
 	{
-	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre) VALUES ('$albumname', '$albumyear', '$bandid', '$albumgenre')";
+	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre, picture) VALUES ('$albumname', '$albumyear', '$bandid', '$albumgenre', '$picture')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
 	?>
