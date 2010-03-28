@@ -30,6 +30,14 @@ header("location:login.php");
 			<tr>
 				<th rowspan="4"><img src="images/redDesign.gif"></th>
 			</tr>
+			<?php
+			if ($_SESSION['userid']==1){
+			echo "<tr><td>";
+				echo "<a href=viewadmin.php>View all accounts, bands, venues (ADMIN FEATURE ONLY)</a>";
+			echo "</td></tr>";
+			}
+			?>
+			
 			<tr><td>
 				<a href=changeaccount.php>Change account information</a>
 			</td></tr>
