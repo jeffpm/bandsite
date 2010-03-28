@@ -29,10 +29,11 @@ include "dbconnect.php";
 $bandid = $_GET['bandid'];
 
 //Collect the variables from the form 
-$albumame = mysqli_real_escape_string($db, trim($_POST["albumname"]));
+$albumname = mysqli_real_escape_string($db, trim($_POST["albumname"]));
 $albumband = mysqli_real_escape_string($db, trim($_POST["albumband"]));
 $albumgenre = mysqli_real_escape_string($db, trim($_POST["albumgenre"]));
 $albumyear = mysqli_real_escape_string($db, trim($_POST["albumyear"]));
+$picture = $_POST['picture'];
 //$email = mysqli_real_escape_string($db, trim($_POST["email"])); (picture look at edit.php)
 
 //If the submit button wasn't pressed, show the form
@@ -75,7 +76,7 @@ if (!isset($_POST['submit'])) {
 else {
 
 //if one of the fields was blank, show the form again
-	if (empty($username)|| empty($firstname)|| empty($lastname)|| empty ($password)|| empty($email)){
+	if (empty($albumname)|| empty($albumyear)|| empty($albumgenre)){
 		?>
 	<table cellpadding="5" cellspacing="10">
 	<tr>
@@ -85,66 +86,52 @@ else {
 	<tr>
 		<td>
 	<?php
-		//display error message for username field
-	echo "<label for=\"username\">Username:</label>";
-	if(empty($username)){
-	echo "<input type=\"text\" id=\"username\" name=\"username\" /> Enter a username";
+		//display error message for albumname field
+	echo "<label for=\"albumname\">Album name:</label>";
+	if(empty($albumname)){
+	echo "<input type=\"text\" id=\"albumname\" name=\"albumname\" /> Enter a Album Name";
 	}
 	else{
-	echo "<input type=\"text\" id=\"username\" name=\"username\" value=\"$username\" />";
+	echo "<input type=\"text\" id=\"albumname\" name=\"albumname\" value=\"$albumname\" />";
 	}
 	?>
 		</td>
 	</tr>
 	<tr>
 		<td>
+	
 	<?php
-		//display error message for password field
-	echo "<label for=\"password\">Password:</label>";
-	echo "<input type=\"password\" id=\"password\" name=\"password\" /> Enter a password";
+		//display error message for albumyear field
+		
+	echo "<label for=\"albumyear\">Album Year:</label>";
+	if (empty($albumyear)){
+	echo "<input type=\"text\" id=\"albumyear\" name=\"albumyear\" /> Enter an Album Year";
+	}
+	else{
+	echo "<input type=\"text\" id=\"albumyear\" name=\"albumyear\" value=\"$albumyear\" />";
+	}
 	?>
 		</td>	
 	</tr>
 	<tr>
 		<td>
 	<?php
-		//display error message for first name field
-	echo "<label for=\"firstname\">First name:</label>";
-	if (empty($firstname)){
-		echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" /> Enter a first name";
+		//display error message for albumgenre field
+		
+	echo "<label for=\"albumgenre\">Album Genre:</label>";
+	if(empty($albumgenre)){
+	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" /> Enter an Album Genre";
 	}
 	else{
-	echo "<input type=\"text\" id=\"firstname\" name=\"firstname\" value=\"$firstname\" />";
-         }
+	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" value=\"$albumgenre\" />";
+	}
 	?>
 		</td>
 	</tr>
 	<tr>
 		<td>
-	<?php
-		//display error message for last name field
-	echo "<label for=\"lastname\">Last name:</label>";
-	if (empty($lastname)){
-		echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" /> Enter a last name";
-	}
-	else{
-	echo "<input type=\"text\" id=\"lastname\" name=\"lastname\" value=\"$lastname\" />";
-	}
-	?>
-		</td>
-	</tr>
-	<tr>
-		<td >
-	<?php
-		//display error messager for email field
-	echo "<label for=\"email\">Email:</label>";
-	if (empty($email)){
-		echo "<input type=\"text\" id=\"email\" name=\"email\" /> Enter an email";
-	}
-	else{
-	echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"$email\" />";
-	}
-	?>
+	
+
 		</td>
 	</tr>
 	<tr>
@@ -157,10 +144,10 @@ else {
 	</tr>
 	</table>
 	<?php
-	//if everything was filled in correctly, add the entry to the database
+	//if everything was filled in correctly, add the album to the database
 }else
 	{
-	$query="INSERT INTO accounts(username, password, firstname, lastname, email) VALUES ('$username', SHA('$password'), '$firstname', '$lastname', '$email')";
+	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre, picture) VALUES ('$albumname', '$albumyear', '$bandid', '$albumgenre', '$picture')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
 	?>
@@ -168,7 +155,7 @@ else {
 	<tr>
 		<td><img src="images/redDesign.gif"></td>
 		<td>
-			<label>Thank you for creating an account.</label>
+			<label>Thank you for adding an album.</label>
 		</td>
 	</tr>
 	</table>

@@ -54,7 +54,7 @@ $query = "select * from bands where bandid='$bandid'";
 	//if(session_is_registered(myusername)){
 	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit/Delete Band Information</a>";
 	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
-	//echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
+	echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
 	}
     echo " </p>";
 	
@@ -78,7 +78,7 @@ $query = "select * from bands where bandid='$bandid'";
 						$genre=$genre.", ";
 					}
 					$gid = $row['genreid'];
-					$genre = $genre."<a href=\"relatedBands.php?genre=".$gid."\">".$row['genre']."</a>";
+					$genre = $genre."<a href=\"searchBand.php?search=".$gid."\">".$row['genre']."</a>";
 					$firstloop=false;
 				}
 	$query = "SELECT albumname FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";

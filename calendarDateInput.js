@@ -15,9 +15,9 @@ var CellHeight = 16;
 var ImageURL = 'calendar.jpg';
 var NextURL = 'next.gif';
 var PrevURL = 'prev.gif';
-var CalBGColor = 'white';
-var TopRowBGColor = 'buttonface';
-var DayBGColor = 'lightgrey';
+var CalBGColor = 'green';
+var TopRowBGColor = 'green';
+var DayBGColor = 'grey';
 
 // Global variables
 var ZCounter = 100;
