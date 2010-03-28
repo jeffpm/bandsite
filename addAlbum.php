@@ -53,16 +53,12 @@ if (!isset($_POST['submit'])) {
 </tr>
 <tr>
 	<td align="right">
+		
 		<label for="albumyear">Album Year:</label>
 		<input type="text" id="albumyear" name="albumyear" /><br />
 	</td>
 </tr>
-<!--tr>
-	<td align="right">
-		<label for="albumgenre">Album Genre:</label>
-		<input type="text" id="albumgenre" name="albumgenre" /><br />
-	</td>
-</tr-->
+
 <?php
 $query="SELECT * from genre";
 		$result = mysqli_query($db, $query)
@@ -119,7 +115,7 @@ else {
 		//display error message for albumyear field
 		
 	echo "<label for=\"albumyear\">Album Year:</label>";
-	if (empty($albumyear)){
+	if(empty($albumyear)){
 	echo "<input type=\"text\" id=\"albumyear\" name=\"albumyear\" /> Enter an Album Year";
 	}
 	else{
@@ -133,14 +129,7 @@ else {
 	<?php
 		//display error message for albumgenre field
 		
-	/*echo "<label for=\"albumgenre\">Album Genre:</label>";
-	if(empty($albumgenre)){
-	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" /> Enter an Album Genre";
-	}
-	else{
-	echo "<input type=\"text\" id=\"albumgenre\" name=\"albumgenre\" value=\"$albumgenre\" />";
-	}
-	*/
+	
 		$query="SELECT * from genre";
 		$result = mysqli_query($db, $query)
 				or die("Error: Could not query genre database.");

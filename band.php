@@ -81,7 +81,7 @@ $query = "select * from bands where bandid='$bandid'";
 					$genre = $genre."<a href=\"searchBand.php?search=".$gid."\">".$row['genre']."</a>";
 					$firstloop=false;
 				}
-	$query = "SELECT albumname FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";
+	$query = "SELECT albumname, albumband FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";
 				$result = mysqli_query($db, $query)
 					or die("Error Querying Database");
 				$firstloop = true;
@@ -90,7 +90,9 @@ $query = "select * from bands where bandid='$bandid'";
 						$albumname=$albumname.", ";
 						
 					}
-					$albumname=$albumname.$row['albumname'];
+					
+					$aid = $row['albumband'];
+					$albumname = $albumname."<a href=\"album.php?id=".$aid."\">".$row['albumname']."</a>";
 					$firstloop = false;
 				}
 			   
