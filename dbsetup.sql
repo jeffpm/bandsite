@@ -8,6 +8,8 @@ USE band;
 
 CREATE TABLE IF NOT EXISTS `accounts` (`userid` smallint(6) NOT NULL AUTO_INCREMENT, `username` varchar(50) NOT NULL, `password` varchar(40) NOT NULL, `firstname` varchar(50) NOT NULL, `lastname` varchar(50) NOT NULL, `email` varchar(50) NOT NULL, PRIMARY KEY (`userid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('admin', SHA('admin'), 'admin', 'admin', 'admin@admin.com');
+
 INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('test', SHA('password'), 'Jeff', 'McElhannon', 'jeffpm@gmail.com');
 
 CREATE TABLE IF NOT EXISTS `venues` (`venueid` smallint(6) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `picture` varchar(50) NOT NULL, `address` varchar(30) NOT NULL, `city` varchar(50) NOT NULL, `state` varchar(50) NOT NULL, `zip` INT NOT NULL, `description` BLOB NOT NULL, `userid` smallint(6) NOT NULL, PRIMARY KEY (`venueid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -30,17 +32,17 @@ INSERT INTO events (date, venueid, bandid, description) VALUES ('2010-06-15', '2
 
 CREATE TABLE IF NOT EXISTS `bands` (`bandid` smallint(6) NOT NULL AUTO_INCREMENT, `userid` smallint(6) NOT NULL, `bandname` varchar(50) NOT NULL, `picture` varchar(50) NOT NULL, `city` varchar(30) NOT NULL, `state` varchar(30) NOT NULL, `description` BLOB NOT NULL, PRIMARY KEY (`bandid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lady Antebellum', '1', 'ladya.jpg', 'Nashville', 'Tennessee', 'This group was formed in 2006 and has quickly become popular. They newest album is #3 on the Billboard Charts.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lady Antebellum', '2', 'ladya.jpg', 'Nashville', 'Tennessee', 'This group was formed in 2006 and has quickly become popular. They newest album is #3 on the Billboard Charts.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Black Eyed Peas', '1', 'blackeyedpeas.jpg', 'Los Angeles', 'California', 'The Black Eyed Peas have had many members throughout their 15 years. They have won multiple Grammy Awards.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Black Eyed Peas', '2', 'blackeyedpeas.jpg', 'Los Angeles', 'California', 'The Black Eyed Peas have had many members throughout their 15 years. They have won multiple Grammy Awards.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Zac Brown Band', '1', 'zacbrownband.jpg', 'Atlanta', 'Georgia', 'The band was started in 2000 and has been nominated for multiple awards. They won Best New Artist at the Grammy Awards this year.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Zac Brown Band', '2', 'zacbrownband.jpg', 'Atlanta', 'Georgia', 'The band was started in 2000 and has been nominated for multiple awards. They won Best New Artist at the Grammy Awards this year.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lifehouse', '1', 'lifehouse.jpg', 'Los Angeles', 'California', 'Their song "Hanging by a Moment" was a hit single in 2001. The have put out five albums.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lifehouse', '2', 'lifehouse.jpg', 'Los Angeles', 'California', 'Their song "Hanging by a Moment" was a hit single in 2001. The have put out five albums.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Led Zeppelin', '1', 'zeppelin.jpg', 'London', 'England', 'They started in 1968.  The band has sold over 200 million albums worldwide.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Led Zeppelin', '2', 'zeppelin.jpg', 'London', 'England', 'They started in 1968.  The band has sold over 200 million albums worldwide.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Destiny\'s Child', '1', 'destiny.jpg', 'Houston', 'Texas', 'This American group was formed in 1997 and created multiple albums.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Destiny\'s Child', '2', 'destiny.jpg', 'Houston', 'Texas', 'This American group was formed in 1997 and created multiple albums.');
 
 CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `albumname` varchar(20), `albumyear` smallint(4), `albumband` smallint(6), `albumgenre` varchar(50), `picture` varchar(50) NOT NULL, PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
