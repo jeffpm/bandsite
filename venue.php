@@ -31,6 +31,7 @@ $query = "select * from venues where venueid='$venueid'";
   echo "<title>Venue Profile For $name</title>";
   ?>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>

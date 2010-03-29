@@ -36,6 +36,7 @@ $query = "select * from bands where bandid='$bandid'";
   echo "<title>Band Profile For $bandname</title>";
   ?>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>

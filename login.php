@@ -12,6 +12,7 @@ if (!isset($_POST['submit'])) {
  <HEAD>
   <TITLE>Log In </TITLE>
 	<link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
  </HEAD>
  
 <body>

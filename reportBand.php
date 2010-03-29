@@ -8,6 +8,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Adding Band</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
