@@ -104,41 +104,39 @@ INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES
 
 INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Survivor', 2001, '6', 'pop', 'destinyAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Fearless', 2008, '7', 'pop', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Fearless', 2008, '7', 'pop', 'taylorswiftAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Dangerously in Love', 2003, '8', 'R&B', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Dangerously in Love', 2003, '8', 'R&B', 'beyonceAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('White Blood Cells', 2001, '9', 'alternative rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('White Blood Cells', 2001, '9', 'alternative rock', 'whitestripesAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Elephant', 2003, '9', 'alternative rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Elephant', 2003, '9', 'alternative rock', 'whitestripesAlbum2.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Cracked Rear View', 1994, '10', 'rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Cracked Rear View', 1994, '10', 'rock', 'hootieAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Looking for Lucky', 2005, '10', 'rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Looking for Lucky', 2005, '10', 'rock', 'hootieAlbum2.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Before These Crowded Streets', 1998, '11', 'alternative rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Before These Crowded Streets', 1998, '11', 'alternative rock', 'davematthewsAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Busted Stuff', 2002, '11', 'rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Busted Stuff', 2002, '11', 'rock', 'davematthewsAlbum2.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Hear It Is', 1986, '12', 'indie', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Hear It Is', 1986, '12', 'indie', 'flaminglipsAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Embryonic', 2009, '12', 'alternative rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Embryonic', 2009, '12', 'alternative rock', 'flaminglipsAlbum2.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Country Was', 2002, '13', 'folk', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('I and Love and You', 2009, '13', 'indie', 'avettAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('I and Love and You', 2009, '13', 'indie', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Special Forces', 1982, '14', 'rock', '38specialAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Special Forces', 1982, '14', 'rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Rock & Roll Strategy', 1988, '14', 'rock', '38specialAlbum2.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Rock & Roll Strategy', 1988, '14', 'rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Drivetrain', 2004, '14', 'rock', '38specialAlbum3.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Drive Train', 2004, '14', 'rock', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Master of Puppets', 1986, '15', 'heavy metal', 'metallicaAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Master of Puppets', 1986, '15', 'heavy metal', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Full Circle', 2002, '16', 'R&B', 'boyziimenAlbum1.jpg');
 
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Full Circle', 2002, '16', 'R&B', 'tempAlbum.jpg');
-
-INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Spiceworld', 1997, '17', 'pop', 'tempAlbum.jpg');
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Spiceworld', 1997, '17', 'pop', 'spicegirlsAlbum1.jpg');
 
 CREATE TABLE IF NOT EXISTS `bandmembers` (`memberid` smallint(6) NOT NULL AUTO_INCREMENT, `membername` varchar(30) NOT NULL, `bandid` smallint(6) NOT NULL, PRIMARY KEY (`memberid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
