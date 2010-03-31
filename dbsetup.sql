@@ -12,13 +12,25 @@ INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('a
 
 INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('test', SHA('password'), 'Jeff', 'McElhannon', 'jeffpm@gmail.com');
 
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('jessica', SHA('jessica'), 'Jessica', 'Zeitz', 'jessica.zeitz@gmail.com');
+
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('zwe', SHA('zwe'), 'Zwe', 'Maung', 'zmaung@mail.umw.edu');
+
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('chris', SHA('chris'), 'Chris', 'Randles', 'crandles@mail.umw.edu');
+
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('john', SHA('john'), 'John', 'Corrigan', 'jcorriga@mail.umw.edu');
+
+INSERT INTO accounts (username, password, firstname, lastname, email) VALUES ('katherine', SHA('katherine'), 'Katherine', 'Beegle', 'kbeegle@mail.umw.edu');
+
 CREATE TABLE IF NOT EXISTS `venues` (`venueid` smallint(6) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `picture` varchar(50) NOT NULL, `address` varchar(30) NOT NULL, `city` varchar(50) NOT NULL, `state` varchar(50) NOT NULL, `zip` INT NOT NULL, `description` BLOB NOT NULL, `userid` smallint(6) NOT NULL, PRIMARY KEY (`venueid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('UMW', 'UMW.jpg', '1301 College Ave', 'Fredericksburg', 'Virginia', 22401, 'UMW has The Underground, Dodd Auditorium and the Great Hall in Woodard Campus Center.', 1);
+INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('UMW', 'UMW.jpg', '1301 College Ave', 'Fredericksburg', 'Virginia', 22401, 'UMW has The Underground, Dodd Auditorium and the Great Hall in Woodard Campus Center.', 3);
 
-INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('The Otter House', 'otterhouse.png', '1005 Princess Anne St', 'Fredericksburg', 'Virginia', 22401, 'The Otter House is a full restaurant with an upstairs bar and music venue.', 1);
+INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('The Otter House', 'otterhouse.png', '1005 Princess Anne St', 'Fredericksburg', 'Virginia', 22401, 'The Otter House is a full restaurant with an upstairs bar and music venue.', 3);
 
-INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('Nissan Pavillion', 'nissan.jpg', '7800 Cellar Door Dr', 'Bristow', 'Virginia', 20136, 'Nissan Pavillion was built in 1995 and has had many memorable performances including Aerosmith, Steely Dan, and the Village People.', 1);
+INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('Nissan Pavillion', 'nissan.jpg', '7800 Cellar Door Dr', 'Bristow', 'Virginia', 20136, 'Nissan Pavillion was built in 1995 and has had many memorable performances including Aerosmith, Steely Dan, and the Village People.', 5);
+
+INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('Wolf Trap', 'wolftrap.jpg', '1645 Trap Road', 'Vienna', 'Virginia', 22182, 'Wolf Trap is an outdoor amphitheater located in Vienna, Virginia. It hosts a variety of shows including concerts and operas', 4);
 
 CREATE TABLE IF NOT EXISTS `events` ( `eventid` smallint(6) NOT NULL AUTO_INCREMENT, `date` date NOT NULL, `venueid` INT NOT NULL, `bandid` INT NOT NULL, `description` BLOB NOT NULL, PRIMARY KEY (`eventid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -32,17 +44,39 @@ INSERT INTO events (date, venueid, bandid, description) VALUES ('2010-06-15', '2
 
 CREATE TABLE IF NOT EXISTS `bands` (`bandid` smallint(6) NOT NULL AUTO_INCREMENT, `userid` smallint(6) NOT NULL, `bandname` varchar(50) NOT NULL, `picture` varchar(50) NOT NULL, `city` varchar(30) NOT NULL, `state` varchar(30) NOT NULL, `description` BLOB NOT NULL, PRIMARY KEY (`bandid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lady Antebellum', '2', 'ladya.jpg', 'Nashville', 'Tennessee', 'This group was formed in 2006 and has quickly become popular. They newest album is #3 on the Billboard Charts.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lady Antebellum', '3', 'ladya.jpg', 'Nashville', 'Tennessee', 'This group was formed in 2006 and has quickly become popular. They newest album is #3 on the Billboard Charts.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Black Eyed Peas', '2', 'blackeyedpeas.jpg', 'Los Angeles', 'California', 'The Black Eyed Peas have had many members throughout their 15 years. They have won multiple Grammy Awards.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Black Eyed Peas', '4', 'blackeyedpeas.jpg', 'Los Angeles', 'California', 'The Black Eyed Peas have had many members throughout their 15 years. They have won multiple Grammy Awards.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Zac Brown Band', '2', 'zacbrownband.jpg', 'Atlanta', 'Georgia', 'The band was started in 2000 and has been nominated for multiple awards. They won Best New Artist at the Grammy Awards this year.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Zac Brown Band', '3', 'zacbrownband.jpg', 'Atlanta', 'Georgia', 'The band was started in 2000 and has been nominated for multiple awards. They won Best New Artist at the Grammy Awards this year.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lifehouse', '2', 'lifehouse.jpg', 'Los Angeles', 'California', 'Their song "Hanging by a Moment" was a hit single in 2001. The have put out five albums.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Lifehouse', '7', 'lifehouse.jpg', 'Los Angeles', 'California', 'Their song "Hanging by a Moment" was a hit single in 2001. The have put out five albums.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Led Zeppelin', '2', 'zeppelin.jpg', 'London', 'England', 'They started in 1968.  The band has sold over 200 million albums worldwide.');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Led Zeppelin', '5', 'zeppelin.jpg', 'London', 'England', 'They started in 1968.  The band has sold over 200 million albums worldwide.');
 
 INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Destiny\'s Child', '2', 'destiny.jpg', 'Houston', 'Texas', 'This American group was formed in 1997 and created multiple albums.');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Taylor Swift', '3', 'taylorswift.jpg', 'Wyomissing', 'Pennsylvania', 'Taylor Swift is a 20 year old artist who has already over 60 awards in the music industry.');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Beyonce', '7', 'beyonce.jpg', 'Houston', 'Texas', 'She is an American R&B singer, songwriter, record producer, actress and model. In 2003, she released her debut solo album Dangerously in Love.');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The White Stripes', '5', 'tempBand.jpg', 'Detroit', 'Michigan', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Hootie & the Blowfish', '6', 'tempBand.jpg', 'Columbia', 'South Carolina', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Dave Matthews Band', '2', 'tempBand.jpg', 'Charlottesville', 'Virginia', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Flaming Lips', '5', 'tempBand.jpg', 'Oklahoma City', 'Oklahoma', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Avett Brothers', '6', 'tempBand.jpg', 'Concord', 'North Carolina', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('.38 Special', '2', 'tempBand.jpg', 'Jacksonville', 'Florida', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Metallica', '2', 'tempBand.jpg', 'Los Angeles', 'California', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Boys II Men', '4', 'tempBand.jpg', 'Philadelphia', 'Pennsylvania', '');
+
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Spice Girls', '7', 'tempBand.jpg', 'London', 'England', '');
 
 CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `albumname` varchar(20), `albumyear` smallint(4), `albumband` smallint(6), `albumgenre` varchar(50), `picture` varchar(50) NOT NULL, PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -120,6 +154,82 @@ INSERT INTO bandmembers (membername, bandid) VALUES ('Kelly Rowland', '6');
 
 INSERT INTO bandmembers (membername, bandid) VALUES ('Michelle Williams', '6');
 
+INSERT INTO bandmembers (membername, bandid) VALUES ('Taylor Swift', '7');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Beyonce Knowles', '8');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Jack White', '9');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Meg White', '9');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Darius Rucker', '10');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Mark Bryan', '10');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Dean Felber', '10');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Jim Sonefeld', '10');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Dave Matthews', '11');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Boyd Tinsley', '11');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Carter Beauford', '11');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Stefan Lessard', '11');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Wayne Coyne', '12');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Steven Drozd', '12');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Michael Ivins', '12');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Kliph Scurlock', '12');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Seth Avett', '13');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Scott Avett', '13');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Joe Kwon', '13');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Bob Crawford', '13');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Don Barnes', '14');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Donnie Van Zant', '14');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Danny Chauncey', '14');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Larry Junstrom', '14');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Bobby Capps', '14');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Gary Moffatt', '14');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('James Hetfield', '15');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Lars Ulrich', '15');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Kirk Hammett', '15');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Robert Trujillo', '15');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Nathan Morris', '16');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Shawn Stockman', '16');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Wayna Morris', '16');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Victoria Beckham', '17');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Emma Bunton', '17');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Melanie Brown', '17');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Melanie Chisholm', '17');
+
+INSERT INTO bandmembers (membername, bandid) VALUES ('Geri Halliwell', '17');
+
 CREATE TABLE IF NOT EXISTS `genre` (`genreid` smallint(6) NOT NULL AUTO_INCREMENT, `genre` varchar(30) NOT NULL, PRIMARY KEY (`genreid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 INSERT INTO genre (genre) VALUES ('country');
@@ -134,7 +244,21 @@ INSERT INTO genre (genre) VALUES ('alternative rock');
 
 INSERT INTO genre (genre) VALUES ('hard rock');
 
-INSERT INTO genre (genre) VALUE ('heavy metal');
+INSERT INTO genre (genre) VALUES ('heavy metal');
+
+INSERT INTO genre (genre) VALUES ('garage rock');
+
+INSERT INTO genre (genre) VALUES ('punk blues');
+
+INSERT INTO genre (genre) VALUES ('rock');
+
+INSERT INTO genre (genre) VALUES ('acoustic rock');
+
+INSERT INTO genre (genre) VALUES ('indie');
+
+INSERT INTO genre (genre) VALUES ('folk');
+
+INSERT INTO genre (genre) VALUES ('soul');
 
 CREATE TABLE IF NOT EXISTS `bandgenre` (`bandid` smallint(6) NOT NULL, `genreid` smallint(6) NOT NULL) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;
 
@@ -157,6 +281,50 @@ INSERT INTO bandgenre (bandid, genreid) VALUES ('5', '7');
 INSERT INTO bandgenre (bandid, genreid) VALUES ('6', '3');
 
 INSERT INTO bandgenre (bandid, genreid) VALUES ('6', '4');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('7', '1');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('7', '3');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('8', '3');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('8', '4');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('8', '14');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('9', '5');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('9', '8');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('9', '9');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('10', '10');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('10', '5');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('11', '5');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('11', '11');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('12', '12');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('12', '5');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('13', '12');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('13', '13');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('14', '6');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('15', '6');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('15', '7');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('16', '4');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('16', '14');
+
+INSERT INTO bandgenre (bandid, genreid) VALUES ('17', '3');
 
 CREATE TABLE IF NOT EXISTS `comments` (`commentid` smallint(6) NOT NULL AUTO_INCREMENT, `bandid` smallint(6), `name` varchar(30) NOT NULL, `comment` blob, `date` date, PRIMARY KEY (`commentid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 

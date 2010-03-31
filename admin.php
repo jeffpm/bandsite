@@ -29,7 +29,7 @@ header("location:login.php");
 	<div id="main">
 		<table cellpadding="5" cellspacing="10">
 			<tr>
-				<th rowspan="4"><img src="images/redDesign.gif"></th>
+				<th rowspan="5"><img src="images/redDesign.gif"></th>
 			</tr>
 			<?php
 			if ($_SESSION['userid']==1){
