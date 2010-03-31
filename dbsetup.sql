@@ -28,7 +28,7 @@ INSERT into venues (name, picture, address, city, state, zip, description, useri
 
 INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('The Otter House', 'otterhouse.png', '1005 Princess Anne St', 'Fredericksburg', 'Virginia', 22401, 'The Otter House is a full restaurant with an upstairs bar and music venue.', 3);
 
-INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('Nissan Pavillion', 'nissan.jpg', '7800 Cellar Door Dr', 'Bristow', 'Virginia', 20136, 'Nissan Pavillion was built in 1995 and has had many memorable performances including Aerosmith, Steely Dan, and the Village People.', 5);
+INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('Nissan Pavillion', 'nissan.jpg', '7800 Cellar Door Dr', 'Bristow', 'Virginia', 20136, 'Nissan Pavillion was built in 1995 and has had many memorable performances including Aerosmith, Steely Dan, and the Village People.', 6);
 
 INSERT into venues (name, picture, address, city, state, zip, description, userid) VALUES ('Wolf Trap', 'wolftrap.jpg', '1645 Trap Road', 'Vienna', 'Virginia', 22182, 'Wolf Trap is an outdoor amphitheater located in Vienna, Virginia. It hosts a variety of shows including concerts and operas', 4);
 
@@ -60,23 +60,23 @@ INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES (
 
 INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Beyonce', '7', 'beyonce.jpg', 'Houston', 'Texas', 'She is an American R&B singer, songwriter, record producer, actress and model. In 2003, she released her debut solo album Dangerously in Love.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The White Stripes', '5', 'whitestripes.jpg', 'Detroit', 'Michigan', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The White Stripes', '5', 'whitestripes.jpg', 'Detroit', 'Michigan', 'The White Stripes rose to prominence in 2002, as part of the garage rock revival scene. Their successful albums White Blood Cells and Elephant drew them attention from a large variety of media outlets in the United States and the United Kingdom.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Hootie & the Blowfish', '6', 'hootie.jpg', 'Columbia', 'South Carolina', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Hootie & the Blowfish', '6', 'hootie.jpg', 'Columbia', 'South Carolina', 'It is an American rock band that enjoyed widespread popularity in the second half of the 1990s. They were originally formed in 1986 at the University of South Carolina. The band has recorded seven studio albums to date, and has charted sixteen singles on various Billboard singles charts.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Dave Matthews Band', '2', 'davematthews.jpg', 'Charlottesville', 'Virginia', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Dave Matthews Band', '2', 'davematthews.jpg', 'Charlottesville', 'Virginia', 'The band is known for their annual summer-long tours of the US and Europe, featuring lengthy improvisational renditions of their songs, accompanied by elaborate video and lighting.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Flaming Lips', '5', 'flaminglips.jpg', 'Oklahoma City', 'Oklahoma', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Flaming Lips', '5', 'flaminglips.jpg', 'Oklahoma City', 'Oklahoma', 'The band is known for their lush, multi-layered, psychedelic arrangements, spacey lyrics and bizarre song and album titles. They are also acclaimed for their elaborate live shows, which feature costumes, balloons, puppets, video projections, complex stage light configurations, giant hands, large amounts of confetti, and frontman Wayne Coyne\'s signature man-sized plastic bubble, in which he traverses the audience.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Avett Brothers', '6', 'avett.jpg', 'Concord', 'North Carolina', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Avett Brothers', '6', 'avett.jpg', 'Concord', 'North Carolina', 'Risen from the ashes of Seth and Scott\'s former rock band Nemo, the Avett Brothers combine bluegrass, country, punk, pop melodies, folk, rock and roll, honky tonk, and ragtime to produce a sound described by the San Francisco Chronicle as having the "heavy sadness of Townes Van Zandt, the light pop concision of Buddy Holly, the tuneful jangle of the Beatles, the raw energy of the Ramones."');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('.38 Special', '2', '38special.jpg', 'Jacksonville', 'Florida', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('.38 Special', '2', '38special.jpg', 'Jacksonville', 'Florida', 'By the early 1980s, 38 Special began amalgamating southern rock and arena rock in their music, thereby kicking off a string of successful albums and singles. Their first high-charting song was "Hold On Loosely" (1981); "Caught Up In You" (1982) and "If I\'d Been The One" (1983) both hit #1 on Billboard magazine\'s Album Rock Tracks chart.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Metallica', '2', 'metallica.jpg', 'Los Angeles', 'California', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Metallica', '2', 'metallica.jpg', 'Los Angeles', 'California', 'Metallica\'s early releases included fast tempos, instrumentals, and aggressive musicianship that placed them as one of the "big four" of the thrash metal subgenre alongside Slayer, Megadeth, and Anthrax during the genre\'s development into a popular style. The band earned a growing fan base in the underground music community and critical acclaim, with the 1986 release Master of Puppets described as one of the most influential and "heavy" thrash metal albums.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Boyz II Men', '4', 'boyziimen.jpg', 'Philadelphia', 'Pennsylvania', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Boyz II Men', '4', 'boyziimen.jpg', 'Philadelphia', 'Pennsylvania', 'It is an American rhythm and blues group. Based on sales, Boyz II Men is the most successful R&B male vocal group of all time. They recorded five number 1 R&B successes between 1992 and 1997 and have sold more than 60 million albums. Three of its number 1 hits set and exceeded records for the longest period of time a single remained scored at number 1 on the Billboard Hot 100; "One Sweet Day" still holds the record.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Spice Girls', '7', 'spicegirls.jpg', 'London', 'England', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Spice Girls', '7', 'spicegirls.jpg', 'London', 'England', 'They consisted of Victoria Beckham who was nicknamed Posh Spice, Melanie Brown nicknamed Scary Spice, Emma Bunton who was Baby Spice, Melanie Chisholm, Sporty Spice, and Geri Halliwell, Ginger Spice. They are the most successful girl group of all time. They were signed to Virgin Records and released their debut single, "Wannabe", in 1996. The song hit number-one in 31 countries and helped establish the group as a "global phenomenon".');
 
 CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `albumname` varchar(20), `albumyear` smallint(4), `albumband` smallint(6), `albumgenre` varchar(50), `picture` varchar(50) NOT NULL, PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -103,6 +103,42 @@ INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES
 INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Led Zeppelin IV', 1971, '5', 'heavy metal', 'zeppelinAlbum4.jpg');
 
 INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Survivor', 2001, '6', 'pop', 'destinyAlbum1.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Fearless', 2008, '7', 'pop', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Dangerously in Love', 2003, '8', 'R&B', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('White Blood Cells', 2001, '9', 'alternative rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Elephant', 2003, '9', 'alternative rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Cracked Rear View', 1994, '10', 'rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Looking for Lucky', 2005, '10', 'rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Before These Crowded Streets', 1998, '11', 'alternative rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Busted Stuff', 2002, '11', 'rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Hear It Is', 1986, '12', 'indie', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Embryonic', 2009, '12', 'alternative rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Country Was', 2002, '13', 'folk', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('I and Love and You', 2009, '13', 'indie', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Special Forces', 1982, '14', 'rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Rock & Roll Strategy', 1988, '14', 'rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Drive Train', 2004, '14', 'rock', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Master of Puppets', 1986, '15', 'heavy metal', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Full Circle', 2002, '16', 'R&B', 'tempAlbum.jpg');
+
+INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Spiceworld', 1997, '17', 'pop', 'tempAlbum.jpg');
 
 CREATE TABLE IF NOT EXISTS `bandmembers` (`memberid` smallint(6) NOT NULL AUTO_INCREMENT, `membername` varchar(30) NOT NULL, `bandid` smallint(6) NOT NULL, PRIMARY KEY (`memberid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
