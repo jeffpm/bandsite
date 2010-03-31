@@ -60,23 +60,23 @@ INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES (
 
 INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Beyonce', '7', 'beyonce.jpg', 'Houston', 'Texas', 'She is an American R&B singer, songwriter, record producer, actress and model. In 2003, she released her debut solo album Dangerously in Love.');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The White Stripes', '5', 'tempBand.jpg', 'Detroit', 'Michigan', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The White Stripes', '5', 'whitestripes.jpg', 'Detroit', 'Michigan', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Hootie & the Blowfish', '6', 'tempBand.jpg', 'Columbia', 'South Carolina', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Hootie & the Blowfish', '6', 'hootie.jpg', 'Columbia', 'South Carolina', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Dave Matthews Band', '2', 'tempBand.jpg', 'Charlottesville', 'Virginia', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Dave Matthews Band', '2', 'davematthews.jpg', 'Charlottesville', 'Virginia', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Flaming Lips', '5', 'tempBand.jpg', 'Oklahoma City', 'Oklahoma', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Flaming Lips', '5', 'flaminglips.jpg', 'Oklahoma City', 'Oklahoma', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Avett Brothers', '6', 'tempBand.jpg', 'Concord', 'North Carolina', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('The Avett Brothers', '6', 'avett.jpg', 'Concord', 'North Carolina', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('.38 Special', '2', 'tempBand.jpg', 'Jacksonville', 'Florida', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('.38 Special', '2', '38special.jpg', 'Jacksonville', 'Florida', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Metallica', '2', 'tempBand.jpg', 'Los Angeles', 'California', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Metallica', '2', 'metallica.jpg', 'Los Angeles', 'California', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Boys II Men', '4', 'tempBand.jpg', 'Philadelphia', 'Pennsylvania', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Boyz II Men', '4', 'boyziimen.jpg', 'Philadelphia', 'Pennsylvania', '');
 
-INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Spice Girls', '7', 'tempBand.jpg', 'London', 'England', '');
+INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Spice Girls', '7', 'spicegirls.jpg', 'London', 'England', '');
 
 CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `albumname` varchar(20), `albumyear` smallint(4), `albumband` smallint(6), `albumgenre` varchar(50), `picture` varchar(50) NOT NULL, PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
