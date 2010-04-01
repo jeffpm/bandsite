@@ -218,7 +218,6 @@ $query = "select * from bands where bandid='$bandid'";
 		echo "</table>";
 	}
 	?>
-	</table>
 	
 	<?php
 	$query="select c.commentid, c.name, c.comment, c.date from comments as c inner join bands as b on c.bandid=b.bandid AND b.bandid=$bandid ORDER BY commentid desc LIMIT 5";
