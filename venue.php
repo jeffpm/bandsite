@@ -141,7 +141,7 @@ $query = "select * from venues where venueid='$venueid'";
 
       new GSmapSearchControl(
             document.getElementById("mapsearch"),
-            "<?php echo"$address"; ?>",
+            "<?php echo"$address, $zip"; ?>",
             options
             );
 
