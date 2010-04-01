@@ -138,6 +138,17 @@ INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES
 
 INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Spiceworld', 1997, '17', 'pop', 'spicegirlsAlbum1.jpg');
 
+CREATE TABLE IF NOT EXISTS `songs` (`songid` smallint(6) NOT NULL AUTO_INCREMENT, `songname` varchar(30) NOT NULL, PRIMARY KEY(`songid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `songalbum` (`albumid` smallint(6) NOT NULL, `songid` smallint(6) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
+
+
+
+
 CREATE TABLE IF NOT EXISTS `bandmembers` (`memberid` smallint(6) NOT NULL AUTO_INCREMENT, `membername` varchar(30) NOT NULL, `bandid` smallint(6) NOT NULL, PRIMARY KEY (`memberid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 INSERT INTO bandmembers (membername, bandid) VALUES ('Dave Haywood', '1');
