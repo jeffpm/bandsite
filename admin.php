@@ -13,6 +13,7 @@ header("location:login.php");
 <head>
 <title>Account Management</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <div id="wrap">
@@ -28,8 +29,16 @@ header("location:login.php");
 	<div id="main">
 		<table cellpadding="5" cellspacing="10">
 			<tr>
-				<th rowspan="4"><img src="images/redDesign.gif"></th>
+				<th rowspan="5"><img src="images/redDesign.gif"></th>
 			</tr>
+			<?php
+			if ($_SESSION['userid']==1){
+			echo "<tr><td>";
+				echo "<a href=viewadmin.php>View all accounts, bands, venues (ADMIN FEATURE ONLY)</a>";
+			echo "</td></tr>";
+			}
+			?>
+			
 			<tr><td>
 				<a href=changeaccount.php>Change account information</a>
 			</td></tr>

@@ -13,6 +13,7 @@ header("location:login.php");
 <head>
 <title>Account Management</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <div id="wrap">
@@ -32,7 +33,7 @@ header("location:login.php");
 	?>
 
 	<div id="main">
-		<table width="750" cellpadding="5" cellspacing="10">
+		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="25%"><commentheader>Band</commentheader></td>
 				<td width="35%"><commentheader>Edit</commentheader></td>
@@ -45,9 +46,6 @@ header("location:login.php");
 			}
 			?>
 		</table>
-	</div>
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	<?php include("footer.html"); ?>
 </div>

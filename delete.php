@@ -15,6 +15,7 @@ include "dbconnect.php";
 <head>
 <title>Account Creation</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <style type="text/css">
 
   .submitLink {
@@ -89,7 +90,17 @@ else {
 	$query="DELETE FROM events WHERE ".$type."id=$id";
 	$result = mysqli_query($db, $query)
    			or die("Error Querying Database2");
-			
+	if($type == "band"){
+		$query="DELETE FROM bandgenre WHERE bandid=$id";
+		$result = mysqli_query($db, $query)
+   			or die("Error Querying Database2");
+		$query="DELETE FROM comments WHERE bandid=$id";
+		$result = mysqli_query($db, $query)
+   			or die("Error Querying Database2");
+		$query="DELETE FROM bandmembers WHERE bandid=$id";
+		$result = mysqli_query($db, $query)
+   			or die("Error Querying Database2");
+	}
 	echo "<p>Page deleted! now redirecting to homepage...</p>";
 	
 	mysqli_close($db);
@@ -104,9 +115,6 @@ else {
 	
 	}
 	?>
-	</div><div id="sidebar">
-		<?php include("sidebar.php"); ?>
-	</div>
 	
 	<?php include("footer.html"); ?>
     

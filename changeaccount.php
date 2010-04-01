@@ -13,6 +13,7 @@ header("location:login.php");
 <head>
 <title>Account Management</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <div id="wrap">
@@ -39,6 +40,12 @@ header("location:login.php");
 	<?php if (!isset($_POST['submit'])) {
 ?>
 <table cellpadding="5" cellspacing="10">
+<tr><td colspan="2">
+		<tableHeader>Change Account</tableheader>
+		</td></tr>
+		<tr>
+		<th rowspan="7"><img src="images/redDesign.gif"></th>
+		</tr>
 <form method="post" action="<?php echo $PHP_SELF;?>">
 <tr>
 	<td align="right">

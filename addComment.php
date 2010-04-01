@@ -10,6 +10,7 @@ $bandid = $_GET['id'];
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>The Ultimate Band Surf</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -42,10 +43,6 @@ $bandid = $_GET['id'];
 	<label><a href="index.php">Return to Main Page</a></label>
 	</td></tr>
 	</table>	
-	</div>
-	
-	<div id="sidebar">
-		<?php include("sidebar.php"); ?>
 	</div>
 	
 	<?php include("footer.html"); ?>
