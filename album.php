@@ -2,25 +2,25 @@
 session_start();
 include "dbconnect.php";
 include "imageresize.php";
-$bandid = $_GET['id'];
+$albumid = $_GET['aid'];
 
-$query = "select * from bands where bandid='$bandid'";
+$query = "select * from albums where albumid='$aid'";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	
-	$row = mysqli_fetch_array($result);
-	$bandid = $row['bandid'];
-	$bandname = $row['bandname'];
-	$picture = $row['picture'];
-	$members = $row['members'];
-	$description = $row['description'];
-	$refid = $row['userid'];
+//	$row = mysqli_fetch_array($result);
+//	$bandid = $row['bandid'];
+//	$bandname = $row['bandname'];
+//	$picture = $row['picture'];
+//	$members = $row['members'];
+//	$description = $row['description'];
+//	$refid = $row['userid'];
 	
 	$albumid = $row['albumid'];
 	$albumname = $row['albumname'];
-	$albumyear = $row['albumyear'];
-	$albumband = $row['albumband'];
-	$albumgenre = $row['albumgenre'];
+//	$albumyear = $row['albumyear'];
+//	$albumband = $row['albumband'];
+//	$albumgenre = $row['albumgenre'];
 	
 ?>
 <?php
@@ -33,7 +33,8 @@ $query = "select * from bands where bandid='$bandid'";
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <?php
-  echo "<title>Band Profile For $bandname</title>";
+  //add album name variable from query
+  echo "<title>Album Info For $albumname</title>";
   ?>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -53,8 +54,6 @@ $query = "select * from bands where bandid='$bandid'";
 	<?php
 	if(isset($_SESSION['userid']) AND $_SESSION['userid']==$refid){
 	//if(session_is_registered(myusername)){
-	echo "<p><a href=\"edit.php?page=band&id=$bandid\">Edit/Delete Band Information</a>";
-	echo " - <a href=\"addevent.php?page=band&id=$bandid\">Add Event</a>";
 	echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
 	}
     echo " </p>";
@@ -63,26 +62,19 @@ $query = "select * from bands where bandid='$bandid'";
 	<table width="800" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
-			<pagetitle><?php echo "$bandname";?></pagetitle>
+			<pagetitle>Album Name<?php echo "$albumname";?></pagetitle>
 			<th rowspan="6"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(300, 300,"images/$picture");  ?>/></th>
 			</td>
 		</tr>
 		<tr><td>
-			<p><?php echo "<commentheader>Members:</commentheader> $members";?></p>
+			<commentheader>Tracks:</commentheader>
 		</td></tr>
-
-		<tr><td>
-			<p><?php echo "<commentheader>Description:</commentheader> $description";?></p>
-		</td></tr>
-		<tr><td>
-			<p><?php echo "<commentheader>Genre:</commentheader> $genre";?></p>
-		</td></tr>
-		<tr><td> 
-			<p><?php echo "<commentheader>Albums:</commentheader> $albumname";?></p>
-		</td></tr>
+		<?php
+		// loop for printing track names
+		?>
 	</table>
 
-
+</div>
 	<?php include("footer.html"); ?>
 </div>
 </body>

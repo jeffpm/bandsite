@@ -92,7 +92,7 @@ $query = "select * from bands where bandid='$bandid'";
 						
 					}
 					
-					$aid = $row['albumband'];
+					$aid = $row['albumid'];
 					$albumname = $albumname."<a href=\"album.php?id=".$aid."\">".$row['albumname']."</a>";
 					$firstloop = false;
 				}
@@ -251,23 +251,22 @@ $query = "select * from bands where bandid='$bandid'";
 			}
 			?>	
    
-   
-    <tr><td><p>Add a comment:</p></td></tr>
+			<tr><td><p>Add a comment:</p></td></tr>
 		
-		<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
+			<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
 		
-		<tr><td>
-			<label for="name">Name:</label>
-			<td><input type="text" id="name" name="name" /> <br /></td>
-		</td></tr>
-		<tr><td>
-			<label for="name">Comment:</label>
-			<td><textarea id="comment" name="comment" rows="3" cols="50" ></textarea></td>
-		</td></tr>
-		<tr><td>
-			<input type="submit" value="Submit Comment" name="submit" />
-		</td></tr>
-		</form>
+			<tr><td>
+				<label for="name">Name:</label>
+				<td><input type="text" id="name" name="name" /> <br /></td>
+			</td></tr>
+			<tr><td>
+				<label for="name">Comment:</label>
+				<td><textarea id="comment" name="comment" rows="3" cols="50" ></textarea></td>
+			</td></tr>
+			<tr><td>
+				<input type="submit" value="Submit Comment" name="submit" />
+			</td></tr>
+			</form>
         </table>
 	
 </div>
