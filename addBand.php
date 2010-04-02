@@ -36,7 +36,7 @@ header("location:login.php");
 		</td></tr>
 		<form method="post" action="reportBand.php" enctype="multipart/form-data">
 		<tr>
-		<th rowspan="6"><img src="images/redDesign.gif"></th>
+		<th rowspan="8"><img src="images/redDesign.gif"></th>
 		</tr>
 		<tr><td align="right">
 			<label for="bandname">Band name:</label>
@@ -76,11 +76,11 @@ header("location:login.php");
             <font color="#999999">(Separate members with a comma ",")</font>
 		</td></tr>
 	
-		<tr><td align="left" colspan="2">
+		<tr><td align="right">
 			<label>Description:</label>
 			<textarea id="other" name="description" rows="5" cols="50" ></textarea>
 		</td></tr>
-		<tr><td align="left">
+		<tr><td align="right">
 			<input type="submit" value="Add Band" name="submit" />
 		</td></tr>
 		</form>

@@ -32,7 +32,7 @@ header("location:login.php");
 		</td></tr>
 		<form method="post" action="reportvenue.php" enctype="multipart/form-data">
 		<tr>
-		<th rowspan="8"><img src="images/redDesign.gif"></th>
+		<th rowspan="10"><img src="images/redDesign.gif"></th>
 		</tr>
 		<tr><td align="right">
 			<label for="name">Venue Name:</label>
@@ -62,11 +62,11 @@ header("location:login.php");
 			<label for="zip">Zip Code:</label>
 			<input type="text" id="zip" name="zip" /> <br />
 		</td></tr>
-		<tr><td align="left" colspan="2">
+		<tr><td align="right">
 			<label>Description:</label>
 			<textarea id="description" name="description" rows="5" cols="50" ></textarea>
 		</td></tr>
-		<tr><td align="left">
+		<tr><td align="right">
 			<input type="submit" value="Add Venue" name="submit" />
 		</td></tr>
 		</form>

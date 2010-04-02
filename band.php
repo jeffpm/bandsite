@@ -230,36 +230,28 @@ $query = "select * from bands where bandid='$bandid'";
 		
 	?>
 	
-	
-			<?php
-			$hasResults=true;
-			while ($row = mysqli_fetch_array($result)) {
-				if($hasResults){ //runs once (if there are comments) and displays the headers of the table
-					?> 
 		<table width="500" cellpadding="5" cellspacing="10">
 			<tr>
 			<tableheader>Comments:</tableheader>
 			</tr>
-			<tr>
-				<td><commentheader>Date</commentheader></td>
-				<td><commentheader>Name</commentheader></td>
-				<td><commentheader>Comment</commentheader></td>
-			</tr>
+			<?php
+			while ($row = mysqli_fetch_array($result)) {
+					?> 
+					<tr>
+						<td><commentheader>Date</commentheader></td>
+						<td><commentheader>Name</commentheader></td>
+						<td><commentheader>Comment</commentheader></td>
+					</tr>
 					
 					<?php
-					$hasResults=false;
-				}
 			$date=$row['date'];
 			$name=$row['name'];
 			$comment=$row['comment'];
 			echo "<tr><td>$date</td><td>$name</td><td>$comment</td></tr>\n";
 			}
-			if(!$hasResults){
-				echo "</table>";
-			}
 			?>	
    
-    <table>
+   
     <tr><td><p>Add a comment:</p></td></tr>
 		
 		<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
