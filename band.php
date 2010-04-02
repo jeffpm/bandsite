@@ -120,7 +120,9 @@ $query = "select * from bands where bandid='$bandid'";
 		</td></tr>
 	</table>
     <table>
+	<tr>
 	<tableheader>Videos:</tableheader>
+	</tr>
 	</table>
 	<div id="videoPlayer">
 	
@@ -197,8 +199,10 @@ $query = "select * from bands where bandid='$bandid'";
 	  	while ($row = mysqli_fetch_array($result)) {
 			if($hasResults){ //creates the start of table on first run
 			?>
-			<tableheader>Events:</tableheader>
             <table width="750" cellpadding="5" cellspacing="10">
+			<tr>
+			<tableheader>Events:</tableheader>
+			</tr>
 			<tr>
 				<td width="25%"><commentheader>Date</commentheader></td>
 				<td width="35%"><commentheader>Location</commentheader></td>
@@ -232,8 +236,10 @@ $query = "select * from bands where bandid='$bandid'";
 			while ($row = mysqli_fetch_array($result)) {
 				if($hasResults){ //runs once (if there are comments) and displays the headers of the table
 					?> 
-     <tableheader>Comments:</tableheader>
 		<table width="500" cellpadding="5" cellspacing="10">
+			<tr>
+			<tableheader>Comments:</tableheader>
+			</tr>
 			<tr>
 				<td><commentheader>Date</commentheader></td>
 				<td><commentheader>Name</commentheader></td>
@@ -251,13 +257,10 @@ $query = "select * from bands where bandid='$bandid'";
 			if(!$hasResults){
 				echo "</table>";
 			}
-			?>
-					
+			?>	
    
     <table>
-    <tr><td><p>Add a comment:</p></td>
-		</tr>
-		<tr>
+    <tr><td><p>Add a comment:</p></td></tr>
 		
 		<form method="post" action="<?php echo "addComment.php?id=$bandid"?>" enctype="multipart/form-data">
 		
@@ -271,11 +274,11 @@ $query = "select * from bands where bandid='$bandid'";
 		</td></tr>
 		<tr><td>
 			<input type="submit" value="Submit Comment" name="submit" />
-            </form>
 		</td></tr>
+		</form>
         </table>
 	
-
+</div>
 	<?php include("footer.html"); ?>
 </div>
 </body>
