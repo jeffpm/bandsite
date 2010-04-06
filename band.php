@@ -92,7 +92,7 @@ $query = "select * from bands where bandid='$bandid'";
 						
 					}
 					
-					$aid = $row['albumid'];
+					$aid = $row['albumband'];
 					$albumname = $albumname."<a href=\"album.php?id=".$aid."\">".$row['albumname']."</a>";
 					$firstloop = false;
 				}
