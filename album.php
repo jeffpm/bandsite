@@ -2,19 +2,13 @@
 session_start();
 include "dbconnect.php";
 include "imageresize.php";
-$albumid = $_GET['aid'];
+$albumid = $_GET['id'];
 
-$query = "select * from albums where albumid='$aid'";
+$query = "select * from albums where albumid='$albumid'";
 	$result = mysqli_query($db, $query)
 	  or die("Error querying Database");
 	
 	$row = mysqli_fetch_array($result);
-	$bandid = $row['bandid'];
-	$bandname = $row['bandname'];
-	$picture = $row['picture'];
-	$members = $row['members'];
-	$description = $row['description'];
-	$refid = $row['userid'];
 	
 	$albumid = $row['albumid'];
 	$albumname = $row['albumname'];
@@ -62,7 +56,7 @@ $query = "select * from albums where albumid='$aid'";
 	<table width="800" cellpadding="5" cellspacing="10">
 		<tr>
 			<td width="65%">
-			<pagetitle>Album Name<?php echo "$albumname";?></pagetitle>
+			<pagetitle><?php echo "$albumname";?></pagetitle>
 			<th rowspan="6"><img src="images/<?php echo"$picture"; ?>" <?php imageResize(300, 300,"images/$picture");  ?>/></th>
 			</td>
 		</tr>
