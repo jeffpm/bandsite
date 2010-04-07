@@ -46,6 +46,19 @@ include "imageresize.php";
 				$bandname = $row['bandname'];
 				$picture = $row['picture'];
 				$description = $row['description'];
+				if(strlen($description)>100){
+					$temp=strpos($description, " ", 95);
+					$description=substr($description, 0, $temp);
+					if(($description[strlen($description)-1]==",") 
+					   or 
+					   ($description[strlen($description)-1]=="."))
+					
+					{
+						$description=substr($description, 0, $temp-1)."..";
+					}else{
+						$description=substr($description, 0, $temp)."..";
+					}
+				}
 				$query = "SELECT * FROM bandmembers WHERE bandid='$bandid' ORDER BY memberid ASC";
 				$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
@@ -99,6 +112,19 @@ include "imageresize.php";
 				$state = $row['state'];
 				$zip = $row['zip'];
 				$description = $row['description'];
+				if(strlen($description)>100){
+					$temp=strpos($description, " ", 95);
+					$description=substr($description, 0, $temp);
+					if(($description[strlen($description)-1]==",") 
+					   or 
+					   ($description[strlen($description)-1]=="."))
+					
+					{
+						$description=substr($description, 0, $temp-1)."..";
+					}else{
+						$description=substr($description, 0, $temp)."..";
+					}
+				}
 			?>
 				<table cellpadding="5">
 					<tr>
