@@ -79,7 +79,7 @@ $query = "select * from bands where bandid='$bandid'";
 						$genre=$genre.", ";
 					}
 					$gid = $row['genreid'];
-					$genre = $genre."<a href=\"searchBand.php?search=".$gid."\">".$row['genre']."</a>";
+					$genre = $genre."<a href=\"searchGenre.php?search=".$gid."\">".$row['genre']."</a>";
 					$firstloop=false;
 				}
 	$query = "SELECT albumname, albumband, albumid FROM albums INNER JOIN bands ON albums.albumband='$bandid' AND albums.albumband = bands.bandid ORDER BY albumid ASC";
