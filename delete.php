@@ -100,6 +100,15 @@ else {
 		$query="DELETE FROM bandmembers WHERE bandid=$id";
 		$result = mysqli_query($db, $query)
    			or die("Error Querying Database2");
+		$query="DELETE FROM songs WHERE songid IN(select songid from songalbum WHERE albumid IN(select albumid from albums WHERE albumband=$id))";
+		$result = mysqli_query($db, $query)
+   			or die("Error Querying Database2");
+			$query="DELETE from songalbum WHERE albumid IN(select albumid from albums WHERE albumband=$id)";
+		$result = mysqli_query($db, $query)
+   			or die("Error Querying Database2");
+			$query="DELETE from albums WHERE albumband=$id";
+		$result = mysqli_query($db, $query)
+   			or die("Error Querying Database2");
 	}
 	echo "<p>Page deleted! now redirecting to homepage...</p>";
 	
