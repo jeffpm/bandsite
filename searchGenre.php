@@ -28,10 +28,21 @@
 	
 		<?php
 		include "dbconnect.php";
+				$query="SELECT * FROM genre where genreid=$genreid";
+				$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+				$row = mysqli_fetch_array($result);
+				$genre=$row['genre'];
+				echo "<commentheader>Bands in the $genre genre:</commentheader>";
+				
 		$query="SELECT * FROM genre NATURAL JOIN bandgenre NATURAL JOIN bands where genre.genreid=$genreid ORDER BY bandname";
 		$result = mysqli_query($db, $query)
    				or die("Error Querying Database");
+				$genre=$row['genre'];
+		
+		
 		?>
+		
 		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="15%"><tableheader>Band Name</tableheader></td>
