@@ -64,11 +64,12 @@ $query = "select * from albums where albumid='$albumid'";
     $query = "SELECT songname, songid FROM songs NATURAL JOIN albums NATURAL JOIN songalbum WHERE albumid='$albumid' ORDER BY songid ASC";
 				$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
+				$count = 1;
 				while ($row = mysqli_fetch_array($result)) {
-					{
 						$songname = $songname."\n";
-					}
-					
+						echo "<p>$songname</p>";
+						$songname = "";
+						$count++;
 				}
 	?>
 	
@@ -82,10 +83,16 @@ $query = "select * from albums where albumid='$albumid'";
 		<tr><td>
 			<commentheader>Tracks:</commentheader>
 		</td></tr>
-		<?php
-			while($row = mysqli_fetch_array($result))
-			{
-				echo "<commentheader>Tracks:</commentheader> $songname";
+		<?php	
+			$query = "SELECT songname, songid FROM songs NATURAL JOIN albums NATURAL JOIN songalbum WHERE albumid='$albumid' ORDER BY songid ASC";
+			$result = mysqli_query($db, $query)
+   				or die("Error Querying Database");
+			$count = 1;
+			while ($row = mysqli_fetch_array($result)) {
+				$songname = $songname."\n";
+				echo "<p>$count." ".$songname</p>";
+				$songname = "";
+				$count++;
 			}
 		?>
 	</table>
