@@ -34,26 +34,33 @@ $albumname = mysqli_real_escape_string($db, trim($_POST["albumname"]));
 $albumband = mysqli_real_escape_string($db, trim("$bandid"));
 $albumgenre = mysqli_real_escape_string($db, trim($_POST["albumgenre"]));
 $albumyear = mysqli_real_escape_string($db, trim($_POST["albumyear"]));
-$picture = $_POST['picture'];
+$picture = "tempBand.jpg";
+	$pic = $_FILES['pic']['name'];
+			if(!empty($pic)){
+				$picture=$pic;
+				$picture=urlencode($picture);
+				$target ="images/$picture";
+				move_uploaded_file($_FILES['pic']['tmp_name'], $target);
+			}
 //$email = mysqli_real_escape_string($db, trim($_POST["email"])); (picture look at edit.php)
 
 //If the submit button wasn't pressed, show the form
 if (!isset($_POST['submit'])) {
 ?>
 <table cellpadding="5" cellspacing="10">
-<form method="post" action="<?php echo $PHP_SELF;?>">
+<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
 <tr>
 	<th rowspan="7"><img src="images/redDesign.gif"></th>
 </tr>
 <tr>
-	<td align="right">
+	<td align="left">
 		
 		<label for="albumname">Album Name:</label>
 		<input type="text" id="albumname" name="albumname" /><br />
 	</td>
 </tr>
 <tr>
-	<td align="right">
+	<td align="left">
 		
 		<label for="albumyear">Album Year:</label>
 		<input type="text" id="albumyear" name="albumyear" /><br />
@@ -76,6 +83,21 @@ $query="SELECT * from genre";
 		echo "<option value=$genre>$genre</option>";
 		}
 ?>
+</select>
+</td>
+</tr>
+<tr>
+		<td>
+		<Label for ="defaultpicture">Default Picture:</Label><br />
+        	<img src="images/tempBand.jpg" /><br />
+
+		</td>
+	</tr>
+    <tr><td>
+        	<label for="pic">Change Picture:</label> <font color="#999999">(not required to change)</font><br />
+        	<input type="file" id="pic" name="pic"  /><br />
+        </td>
+        </tr>
 <tr>
 	<td align="right">
 		<input type="submit" value="submit" name="submit">
@@ -94,7 +116,7 @@ else {
 	<tr>
 		<th rowspan="7"><img src="images/redDesign.gif"></th>
 	</tr>
-	<form method="post" action="<?php echo $PHP_SELF;?>">
+	<form method="post" action="<?php echo $PHP_SELF;?>" enctype="multipart/form-data">
 	<tr>
 		<td>
 	<?php
@@ -150,10 +172,16 @@ else {
 	</tr>
 	<tr>
 		<td>
-	
+		<Label for ="defaultpicture">Default Picture:</Label><br />
+        	<img src="images/tempBand.jpg" /><br />
 
 		</td>
 	</tr>
+    <tr><td>
+        	<label for="pic">Change Picture:</label> <font color="#999999">(not required to change)</font>
+        	<input type="file" id="pic" name="pic"  /><br />
+        </td>
+        </tr>
 	<tr>
 		<td align="center">
 	<?php
@@ -167,7 +195,7 @@ else {
 	//if everything was filled in correctly, add the album to the database
 }else
 	{
-	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre, picture) VALUES ('$albumname', '$albumyear', '$albumband', '$albumgenre', 'tempband.png')";
+	$query="INSERT INTO albums(albumname, albumyear, albumband, albumgenre, picture) VALUES ('$albumname', '$albumyear', '$albumband', '$albumgenre', '$picture')";
 	$result = mysqli_query($db, $query)
 		or die("Error querying database");
 	?>
