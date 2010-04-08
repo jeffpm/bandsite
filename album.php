@@ -9,11 +9,11 @@ $query = "select * from albums where albumid='$albumid'";
 	  or die("Error querying Database");
 	
 	$row = mysqli_fetch_array($result);
-	$bandid = $row['bandid'];
-	$bandname = $row['bandname'];
+//	$bandid = $row['bandid'];
+//	$bandname = $row['bandname'];
 	$picture = $row['picture'];
-	$members = $row['members'];
-	$description = $row['description'];
+//	$members = $row['members'];
+//	$description = $row['description'];
 	$refid = $row['userid'];
 	
 	$albumid = $row['albumid'];

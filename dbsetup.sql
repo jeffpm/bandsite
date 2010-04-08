@@ -78,7 +78,7 @@ INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES (
 
 INSERT INTO bands (bandname, userid, picture, city, state, description) VALUES ('Spice Girls', '7', 'spicegirls.jpg', 'London', 'England', 'They consisted of Victoria Beckham who was nicknamed Posh Spice, Melanie Brown nicknamed Scary Spice, Emma Bunton who was Baby Spice, Melanie Chisholm, Sporty Spice, and Geri Halliwell, Ginger Spice. They are the most successful girl group of all time. They were signed to Virgin Records and released their debut single, "Wannabe", in 1996. The song hit number-one in 31 countries and helped establish the group as a "global phenomenon".');
 
-CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `albumname` varchar(20), `albumyear` smallint(4), `albumband` smallint(6), `albumgenre` varchar(50), `picture` varchar(50) NOT NULL, PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `albums` (`albumid` smallint(6) NOT NULL AUTO_INCREMENT, `albumname` varchar(40), `albumyear` smallint(4), `albumband` smallint(6), `albumgenre` varchar(50), `picture` varchar(50) NOT NULL, PRIMARY KEY (`albumid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES ('Lady Antebellum', 2008, '1', 'country', 'ladyaAlbum1.jpg');
 
@@ -140,14 +140,327 @@ INSERT INTO albums (albumname, albumyear, albumband, albumgenre, picture) VALUES
 
 CREATE TABLE IF NOT EXISTS `songs` (`songid` smallint(6) NOT NULL AUTO_INCREMENT, `songname` varchar(30) NOT NULL, PRIMARY KEY(`songid`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO songs (songname) VALUES ('Fearless');
 
+INSERT INTO songs (songname) VALUES ('Fifteen');
 
+INSERT INTO songs (songname) VALUES ('Love Story');
 
+INSERT INTO songs (songname) VALUES ('Hey Stephen');
+
+INSERT INTO songs (songname) VALUES ('White Horse');
+
+INSERT INTO songs (songname) VALUES ('You Belong with Me');
+
+INSERT INTO songs (songname) VALUES ('Breathe');
+
+INSERT INTO songs (songname) VALUES ('Tell Me Why');
+
+INSERT INTO songs (songname) VALUES ('You\'re Not Sorry');
+
+INSERT INTO songs (songname) VALUES ('The Way I Loved You');
+
+INSERT INTO songs (songname) VALUES ('Forever & Always');
+
+INSERT INTO songs (songname) VALUES ('The Best Day');
+
+INSERT INTO songs (songname) VALUES ('Change');
+
+INSERT INTO songs (songname) VALUES ('Love Don\'t Live Here');
+
+INSERT INTO songs (songname) VALUES ('Lookin\' for a Good Time');
+
+INSERT INTO songs (songname) VALUES ('All We\'d Ever Need');
+
+INSERT INTO songs (songname) VALUES ('Long Gone');
+
+INSERT INTO songs (songname) VALUES ('Need You Now');
+
+INSERT INTO songs (songname) VALUES ('Our Kind of Love');
+
+INSERT INTO songs (songname) VALUES ('American Honey');
+
+INSERT INTO songs (songname) VALUES ('Pump It');
+
+INSERT INTO songs (songname) VALUES ('Don\'t Phunk with My Heart');
+
+INSERT INTO songs (songname) VALUES ('My Style');
+
+INSERT INTO songs (songname) VALUES ('Dum Diddly');
+
+INSERT INTO songs (songname) VALUES ('Every Little Bit');
+
+INSERT INTO songs (songname) VALUES ('Whatever It Is');
+
+INSERT INTO songs (songname) VALUES ('Chicken Fried');
+
+INSERT INTO songs (songname) VALUES ('On This Train');
+
+INSERT INTO songs (songname) VALUES ('Better Day');
+
+INSERT INTO songs (songname) VALUES ('Valentines');
+
+INSERT INTO songs (songname) VALUES ('Curse Me');
+
+INSERT INTO songs (songname) VALUES ('Toes');
+
+INSERT INTO songs (songname) VALUES ('Whatever It Is');
+
+INSERT INTO songs (songname) VALUES ('Highway 20 Ride');
+
+INSERT INTO songs (songname) VALUES ('Sic \'Em On A Chicken');
+
+INSERT INTO songs (songname) VALUES ('All In');
+
+INSERT INTO songs (songname) VALUES ('Nerve Damage');
+
+INSERT INTO songs (songname) VALUES ('Had Enough');
+
+INSERT INTO songs (songname) VALUES ('Halfway Gone');
+
+INSERT INTO songs (songname) VALUES ('From Where You Are');
+
+INSERT INTO songs (songname) VALUES ('Hanging By A Moment');
+
+INSERT INTO songs (songname) VALUES ('Good Times Bad Times');
+
+INSERT INTO songs (songname) VALUES ('You Shook Me');
+
+INSERT INTO songs (songname) VALUES ('Whole Lotta Love');
+
+INSERT INTO songs (songname) VALUES ('Friends');
+
+INSERT INTO songs (songname) VALUES ('Black Dog');
+
+INSERT INTO songs (songname) VALUES ('Rock And Roll');
+
+INSERT INTO songs (songname) VALUES ('Stairway To Heaven');
+
+INSERT INTO songs (songname) VALUES ('Independent Woman');
+
+INSERT INTO songs (songname) VALUES ('Crazy In Love');
+
+INSERT INTO songs (songname) VALUES ('Fell in Love with a Girl');
+
+INSERT INTO songs (songname) VALUES ('Little Room');
+
+INSERT INTO songs (songname) VALUES ('Seven Nation Army');
+
+INSERT INTO songs (songname) VALUES ('Hannah Jane');
+
+INSERT INTO songs (songname) VALUES ('Hold My Hand');
+
+INSERT INTO songs (songname) VALUES ('Let Her Cry');
+
+INSERT INTO songs (songname) VALUES ('State Your Peace');
+
+INSERT INTO songs (songname) VALUES ('Get Out of My Mind');
+
+INSERT INTO songs (songname) VALUES ('Rapunzel');
+
+INSERT INTO songs (songname) VALUES ('The Last Stop');
+
+INSERT INTO songs (songname) VALUES ('Crush');
+
+INSERT INTO songs (songname) VALUES ('Grey Street');
+
+INSERT INTO songs (songname) VALUES ('You Never Know');
+
+INSERT INTO songs (songname) VALUES ('With You');
+
+INSERT INTO songs (songname) VALUES ('Convinced of the Hex');
+
+INSERT INTO songs (songname) VALUES ('January Wedding');
+
+INSERT INTO songs (songname) VALUES ('And It Spread');
+
+INSERT INTO songs (songname) VALUES ('The Perfect Space');
+
+INSERT INTO songs (songname) VALUES ('Caught Up In You');
+
+INSERT INTO songs (songname) VALUES ('Second Chance');
+
+INSERT INTO songs (songname) VALUES ('Something I Need');
+
+INSERT INTO songs (songname) VALUES ('Hurts Like Love');
+
+INSERT INTO songs (songname) VALUES ('Jam On');
+
+INSERT INTO songs (songname) VALUES ('Make Some Sense Of It');
+
+INSERT INTO songs (songname) VALUES ('Battery');
+
+INSERT INTO songs (songname) VALUES ('Thing That Should Not Be');
+
+INSERT INTO songs (songname) VALUES ('Disposable Heroes');
+
+INSERT INTO songs (songname) VALUES ('Relax Your Mind');
+
+INSERT INTO songs (songname) VALUES ('The Color Of Love');
+
+INSERT INTO songs (songname) VALUES ('Spice Up Your Life');
 
 CREATE TABLE IF NOT EXISTS `songalbum` (`albumid` smallint(6) NOT NULL, `songid` smallint(6) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
 
+INSERT INTO songalbum (albumid, songid) VALUES (13, 1);
 
+INSERT INTO songalbum (albumid, songid) VALUES (13, 2);
 
+INSERT INTO songalbum (albumid, songid) VALUES (13, 3);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 4);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 5);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 6);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 7);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 8);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 9);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 10);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 11);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 12);
+
+INSERT INTO songalbum (albumid, songid) VALUES (13, 13);
+
+INSERT INTO songalbum (albumid, songid) VALUES (1, 14);
+
+INSERT INTO songalbum (albumid, songid) VALUES (1, 15);
+
+INSERT INTO songalbum (albumid, songid) VALUES (1, 16);
+
+INSERT INTO songalbum (albumid, songid) VALUES (1, 17);
+
+INSERT INTO songalbum (albumid, songid) VALUES (2, 18);
+
+INSERT INTO songalbum (albumid, songid) VALUES (2, 19);
+
+INSERT INTO songalbum (albumid, songid) VALUES (2, 20);
+
+INSERT INTO songalbum (albumid, songid) VALUES (3, 21);
+
+INSERT INTO songalbum (albumid, songid) VALUES (3, 22);
+
+INSERT INTO songalbum (albumid, songid) VALUES (3, 23);
+
+INSERT INTO songalbum (albumid, songid) VALUES (3, 24);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 25);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 26);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 27);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 28);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 29);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 30);
+
+INSERT INTO songalbum (albumid, songid) VALUES (4, 31);
+
+INSERT INTO songalbum (albumid, songid) VALUES (5, 32);
+
+INSERT INTO songalbum (albumid, songid) VALUES (5, 33);
+
+INSERT INTO songalbum (albumid, songid) VALUES (5, 34);
+
+INSERT INTO songalbum (albumid, songid) VALUES (5, 35);
+
+INSERT INTO songalbum (albumid, songid) VALUES (6, 41);
+
+INSERT INTO songalbum (albumid, songid) VALUES (7, 36);
+
+INSERT INTO songalbum (albumid, songid) VALUES (7, 37);
+
+INSERT INTO songalbum (albumid, songid) VALUES (7, 38);
+
+INSERT INTO songalbum (albumid, songid) VALUES (7, 39);
+
+INSERT INTO songalbum (albumid, songid) VALUES (7, 40);
+
+INSERT INTO songalbum (albumid, songid) VALUES (8, 42);
+
+INSERT INTO songalbum (albumid, songid) VALUES (8, 43);
+
+INSERT INTO songalbum (albumid, songid) VALUES (9, 44);
+
+INSERT INTO songalbum (albumid, songid) VALUES (10, 45);
+
+INSERT INTO songalbum (albumid, songid) VALUES (11. 46);
+
+INSERT INTO songalbum (albumid, songid) VALUES (11, 47);
+
+INSERT INTO songalbum (albumid, songid) VALUES (11, 48);
+
+INSERT INTO songalbum (albumid, songid) VALUES (12, 49);
+
+INSERT INTO songalbum (albumid, songid) VALUES (14, 50);
+
+INSERT INTO songalbum (albumid, songid) VALUES (15, 51);
+
+INSERT INTO songalbum (albumid, songid) VALUES (15, 52);
+
+INSERT INTO songalbum (albumid, songid) VALUES (16, 53);
+
+INSERT INTO songalbum (albumid, songid) VALUES (17, 54);
+
+INSERT INTO songalbum (albumid, songid) VALUES (17, 55);
+
+INSERT INTO songalbum (albumid, songid) VALUES (17, 56);
+
+INSERT INTO songalbum (albumid, songid) VALUES (18, 57);
+
+INSERT INTO songalbum (albumid, songid) VALUES (18, 58);
+
+INSERT INTO songalbum (albumid, songid) VALUES (19, 59);
+
+INSERT INTO songalbum (albumid, songid) VALUES (19, 60);
+
+INSERT INTO songalbum (albumid, songid) VALUES (19, 61);
+
+INSERT INTO songalbum (albumid, songid) VALUES (20, 62);
+
+INSERT INTO songalbum (albumid, songid) VALUES (20, 63);
+
+INSERT INTO songalbum (albumid, songid) VALUES (21, 64);
+
+INSERT INTO songalbum (albumid, songid) VALUES (22, 65);
+
+INSERT INTO songalbum (albumid, songid) VALUES (23, 66);
+
+INSERT INTO songalbum (albumid, songid) VALUES (23, 67);
+
+INSERT INTO songalbum (albumid, songid) VALUES (23, 68);
+
+INSERT INTO songalbum (albumid, songid) VALUES (24, 69);
+
+INSERT INTO songalbum (albumid, songid) VALUES (25, 70);
+
+INSERT INTO songalbum (albumid, songid) VALUES (26, 71);
+
+INSERT INTO songalbum (albumid, songid) VALUES (26, 72);
+
+INSERT INTO songalbum (albumid, songid) VALUES (26, 73);
+
+INSERT INTO songalbum (albumid, songid) VALUES (26, 74);
+
+INSERT INTO songalbum (albumid, songid) VALUES (27, 75);
+
+INSERT INTO songalbum (albumid, songid) VALUES (27, 76);
+
+INSERT INTO songalbum (albumid, songid) VALUES (27, 77);
+
+INSERT INTO songalbum (albumid, songid) VALUES (28, 78);
+
+INSERT INTO songalbum (albumid, songid) VALUES (28, 79);
+
+INSERT INTO songalbum (albumid, songid) VALUES (29, 80);
 
 CREATE TABLE IF NOT EXISTS `bandmembers` (`memberid` smallint(6) NOT NULL AUTO_INCREMENT, `membername` varchar(30) NOT NULL, `bandid` smallint(6) NOT NULL, PRIMARY KEY (`memberid`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
