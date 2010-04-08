@@ -16,7 +16,7 @@ $query = "select * from albums where albumid='$albumid'";
 //	$description = $row['description'];
 	$refid = $row['userid'];
 	
-	$albumid = $row['albumid'];
+	//$albumid = $row['albumid'];
 	$albumname = $row['albumname'];
 	$albumyear = $row['albumyear'];
 	$albumband = $row['albumband'];
@@ -57,6 +57,16 @@ $query = "select * from albums where albumid='$albumid'";
 	echo " - <a href=\"addalbum.php?id=$bandid\">Add Album</a>";
 	}
     echo " </p>";
+    
+    $query = "SELECT songname, songid FROM songs NATURAL JOIN songalbum NATURAL JOIN albums WHERE albumid='$albumid' AND albumid='$albumband' ORDER BY songid ASC";
+				$result = mysqli_query($db, $query)
+   					or die("Error Querying Database");
+				while ($row = mysqli_fetch_array($result)) {
+					{
+						$songname = $songname."\n";
+					}
+					
+				}
 	?>
 	
 	<table width="800" cellpadding="5" cellspacing="10">
@@ -70,7 +80,10 @@ $query = "select * from albums where albumid='$albumid'";
 			<commentheader>Tracks:</commentheader>
 		</td></tr>
 		<?php
-		// loop for printing track names
+			while($row = mysqli_fetch_array($result))
+			{
+				echo "<commentheader>Tracks:</commentheader> $songname";
+			}
 		?>
 	</table>
 
