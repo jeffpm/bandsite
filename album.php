@@ -16,11 +16,14 @@ $query = "select * from albums where albumid='$albumid'";
 //	$description = $row['description'];
 	$refid = $row['userid'];
 	
-	//$albumid = $row['albumid'];
+	$albumid = $row['albumid'];
 	$albumname = $row['albumname'];
 	$albumyear = $row['albumyear'];
 	$albumband = $row['albumband'];
 	$albumgenre = $row['albumgenre'];
+	
+	$songname = $row['songname'];
+	$songid = $row['songid'];
 	
 ?>
 <?php
@@ -58,7 +61,7 @@ $query = "select * from albums where albumid='$albumid'";
 	}
     echo " </p>";
     
-    $query = "SELECT songname, songid FROM songs NATURAL JOIN songalbum NATURAL JOIN albums WHERE albumid='$albumid' AND albumid='$albumband' ORDER BY songid ASC";
+    $query = "SELECT songname, songid FROM songs NATURAL JOIN albums NATURAL JOIN songalbum WHERE albumid='$albumid' ORDER BY songid ASC";
 				$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
 				while ($row = mysqli_fetch_array($result)) {
