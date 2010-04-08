@@ -46,7 +46,7 @@
 		<table width="800" cellpadding="5" cellspacing="10">
 			<tr>
 				<td width="15%"><tableheader>Band Name</tableheader></td>
-				<td width="15%"><tableheader>Genre</tableheader></td>
+				<!--<td width="15%"><tableheader>Genre</tableheader></td>-->
 				<td width="40%"><tableheader>Description</tableheader></td>
 			</tr>
 			<?php
@@ -55,7 +55,7 @@
 			$bandname=$row['bandname'];
 			$genre=$row['genre'];
 			$description=$row['description'];
-			echo "<tr><td><a href=\"band.php?id=$bandid\">$bandname</a></td><td>$genre</td><td>$description</td></tr>";
+			echo "<tr><td><a href=\"band.php?id=$bandid\">$bandname</a></td><td>$description</td></tr>";
 			}
 			?>
 
