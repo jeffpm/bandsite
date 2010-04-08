@@ -82,19 +82,19 @@ $query = "select * from albums where albumid='$albumid'";
 		</tr>
 		<tr><td>
 			<commentheader>Tracks:</commentheader>
-		</td></tr>
+		</td></tr><tr><td>
 		<?php	
 			$query = "SELECT songname, songid FROM songs NATURAL JOIN albums NATURAL JOIN songalbum WHERE albumid='$albumid' ORDER BY songid ASC";
 			$result = mysqli_query($db, $query)
    				or die("Error Querying Database");
 			$count = 1;
 			while ($row = mysqli_fetch_array($result)) {
-				$songname = $songname."\n";
-				echo "<p>$count." ".$songname</p>";
+				$songname = $row['songname']."\n";
+				echo "<p>$count $songname</p>";
 				$songname = "";
 				$count++;
 			}
-		?>
+		?></td></tr>
 	</table>
 
 </div>
