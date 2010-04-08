@@ -77,7 +77,7 @@
 				if(!$firstloop){
 						$genre=$genre.", ";
 					}
-					$genre = $genre."<a href=\"searchBand.php?search=".$row['genreid']."\">".$row['genre']."</a>";
+					$genre = $genre."<a href=\"searchGenre.php?search=".$row['genreid']."\">".$row['genre']."</a>";
 				$firstloop=false;
 			}
 			
